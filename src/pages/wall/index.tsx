@@ -1,8 +1,8 @@
 'use client';
+import React from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, ScrollControls, Scroll, PerspectiveCamera } from '@react-three/drei';
 import { Office } from './Office';
-import React from 'react';
 
 export default function GapsPage() {
   return (
