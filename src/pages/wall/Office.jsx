@@ -9,14 +9,8 @@ import { useGLTF, PerspectiveCamera, useAnimations } from '@react-three/drei'
 function Office(props) {
   const group = React.useRef()
   const { nodes, materials, animations } = useGLTF('/models/portrait.glb')
-  const { actions } = useAnimations(animations, group)
-  React.useEffect(() => {
-    if (actions) {
-      // Trigger animation if needed, for example:
-      actions.someAnimation.play();
-    }
-  }, [actions]);
-  
+  // const { actions } = useAnimations(animations, group)
+
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
