@@ -78,4 +78,6 @@ function Office(props) {
   )
 }
 
-export default Office;  // Default export
+useGLTF.preload('/models/portrait.glb');  // Preload model from public folder
+
+export default Office;
