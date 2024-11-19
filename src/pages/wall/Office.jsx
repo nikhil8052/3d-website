@@ -4,7 +4,10 @@ Command: npx gltfjsx@6.5.3 public/models/portrait.glb
 */
 
 import React from 'react'
-import { useGLTF, PerspectiveCamera, useAnimations } from '@react-three/drei'
+import { useGLTF,
+   PerspectiveCamera, 
+  //  useAnimations 
+  } from '@react-three/drei'
 
 function Office(props) {
   const group = React.useRef()
