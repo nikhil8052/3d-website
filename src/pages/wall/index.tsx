@@ -1,8 +1,8 @@
 'use client';
-import React from 'react';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls, ScrollControls, Scroll, PerspectiveCamera } from '@react-three/drei';
-import { Office } from './Office';
+import Office from './Office'; 
+import React from 'react';
 
 export default function GapsPage() {
   return (
@@ -14,7 +14,6 @@ export default function GapsPage() {
         <OrbitControls enableZoom={false} enablePan={true} />
 
         {/* ScrollControls to handle the horizontal scrolling */}
-        <ScrollControls pages={3} damping={0.5}>
           
           {/* Custom Camera for the Horizontal Scroll View */}
           <PerspectiveCamera
@@ -25,13 +24,9 @@ export default function GapsPage() {
             far={10000}
             rotation={[0, Math.PI, 0]} // Align camera to face the model directly
           />
-          
-          {/* Here we enable the model to scroll horizontally */}
-          <Scroll>
+      
             <Office />
-          </Scroll>
-          
-        </ScrollControls>
+  
         
       </Canvas>
     </div>

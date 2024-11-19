@@ -6,7 +6,7 @@ Command: npx gltfjsx@6.5.3 public/models/portrait.glb
 import React from 'react'
 import { useGLTF, PerspectiveCamera, useAnimations } from '@react-three/drei'
 
-export function Office(props) {
+function Office(props) {
   const group = React.useRef()
   const { nodes, materials, animations } = useGLTF('./models/portrait.glb')
   const { actions } = useAnimations(animations, group)
@@ -78,4 +78,4 @@ export function Office(props) {
   )
 }
 
-useGLTF.preload('./models/portrait.glb')
+export default Office;  // Default export
