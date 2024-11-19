@@ -1,0 +1,8 @@
+services:
+  - type: web
+    name: 3d-website
+    env: node
+    buildCommand: npm install
+    startCommand: npm run start
+    instances: 1
+    plan: free
