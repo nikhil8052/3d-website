@@ -10,6 +10,13 @@ export function Office(props) {
   const group = React.useRef()
   const { nodes, materials, animations } = useGLTF('./models/portrait.glb')
   const { actions } = useAnimations(animations, group)
+  React.useEffect(() => {
+    if (actions) {
+      // Trigger animation if needed, for example:
+      actions.someAnimation.play();
+    }
+  }, [actions]);
+  
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
