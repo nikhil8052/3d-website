@@ -1,10 +1,8 @@
-// Example for pages/gaps/Office.js
-
 import React from 'react';
 import { useGLTF } from '@react-three/drei';
 
 function Office(props) {
-  const { nodes, materials } = useGLTF('./models/WawaOffice.glb');
+  const { nodes, materials } = useGLTF('./models/WawaOffice.glb');  // Make sure the model path is correct
   return (
     <group {...props} dispose={null}>
       <mesh geometry={nodes['01_office'].geometry} material={materials['01']} />
@@ -14,4 +12,4 @@ function Office(props) {
   );
 }
 
-export default Office;  // This is important: ensure it's the default export
+export default Office;  // Default export
