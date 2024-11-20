@@ -1,53 +1,68 @@
 'use client';
-import React from 'react';
+
+import React, { useEffect, useRef } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { PerspectiveCamera, useFrame } from '@react-three/drei';
-import { useState, useRef, useEffect } from 'react';
-import Office from './Office2';
+import { OrbitControls, PerspectiveCamera } from '@react-three/drei';
+import Office from './Office2'; 
 
 export default function GapsPage() {
-  const [scrollOffset, setScrollOffset] = useState(0);
-  const scrollContainerRef = useRef();
+  const cameraRef = useRef();
+  const controlsRef = useRef();
+  const officeRef = useRef(); 
 
-  // Scroll event handler to calculate the scroll position
-  const handleScroll = () => {
-    if (scrollContainerRef.current) {
-      const scrollLeft = scrollContainerRef.current.scrollLeft;
-      setScrollOffset(scrollLeft);
+  const handleWheel = (event) => {
+    const delta = event.deltaY;
+
+    if (cameraRef.current) {
+      cameraRef.current.position.x += delta * 0.125; 
+   
+      
+
     }
+
+    if (officeRef.current) {
+      officeRef.current.position.x += delta * 0.125; 
+    }
+
+    event.preventDefault(); 
   };
 
   useEffect(() => {
-    const container = scrollContainerRef.current;
-    if (container) {
-      container.addEventListener('scroll', handleScroll);
-      return () => container.removeEventListener('scroll', handleScroll);
-    }
+    window.addEventListener('wheel', handleWheel, { passive: false });
+
+    return () => {
+      window.removeEventListener('wheel', handleWheel);
+    };
   }, []);
 
   return (
     <div
-      ref={scrollContainerRef}
       style={{
-        height: '100vh',
-        overflowX: 'scroll',
-        overflowY: 'hidden',
-        whiteSpace: 'nowrap',
+        width: '100vw',
+        height: 'calc(100vh + 50vh)', 
+        overflow: 'hidden',
+        position: 'fixed',
       }}
     >
-      <div style={{ width: '300vw', height: '' }}>
-        <Canvas>
-          <ambientLight intensity={1} />
-          <PerspectiveCamera
-            makeDefault
-            position={[scrollOffset / 1, 220, 1500]} // Move camera based on scroll
-            fov={50}
-            near={1}
-            far={5000}
-          />
-          <Office />
-        </Canvas>
-      </div>
+      <Canvas>
+        <ambientLight intensity={3} />
+        <PerspectiveCamera
+          ref={cameraRef}
+          makeDefault
+          position={[0, 400, 1500]} 
+          fov={50}
+          near={1}
+          far={10000}
+        />
+        <OrbitControls
+          ref={controlsRef}
+          enableZoom={false} 
+          enablePan={false} 
+          enableRotate={false} 
+        />
+        
+        <Office ref={officeRef} />
+      </Canvas>
     </div>
   );
 }
