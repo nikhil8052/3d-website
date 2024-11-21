@@ -16,7 +16,7 @@ export default function GapsPage() {
         {/* Camera */}
         <PerspectiveCamera
           makeDefault
-          position={[0, 270, 1500]}
+          position={[0, -60, 1300]}
           fov={50}
           near={1}
           far={10000}
@@ -42,8 +42,13 @@ function SceneContent() {
   useFrame(() => {
     if (modelRef.current) {
       const scrollOffset = scroll.offset; // Value between 0 and 1
-      const targetPositionX = -scrollOffset * 2000; // Adjust horizontal movement range
-      const targetPositionY = scrollOffset * 200; // Optional: Vertical parallax effect
+      const targetPositionX = -scrollOffset * 18000; // Adjust horizontal movement range
+      const targetPositionY = scrollOffset * 0; // Optional: Vertical parallax effect
+
+      console.log(scrollOffset, 'scrollOffset ')
+      console.log(targetPositionX, 'targetPositionX ')
+
+      console.log(targetPositionY, 'targetPositionY ')
 
       // Smooth animation using GSAP
       gsap.to(modelRef.current.position, {
