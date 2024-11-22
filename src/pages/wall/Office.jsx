@@ -4,16 +4,24 @@ Command: npx gltfjsx@6.5.3 public/models/portrait.glb
 */
 
 import React from 'react'
-import { useGLTF, PerspectiveCamera, useAnimations } from '@react-three/drei'
+import { Html, useGLTF, PerspectiveCamera, useAnimations } from '@react-three/drei'
+import * as THREE from 'three';
+import { useLoader } from '@react-three/fiber';
+import { Text , Text3D } from '@react-three/drei';
+import { TextureLoader } from 'three';
 
 export function Office(props) {
   const group = React.useRef()
   const { nodes, materials, animations } = useGLTF('./models/portrait.glb')
   const { actions } = useAnimations(animations, group)
+  const texture = useLoader(TextureLoader, './img/wow.png'); // Replace with your image path
+  console.log(texture); // Check if the texture is being loaded
+
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
         <group name="works_prev" position={[5730.657, 286.533, 2.865]}>
+
           <mesh name="work_prev_01_0" geometry={nodes.work_prev_01_0.geometry} material={materials['material-13']} />
           <mesh name="work_prev_02_1" geometry={nodes.work_prev_02_1.geometry} material={materials['material-12']} position={[859.599, 0, 0]} />
           <mesh name="work_prev_03_2" geometry={nodes.work_prev_03_2.geometry} material={materials['material-11']} position={[1719.197, 0, 0]} />
@@ -22,8 +30,75 @@ export function Office(props) {
           <mesh name="work_prev_06_5" geometry={nodes.work_prev_06_5.geometry} material={materials['material-08']} position={[4297.993, 0, 0]} />
         </group>
         <PerspectiveCamera name="Camera_Mobile" makeDefault={false} far={10000} near={1} fov={39.598} position={[0, 272.206, 1123]} />
-        <mesh name="phone_wow_title_sign" geometry={nodes.phone_wow_title_sign.geometry} material={nodes.phone_wow_title_sign.material} position={[-168.63, 411.866, 0.029]} rotation={[-Math.PI, 0, 0]} />
-        <mesh name="phone_descriptor_title_text" geometry={nodes.phone_descriptor_title_text.geometry} material={nodes.phone_descriptor_title_text.material} position={[105.155, 149.455, 0.029]} rotation={[-Math.PI, 0, 0]} />
+        <mesh
+          name="phone_wow_title_sign"
+          geometry={nodes.phone_wow_title_sign.geometry}
+          material={nodes.phone_wow_title_sign.material}
+          position={[-168.63, 411.866, 0.029]}
+          rotation={[-Math.PI, 0, 0]}
+        >
+          {/* Add a 3D text component */}
+          {/* <Text
+            position={[0, -10, 0]} // Adjust position as needed
+            fontSize={15}
+            color="black"
+          >
+            Hello World
+            
+          </Text> */}
+          <Html  transform rotation={[Math.PI, 0, 0]} position={[0, -10, 0]} >
+            <div
+              style={{
+                background: 'transparent',
+                height: '400rem',
+                width: '400rem',
+                position: 'fixed',  // Keep it fixed
+                top: '50%',          // Adjust to keep it in the center vertically
+                left: '50%',         // Adjust to center horizontally
+                transform: 'translate(-50%, -50%)',  // Center the element exactly
+              }}
+            >
+              <img
+                src="./img/wow.png"
+                alt=""
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'contain',
+                }}
+              />
+            </div>
+          </Html>
+
+          {/* Add a plane geometry with the image texture */}
+          <mesh
+            position={[0, 10, 0]} // Adjust position as needed
+            rotation={[0, 0, 0]} // Keep rotation simple for now
+          >
+            <planeGeometry args={[20, 10]} /> {/* Try adjusting the size of the plane */}
+            <meshBasicMaterial map={texture} />
+          </mesh>
+        </mesh>
+
+
+        {/* <mesh name="phone_descriptor_title_text" geometry={nodes.phone_descriptor_title_text.geometry} material={nodes.phone_descriptor_title_text.material} position={[105.155, 149.455, 0.029]} rotation={[-Math.PI, 0, 0]} /> */}
+        <mesh
+          name="phone_descriptor_title_text"
+          geometry={nodes.phone_descriptor_title_text.geometry}
+          material={nodes.phone_descriptor_title_text.material}
+          position={[105.155, 149.455, 0.029]}
+          rotation={[-Math.PI, 0, 0]} // Parent remains rotated
+        >
+            <Text
+          position={[0, 10, 0]} // Adjust position as needed
+          rotation={[Math.PI, 0, 0]}
+          fontSize={25}
+          color="black"
+        >
+          Powering the Future of Technology with Innovative Microchip Solutions
+        </Text>
+        </mesh>
+
         <mesh name="phone_arrow_button_main" geometry={nodes.phone_arrow_button_main.geometry} material={nodes.phone_arrow_button_main.material} position={[178.424, 352.847, 0.029]} rotation={[-Math.PI, 0, 0]} />
         <mesh name="contact_button" geometry={nodes.contact_button.geometry} material={nodes.contact_button.material} position={[16572.182, 157.317, 0.029]} />
         <mesh name="about_text_block" geometry={nodes.about_text_block.geometry} material={nodes.about_text_block.material} position={[1715.285, 279.178, 0.029]} />
