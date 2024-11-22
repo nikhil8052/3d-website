@@ -1,14 +1,17 @@
 'use client';
 
 import { Canvas, useFrame } from '@react-three/fiber';
-import { ScrollControls, useScroll, PerspectiveCamera, OrbitControls } from '@react-three/drei';
-import React, { useRef } from 'react';
+import { ScrollControls, useScroll, PerspectiveCamera, OrbitControls, Html } from '@react-three/drei';
+import React, { useRef, Suspense } from 'react';
 import { Office } from './Office';
 import gsap from 'gsap';
+import LoadingScreen from '../components/Loading';
 
 export default function GapsPage() {
+
+  
   return (
-    <div style={{ height: 'calc(200vh)', overflow: 'hidden' }}>
+    <div style={{ height: 'calc(190vh)', overflow: 'hidden' }}>
       <Canvas>
         {/* Lighting */}
         <ambientLight intensity={1} />
@@ -16,7 +19,7 @@ export default function GapsPage() {
         {/* Camera */}
         <PerspectiveCamera
           makeDefault
-          position={[0, -60, 1300]}
+          position={[0, 300, 1500]}
           fov={50}
           near={1}
           far={10000}
@@ -24,7 +27,9 @@ export default function GapsPage() {
 
         {/* Scroll Controls */}
         <ScrollControls pages={2} damping={4}>
-          <SceneContent />
+          <Suspense fallback={<LoadingScreen />}>
+            <SceneContent />
+          </Suspense>
         </ScrollControls>
 
         {/* Orbit Controls */}
@@ -33,6 +38,8 @@ export default function GapsPage() {
     </div>
   );
 }
+
+
 
 function SceneContent() {
   const modelRef = useRef();
@@ -62,7 +69,7 @@ function SceneContent() {
 
   return (
     <group ref={modelRef}>
-      {/* Office Model */}
+
       <Office />
     </group>
   );

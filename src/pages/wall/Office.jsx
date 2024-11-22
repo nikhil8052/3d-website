@@ -60,7 +60,7 @@ export function Office(props) {
         <mesh name="Tex_02_017" geometry={nodes.Tex_02_017.geometry} material={materials.Tex_02} position={[11664.611, 62.413, -470.158]} />
         <mesh name="Tex_02_018" geometry={nodes.Tex_02_018.geometry} material={materials.Tex_02} position={[4642.812, 57.755, -441.286]} />
         <mesh name="Tex_02_019" geometry={nodes.Tex_02_019.geometry} material={materials.Tex_02} position={[1082.439, 21.396, -479.564]} />
-        <mesh name="Logo_Rotation" geometry={nodes.Logo_Rotation.geometry} material={materials.Tex_02} position={[860.188, 271.966, -82.812]} />
+        {/* <mesh name="Logo_Rotation" geometry={nodes.Logo_Rotation.geometry} material={materials.Tex_02} position={[860.188, 271.966, -82.812]} /> */}
         <mesh name="Planet_Rotation" geometry={nodes.Planet_Rotation.geometry} material={materials.Tex_02} position={[16045.839, 286.533, -85.96]} />
         <mesh name="Tex_02_002001" geometry={nodes.Tex_02_002001.geometry} material={materials.Tex_02} position={[2402.937, 33.262, -189.113]} />
         <mesh name="Tex_02_017001" geometry={nodes.Tex_02_017001.geometry} material={materials.Tex_02} position={[11664.611, 62.413, -470.158]} />
