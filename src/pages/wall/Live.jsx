@@ -9,7 +9,6 @@ Command: npx gltfjsx@6.5.3 public/models/samered.glb
 
 import React from 'react'
 import { Html, useGLTF, PerspectiveCamera, useAnimations } from '@react-three/drei'
-import { Text , Text3D } from '@react-three/drei';
 
 export function Office(props) {
   const group = React.useRef()
@@ -28,32 +27,32 @@ export function Office(props) {
         </group>
         {/* <mesh name="phone_wow_title_sign" geometry={nodes.phone_wow_title_sign.geometry} material={nodes.phone_wow_title_sign.material} position={[-168.63, 411.866, 0.029]} rotation={[-Math.PI, 0, 0]} /> */}
         <mesh name="phone_wow_title_sign" geometry={nodes.phone_wow_title_sign.geometry} material={nodes.phone_wow_title_sign.material} position={[-168.63, 411.866, 0.029]} rotation={[-Math.PI, 0, 0]} >
-          {/* <Html  transform rotation={[Math.PI, 0, 0]} position={[0, -10, 0]} >
-              <div
+        <Html  transform rotation={[Math.PI, 0, 0]} position={[0, -10, 0]} >
+            <div
+              style={{
+                background: 'transparent',
+                height: '400rem',
+                width: '400rem',
+                position: 'fixed',  
+                top: '50%',          
+                left: '50%',        
+                transform: 'translate(-50%, -50%)',  
+              }}
+            >
+              <img
+                src="./img/wow.png"
+                alt=""
                 style={{
-                  background: 'transparent',
-                  height: '400rem',
-                  width: '400rem',
-                  position: 'fixed',  
-                  top: '50%',          
-                  left: '50%',        
-                  transform: 'translate(-50%, -50%)',  
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'contain',
                 }}
-              >
-                <img
-                  src="./img/wow.png"
-                  alt=""
-                  style={{
-                    width: '100%',
-                    height: '100%',
-                    objectFit: 'contain',
-                  }}
-                />
-              </div>
-          </Html> */}
+              />
+            </div>
+          </Html>
         </mesh>
         {/* <mesh name="phone_descriptor_title_text" geometry={nodes.phone_descriptor_title_text.geometry} material={nodes.phone_descriptor_title_text.material} position={[105.155, 149.455, 0.029]} rotation={[-Math.PI, 0, 0]} /> */}
-        <mesh name="phone_descriptor_title_text" geometry={nodes.phone_descriptor_title_text.geometry} material={nodes.phone_descriptor_title_text.material} position={[125.155, 169.455, 0.029]} rotation={[-Math.PI, 0, 0]} >
+        <mesh name="phone_descriptor_title_text" geometry={nodes.phone_descriptor_title_text.geometry} material={nodes.phone_descriptor_title_text.material} position={[105.155, 149.455, 0.029]} rotation={[-Math.PI, 0, 0]} >
           {/* <Text
             position={[0, 10, 0]} // Adjust position as needed
             rotation={[Math.PI, 0, 0]}
@@ -67,7 +66,7 @@ export function Office(props) {
                 style={{
                   background: 'transparent',
                   height: '400rem',
-                  width: '610rem',
+                  width: '400rem',
                   position: 'fixed',  
                   top: '50%',          
                   left: '50%',        
