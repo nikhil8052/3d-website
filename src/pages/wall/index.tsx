@@ -3,11 +3,10 @@
 import { Canvas, useFrame } from '@react-three/fiber';
 import { ScrollControls, useScroll, PerspectiveCamera, OrbitControls, Html, Text } from '@react-three/drei';
 import React, { useRef, Suspense } from 'react';
-import { Office } from './Live';
-// import { Office } from './Office';
-// import { Office } from './Trailblazer';
+import { Office } from './Live'; // Your 3D Office model
 import gsap from 'gsap';
 import LoadingScreen from '../components/Loading';
+import { Group } from 'three'; // Import Group from three.js
 
 export default function GapsPage() {
   return (
@@ -40,7 +39,7 @@ export default function GapsPage() {
 }
 
 function SceneContent() {
-  const modelRef = useRef();
+  const modelRef = useRef<Group | null>(null); // Type the modelRef as Group or null
   const scroll = useScroll();
 
   // Scroll-based animation
