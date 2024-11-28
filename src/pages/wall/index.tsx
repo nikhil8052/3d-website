@@ -3,7 +3,9 @@
 import { Canvas, useFrame } from '@react-three/fiber';
 import { ScrollControls, useScroll, PerspectiveCamera, OrbitControls, Html, Text } from '@react-three/drei';
 import React, { useRef, Suspense } from 'react';
-import { Office } from './Office';
+import { Office } from './Live';
+// import { Office } from './Office';
+// import { Office } from './Trailblazer';
 import gsap from 'gsap';
 import LoadingScreen from '../components/Loading';
 
