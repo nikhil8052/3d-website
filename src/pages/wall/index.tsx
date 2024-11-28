@@ -6,6 +6,7 @@ import React, { useRef, useEffect } from 'react';
 import { Office } from './Live'; // Assuming Office is your 3D model
 import gsap from 'gsap';
 import LoadingScreen from '../components/Loading';
+import { Group } from 'three'; // Import Group from three.js
 
 export default function GapsPage() {
   const modelRef = useRef();
