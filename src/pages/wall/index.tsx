@@ -20,7 +20,7 @@ export default function GapsPage() {
           makeDefault
           position={[0, 400, 1500]}
           fov={50}
-          near={1}
+          near={0.9}
           far={10000}
         />
 
