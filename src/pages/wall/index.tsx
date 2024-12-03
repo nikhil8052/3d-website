@@ -1,65 +1,80 @@
 'use client';
 
-import { Canvas, useFrame } from '@react-three/fiber';
-import { ScrollControls, useScroll, PerspectiveCamera, OrbitControls, Html, Text } from '@react-three/drei';
-import React, { useRef, Suspense } from 'react';
-import { Office } from './Live'; // Your 3D Office model
+import { Canvas } from '@react-three/fiber';
+import { PerspectiveCamera, OrbitControls } from '@react-three/drei';
+import React, { useRef, useEffect } from 'react';
+import { Office } from './Live'; // Assuming Office is your 3D model
 import gsap from 'gsap';
-import LoadingScreen from '../components/Loading';
-import { Group } from 'three'; // Import Group from three.js
 
 export default function GapsPage() {
+  const modelRef = useRef();
+  const cameraRef = useRef();
+
+  // Scroll-based animation to move the model left or right based on scroll direction
+  const handleWheel = (e) => {
+    e.preventDefault(); // Prevent default scrolling behavior
+
+    const delta = e.deltaY; // Get the vertical scroll delta (positive for down, negative for up)
+
+    // Move the model based on the wheel direction
+    if (modelRef.current) {
+      const targetPositionX = modelRef.current.position.x + delta * 1; // Increased multiplier for even faster movement
+      gsap.to(modelRef.current.position, {
+        x: targetPositionX,
+        duration: 0.3,
+        ease: 'power1.out',
+      });
+    }
+
+    // Keep the camera position fixed (no zoom effect)
+    if (cameraRef.current) {
+      gsap.to(cameraRef.current.position, {
+        z: 1500, // Keep the camera's z-position fixed to avoid zooming
+        duration: 0.1,
+        ease: 'power1.out',
+      });
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('wheel', handleWheel, { passive: false });
+
+    return () => {
+      window.removeEventListener('wheel', handleWheel);
+    };
+  }, []);
+
   return (
-    <div className="main-model-structure" style={{ height: 'calc(160vh)', overflow: 'hidden' }}>
+    <div
+      style={{
+        width: '100vw',
+        height: '170vh',
+        overflow: 'hidden', // Disable all scrolling for the page
+        position: 'relative',
+      }}
+    >
       <Canvas>
         {/* Lighting */}
         <ambientLight intensity={1} />
 
         {/* Camera */}
         <PerspectiveCamera
+          ref={cameraRef}
           makeDefault
-          position={[0, 400, 1500]}
+          position={[0, 400, 1500]} // Keep camera position fixed for no zoom effect
           fov={50}
           near={0.9}
           far={10000}
         />
 
-        {/* Scroll Controls */}
-        <ScrollControls pages={30} damping={1}>
-          <Suspense fallback={<LoadingScreen />}>
-            <SceneContent />
-          </Suspense>
-        </ScrollControls>
-
         {/* Orbit Controls */}
         <OrbitControls enableZoom={false} enablePan={true} enableRotate={false} />
+
+        {/* 3D Content */}
+        <group ref={modelRef}>
+          <Office />
+        </group>
       </Canvas>
     </div>
-  );
-}
-
-function SceneContent() {
-  const modelRef = useRef<Group | null>(null); // Ref for your 3D model
-  const scroll = useScroll();
-
-  // Ensure no content moves along -y axis
-  useFrame(() => {
-    if (modelRef.current) {
-      const scrollOffset = scroll.offset; // Value between 0 and 1
-      const targetPositionX = -scrollOffset * 18000; // Horizontal movement
-      // Prevent y-axis movement by setting it to a fixed value
-      gsap.to(modelRef.current.position, {
-        x: targetPositionX,
-        y: 0, // Keep y constant
-        duration: 0.5,
-        ease: 'power1.out',
-      });
-    }
-  });
-
-  return (
-    <group ref={modelRef}>
-      <Office />
-    </group>
   );
 }
