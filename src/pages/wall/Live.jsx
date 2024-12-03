@@ -6,11 +6,24 @@ Command: npx gltfjsx@6.5.3 public/models/samered.glb
 import React from 'react'
 import { Html, useGLTF, PerspectiveCamera, useAnimations } from '@react-three/drei'
 import { Text , Text3D } from '@react-three/drei';
+import { extend } from '@react-three/fiber'
 
 export function Office(props) {
-  const group = React.useRef()
-  const { nodes, materials, animations } = useGLTF('./models/samered.glb')
-  const { actions } = useAnimations(animations, group)
+  const group = useRef()
+  const { nodes, materials } = useGLTF('./models/samered.glb')
+
+  // Ref for the scrolling mesh
+  const scrollingMeshRef = useRef()
+
+  // Animation logic
+  useFrame(() => {
+    if (scrollingMeshRef.current) {
+      scrollingMeshRef.current.position.y -= 0.05 // Adjust speed here
+      if (scrollingMeshRef.current.position.y < -100) { // Reset position after a threshold
+        scrollingMeshRef.current.position.y = 100
+      }
+    }
+  })
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
@@ -51,15 +64,54 @@ export function Office(props) {
         {/* <mesh name="phone_descriptor_title_text" geometry={nodes.phone_descriptor_title_text.geometry} material={nodes.phone_descriptor_title_text.material} position={[105.155, 149.455, 0.029]} rotation={[-Math.PI, 0, 0]} /> */}
         <mesh name="phone_descriptor_title_text" geometry={nodes.phone_descriptor_title_text.geometry} material={nodes.phone_descriptor_title_text.material} position={[105.155, 149.455, 0.029]} rotation={[-Math.PI, 0, 0]} >
           {/* <Text
-            position={[0, 10, 0]} // Adjust position as needed
-            rotation={[Math.PI, 0, 0]}
-            fontSize={25}
-            color="black"
-          >
-            Powering the Future of Technology with Innovative Microchip Solutions
-          </Text> */}
-          {/* <Html  transform rotation={[Math.PI, 0, 0]} position={[0, -10, 0]} >
-              <div
+          position={[0, 10, 0]} // Adjust position as needed
+          rotation={[Math.PI, 0, 0]}
+          fontSize={25}
+          color="black"
+        >
+         WoW
+        </Text> */}
+        </mesh>
+        <mesh name="phone_descriptor_title_text" geometry={nodes.phone_descriptor_title_text.geometry} material={nodes.phone_descriptor_title_text.material} position={[105.155, 149.455, 0.029]} rotation={[-Math.PI, 0, 0]} >
+        <Text
+      position={[0, 10, 0]} // Adjust position as needed
+      rotation={[Math.PI, 0, 0]}
+      fontSize={20} // Replace fontSize here, as the prop is specific for Text
+      color="#000000"
+      maxWidth={280}
+      anchorX="center"
+      anchorY="middle"
+    >
+      Powering the Future of Technology with Innovative Microchip Solutions
+    </Text>
+        </mesh>
+        <mesh name="phone_arrow_button_main" geometry={nodes.phone_arrow_button_main.geometry} material={nodes.phone_arrow_button_main.material} position={[178.424, 352.847, 0.029]} rotation={[-Math.PI, 0, 0]} />
+        <mesh name="contact_button" geometry={nodes.contact_button.geometry} material={nodes.contact_button.material} position={[16572.182, 157.317, 0.029]} >
+        
+          </mesh>
+        <mesh name="about_text_block" geometry={nodes.about_text_block.geometry} material={nodes.about_text_block.material} position={[1715.285, 279.178, 0.029]} >
+        <Text
+      position={[0, 10, 100]} // Adjust position as needed
+      // rotation={[Math.PI, 0, 0]}
+      fontSize={14} // Replace fontSize here, as the prop is specific for Text
+      color="#000000"
+      maxWidth={600}
+      anchorX="center"
+      anchorY="middle"
+    >
+     At Trailblazer Innovations, we are driven by a passion for creating groundbreaking hardware and software solutions. Our mission is to partner with our clients to deliver cutting-edge technology experiences that inspire and empower. With a focus on innovation, quality, and collaboration, we work closely with our clients to transform their vision into reality, ensuring each solution is as unique and powerful as the ideas behind it. Whether you're looking for comprehensive hardware support or custom software development, We are here to help you navigate the future of technology with confidence and expertise. Together, we can build something extraordinary.
+    </Text>
+        </mesh>
+        <mesh name="crown_sugn_our_service" geometry={nodes.crown_sugn_our_service.geometry} material={nodes.crown_sugn_our_service.material} position={[12035.32, 385.325, 0.029]} >
+
+        </mesh>
+        <mesh name="hello_sign_contact" geometry={nodes.hello_sign_contact.geometry} material={nodes.hello_sign_contact.material} position={[17046.137, 401.206, 0.029]} >
+       
+          </mesh>
+        <mesh name="omg_sign" geometry={nodes.omg_sign.geometry} material={nodes.omg_sign.material} position={[4320.142, 389.936, 0.029]} />
+        <mesh className="reel-video-btn" name="Play_button" geometry={nodes.Play_button.geometry} material={nodes.Play_button.material} position={[2864.844, 275.825, -115.224]} >
+        <Html  transform rotation={[0, Math.PI, 0]} position={[0, 0, 0]} >
+              <div className='banner-txt'
                 style={{
                   background: 'transparent',
                   height: '400rem',
