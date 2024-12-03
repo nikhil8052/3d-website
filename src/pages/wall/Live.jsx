@@ -58,6 +58,21 @@ export function Office(props) {
           >
             Powering the Future of Technology with Innovative Microchip Solutions
           </Text> */}
+          <Html  transform rotation={[Math.PI, 0, 0]} position={[0, -10, 0]} >
+              <div
+                style={{
+                  background: 'transparent',
+                  height: '400rem',
+                  width: '400rem',
+                  position: 'fixed',  
+                  top: '50%',          
+                  left: '50%',        
+                  transform: 'translate(-50%, -50%)',  
+                }}
+              >
+               <p style={{fontSize:'50rem',marginTop:'75rem',}}>Powering the Future of Technology with Innovative Microchip Solutions</p>
+              </div>
+          </Html>
           </mesh>
         <mesh name="phone_arrow_button_main" geometry={nodes.phone_arrow_button_main.geometry} material={nodes.phone_arrow_button_main.material} position={[178.424, 352.847, 0.029]} rotation={[-Math.PI, 0, 0]} />
         <mesh name="contact_button" geometry={nodes.contact_button.geometry} material={nodes.contact_button.material} position={[16572.182, 157.317, 0.029]} />
