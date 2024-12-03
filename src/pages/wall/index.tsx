@@ -12,7 +12,7 @@ export default function GapsPage() {
 
   const handleWheel = (event) => {
     const delta = event.deltaY;
-
+ 
     if (cameraRef.current) {
       cameraRef.current.position.x += delta * 0.125; 
    
