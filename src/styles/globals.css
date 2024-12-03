@@ -43,3 +43,29 @@ html, body, #__next {
   object-fit: contain;
 }
 
+
+
+@keyframes scrollContent {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+.scrolling-div {
+  height: 100%;
+  overflow: hidden;
+  animation: scrollContent 10s linear infinite; /* Adjust duration */
+}
+
+@keyframes scrollY {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-200%);
+  }
+}
+

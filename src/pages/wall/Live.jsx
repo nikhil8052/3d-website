@@ -4,15 +4,27 @@ Command: npx gltfjsx@6.5.3 public/models/samered.glb
 */
 {/* <link href="https://fonts.googleapis.com/css2?family=Rock+Salt&display=swap" rel="stylesheet"> */}
 
-import React from 'react'
-import { Html, useGLTF, PerspectiveCamera, useAnimations } from '@react-three/drei'
-import { Text , Text3D } from '@react-three/drei';
-import { extend } from '@react-three/fiber'
+import React, { useRef } from 'react'
+import { useFrame } from '@react-three/fiber'
+import { useGLTF, Html } from '@react-three/drei'
+import { Text } from '@react-three/drei'
 
 export function Office(props) {
-  const group = React.useRef()
-  const { nodes, materials, animations } = useGLTF('./models/samered.glb')
-  const { actions } = useAnimations(animations, group)
+  const group = useRef()
+  const { nodes, materials } = useGLTF('./models/samered.glb')
+
+  // Ref for the scrolling mesh
+  const scrollingMeshRef = useRef()
+
+  // Animation logic
+  useFrame(() => {
+    if (scrollingMeshRef.current) {
+      scrollingMeshRef.current.position.y -= 0.05 // Adjust speed here
+      if (scrollingMeshRef.current.position.y < -100) { // Reset position after a threshold
+        scrollingMeshRef.current.position.y = 100
+      }
+    }
+  })
   return (
     <group ref={group} {...props} dispose={null}>
       <group name="Scene">
@@ -65,23 +77,82 @@ export function Office(props) {
         </mesh>
         <mesh name="phone_arrow_button_main" geometry={nodes.phone_arrow_button_main.geometry} material={nodes.phone_arrow_button_main.material} position={[178.424, 352.847, 0.029]} rotation={[-Math.PI, 0, 0]} />
         <mesh name="contact_button" geometry={nodes.contact_button.geometry} material={nodes.contact_button.material} position={[16572.182, 157.317, 0.029]} >
-        
-          </mesh>
-        <mesh name="about_text_block" geometry={nodes.about_text_block.geometry} material={nodes.about_text_block.material} position={[1715.285, 279.178, 0.029]} >
         <Text
-      position={[0, 10, 100]} // Adjust position as needed
-      // rotation={[Math.PI, 0, 0]}
-      fontSize={14} // Replace fontSize here, as the prop is specific for Text
+      position={[0, 10, 0]} // Adjust position as needed
+      rotation={[Math.PI, 0, 0]}
+      fontSize={20} // Replace fontSize here, as the prop is specific for Text
       color="#000000"
-      maxWidth={600}
+      maxWidth={280}
       anchorX="center"
       anchorY="middle"
     >
-     At Trailblazer Innovations, we are driven by a passion for creating groundbreaking hardware and software solutions. Our mission is to partner with our clients to deliver cutting-edge technology experiences that inspire and empower. With a focus on innovation, quality, and collaboration, we work closely with our clients to transform their vision into reality, ensuring each solution is as unique and powerful as the ideas behind it. Whether you're looking for comprehensive hardware support or custom software development, We are here to help you navigate the future of technology with confidence and expertise. Together, we can build something extraordinary.
+      Powering the Future of Technology with Innovative Microchip Solutions
     </Text>
+          </mesh>
+          <mesh
+  name="about_text_block"
+  geometry={nodes.about_text_block.geometry}
+  material={nodes.about_text_block.material}
+  position={[1715.285, 279.178, 0.029]}
+> <Text
+    position={[0, 0, 100]} // Adjust the Z-position as needed
+    rotation={[0, 0, 0]} // Ensure no unnecessary rotation
+    fontSize={20}
+    color="#000000"
+    maxWidth={780}
+    anchorX="center"
+    anchorY="middle"
+  >
+About Trailblazer  </Text>
+  <Text
+    position={[0, 0, 100]} // Adjust the Z-position as needed
+    rotation={[0, 0, 0]} // Ensure no unnecessary rotation
+    fontSize={20}
+    color="#000000"
+    maxWidth={780}
+    anchorX="center"
+    anchorY="middle"
+  >
+    At Trailblazer Innovations, we are driven by a passion for creating groundbreaking hardware and software solutions. Our mission is to partner with our clients to deliver cutting-edge technology experiences that inspire and empower. With a focus on innovation, quality, and collaboration, we work closely with our clients to transform their vision into reality, ensuring each solution is as unique and powerful as the ideas behind it. Whether you're looking for comprehensive hardware support or custom software development, We are here to help you navigate the future of technology with confidence and expertise. Together, we can build something extraordinary.
+  </Text>
+</mesh>
+
+        <mesh
+          ref={scrollingMeshRef} // Add reference
+          name="phone_wow_title_sign"
+          geometry={nodes.phone_wow_title_sign.geometry}
+          material={nodes.phone_wow_title_sign.material}
+          position={[-168.63, 411.866, 0.029]}
+        >
+{/* <Html transform position={[0, -10, 0]}>
+  <div
+    className="scrolling-div"
+    style={{
+      background: 'transparent',
+      height: '200px',
+      width: '400px',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+    }}
+  >
+    <p style={{ color: 'white', fontSize: '20px' }}>Scrolling Content</p>
+  </div>
+</Html> */}
+
         </mesh>
         <mesh name="crown_sugn_our_service" geometry={nodes.crown_sugn_our_service.geometry} material={nodes.crown_sugn_our_service.material} position={[12035.32, 385.325, 0.029]} >
-
+        <Text
+      position={[0, 10, 0]} // Adjust position as needed
+      rotation={[Math.PI, 0, 0]}
+      fontSize={20} // Replace fontSize here, as the prop is specific for Text
+      color="#000000"
+      maxWidth={280}
+      anchorX="center"
+      anchorY="middle"
+    >
+      Powering the Future of Technology with Innovative Microchip Solutions
+    </Text>
         </mesh>
         <mesh name="hello_sign_contact" geometry={nodes.hello_sign_contact.geometry} material={nodes.hello_sign_contact.material} position={[17046.137, 401.206, 0.029]} >
        

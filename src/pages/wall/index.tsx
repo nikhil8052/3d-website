@@ -39,19 +39,18 @@ export default function GapsPage() {
 }
 
 function SceneContent() {
-  const modelRef = useRef<Group | null>(null); // Type the modelRef as Group or null
+  const modelRef = useRef<Group | null>(null); // Ref for your 3D model
   const scroll = useScroll();
 
-  // Scroll-based animation
+  // Ensure no content moves along -y axis
   useFrame(() => {
     if (modelRef.current) {
       const scrollOffset = scroll.offset; // Value between 0 and 1
-      const targetPositionX = -scrollOffset * 18000; // Adjust horizontal movement range
-      const targetPositionY = scrollOffset * 0; // Optional: Vertical parallax effect
-
+      const targetPositionX = -scrollOffset * 18000; // Horizontal movement
+      // Prevent y-axis movement by setting it to a fixed value
       gsap.to(modelRef.current.position, {
         x: targetPositionX,
-        y: targetPositionY,
+        y: 0, // Keep y constant
         duration: 0.5,
         ease: 'power1.out',
       });
@@ -60,44 +59,7 @@ function SceneContent() {
 
   return (
     <group ref={modelRef}>
-      {/* Your 3D Office model */}
       <Office />
-
-      {/* Add 3D Text */}
-      {/* <Text
-        position={[0, 200, 0]} 
-        fontSize={30} 
-        color="red"
-        anchorX="center" 
-        anchorY="middle"
-      >
-        Welcome to Gaps Page
-      </Text> */}
-
-      {/* Add an HTML Overlay */}
-      {/* <Html position={[0, 100, 0]} transform>
-        <div
-              style={{
-                background: 'transparent',
-                height: '400rem',
-                width: '400rem',
-                position: 'fixed',  // Keep it fixed
-                top: '50%',          // Adjust to keep it in the center vertically
-                left: '50%',         // Adjust to center horizontally
-                transform: 'translate(-50%, -50%)',  // Center the element exactly
-              }}
-            >
-              <img
-                src="./img/wow.png"
-                alt=""
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'contain',
-                }}
-              />
-            </div>
-      </Html> */}
     </group>
   );
 }
