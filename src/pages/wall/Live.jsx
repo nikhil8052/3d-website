@@ -24,7 +24,7 @@ export function Office(props) {
         </group>
         {/* <mesh name="phone_wow_title_sign" geometry={nodes.phone_wow_title_sign.geometry} material={nodes.phone_wow_title_sign.material} position={[-168.63, 411.866, 0.029]} rotation={[-Math.PI, 0, 0]} /> */}
         <mesh name="phone_wow_title_sign" geometry={nodes.phone_wow_title_sign.geometry} material={nodes.phone_wow_title_sign.material} position={[-168.63, 411.866, 0.029]} rotation={[-Math.PI, 0, 0]} >
-          <Html  transform rotation={[Math.PI, 0, 0]} position={[0, -10, 0]} >
+          {/* <Html  transform rotation={[Math.PI, 0, 0]} position={[0, -10, 0]} >
               <div
                 style={{
                   background: 'transparent',
@@ -46,7 +46,7 @@ export function Office(props) {
                   }}
                 />
               </div>
-          </Html>
+          </Html> */}
         </mesh>
         {/* <mesh name="phone_descriptor_title_text" geometry={nodes.phone_descriptor_title_text.geometry} material={nodes.phone_descriptor_title_text.material} position={[105.155, 149.455, 0.029]} rotation={[-Math.PI, 0, 0]} /> */}
         <mesh name="phone_descriptor_title_text" geometry={nodes.phone_descriptor_title_text.geometry} material={nodes.phone_descriptor_title_text.material} position={[105.155, 149.455, 0.029]} rotation={[-Math.PI, 0, 0]} >
@@ -58,7 +58,7 @@ export function Office(props) {
           >
             Powering the Future of Technology with Innovative Microchip Solutions
           </Text> */}
-          <Html  transform rotation={[Math.PI, 0, 0]} position={[0, -10, 0]} >
+          {/* <Html  transform rotation={[Math.PI, 0, 0]} position={[0, -10, 0]} >
               <div
                 style={{
                   background: 'transparent',
@@ -72,7 +72,7 @@ export function Office(props) {
               >
                <p style={{fontSize:'50rem',marginTop:'75rem',}}>Powering the Future of Technology with Innovative Microchip Solutions</p>
               </div>
-          </Html>
+          </Html> */}
           </mesh>
         <mesh name="phone_arrow_button_main" geometry={nodes.phone_arrow_button_main.geometry} material={nodes.phone_arrow_button_main.material} position={[178.424, 352.847, 0.029]} rotation={[-Math.PI, 0, 0]} />
         <mesh name="contact_button" geometry={nodes.contact_button.geometry} material={nodes.contact_button.material} position={[16572.182, 157.317, 0.029]} />
