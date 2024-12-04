@@ -17,12 +17,22 @@ export default function GapsPage() {
   const scrollAmount = 900; // Controls the distance for each scroll step
   const damping = 0.9; // Damping factor for animations
 
-  // Function to move the model
+  // Define min and max X position for the model
+  const minX = -17200; // Minimum X position
+  const maxX = 0;  // Maximum X position
+
+  // Function to move the model with boundary checks
   const moveModel = (deltaX) => {
     if (modelRef.current) {
+      // Calculate the target position
       const targetPositionX = modelRef.current.position.x + deltaX;
+
+      // Apply boundary limits
+      const clampedX = Math.max(minX, Math.min(maxX, targetPositionX));
+
+      // Animate the movement within the boundaries
       gsap.to(modelRef.current.position, {
-        x: targetPositionX,
+        x: clampedX,
         duration: damping,
         ease: 'power1.out',
       });
@@ -95,7 +105,6 @@ export default function GapsPage() {
         {/* <ambientLight intensity={1} /> */}
         <ambientLight intensity={2} />
         
-
         {/* Camera */}
         <PerspectiveCamera
           ref={cameraRef}
