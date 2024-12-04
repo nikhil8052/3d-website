@@ -38,21 +38,21 @@ export function Office(props) {
           rotation={[-Math.PI, 0, 0]}
         >
           {/* Add a 3D text component */}
-          {/* <Text
+          <Text
             position={[0, -10, 0]} // Adjust position as needed
-            fontSize={15}
+            fontSize={125}
             color="black"
           >
             Hello World
             
-          </Text> */}
-          <Html  transform rotation={[Math.PI, 0, 0]} position={[0, -10, 0]} >
+          </Text>
+          {/* <Html  transform rotation={[Math.PI, 0, 0]} position={[0, -10, 0]} >
             <div
               style={{
                 background: 'transparent',
                 height: '400rem',
                 width: '400rem',
-                position: 'fixed',  // Keep it fixed
+                position: 'absolute',  // Keep it fixed
                 top: '50%',          // Adjust to keep it in the center vertically
                 left: '50%',         // Adjust to center horizontally
                 transform: 'translate(-50%, -50%)',  // Center the element exactly
@@ -68,7 +68,7 @@ export function Office(props) {
                 }}
               />
             </div>
-          </Html>
+          </Html> */}
 
           {/* Add a plane geometry with the image texture */}
           <mesh
