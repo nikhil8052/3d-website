@@ -1,9 +1,11 @@
 'use client';
 
 import { Canvas } from '@react-three/fiber';
-import { PerspectiveCamera, useFrame } from '@react-three/drei';
-import { useState, useRef, useEffect } from 'react';
-import Office from './Office2';
+import { PerspectiveCamera, OrbitControls } from '@react-three/drei';
+import React, { useRef, useEffect } from 'react';
+import { Office } from './Live'; // Assuming Office is your 3D model
+import gsap from 'gsap';
+import LoadingScreen from '../components/Loading';
 
 export default function GapsPage() {
   const modelRef = useRef();
@@ -99,7 +101,7 @@ export default function GapsPage() {
           makeDefault
           position={[0, 400, 1500]} // Keep camera position fixed for no zoom effect
           fov={50}
-          near={1}
+          near={0.9}
           far={10000}
         />
 
