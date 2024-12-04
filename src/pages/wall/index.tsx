@@ -111,7 +111,7 @@ export default function GapsPage() {
         {/* 3D Content */}
         <group ref={modelRef}>
           <Office />
-          {/* <LoadingScreen /> */}
+          {/* <LoadingScreen /> */} 
         </group>
       </Canvas>
     </div>
