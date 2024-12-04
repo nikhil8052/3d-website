@@ -5,8 +5,6 @@ import { PerspectiveCamera, OrbitControls } from '@react-three/drei';
 import React, { useRef, useEffect } from 'react';
 import { Office } from './Live'; // Assuming Office is your 3D model
 import gsap from 'gsap';
-import LoadingScreen from '../components/Loading';
-import { Group } from 'three'; // Import Group from three.js
 
 export default function GapsPage() {
   const modelRef = useRef();
@@ -111,8 +109,7 @@ export default function GapsPage() {
 
         {/* 3D Content */}
         <group ref={modelRef}>
-         <Office /> 
-          {/*  <LoadingScreen /> */}
+          <Office />
         </group>
       </Canvas>
     </div>

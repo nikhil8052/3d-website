@@ -39,15 +39,7 @@ export function Office(props) {
                 transform: 'translate(-50%, -50%)',  
               }}
             >
-              <img
-                src="./img/wow.png"
-                alt=""
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'contain',
-                }}
-              />
+             
             </div>
           </Html>
         </mesh>
