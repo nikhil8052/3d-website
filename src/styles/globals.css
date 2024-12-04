@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rock+Salt&display=swap');
+
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
@@ -17,7 +22,16 @@
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  /* font-family: Arial, Helvetica, sans-serif; */
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body ,p ,ul {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
 /* Add this to your global CSS or a specific stylesheet */
 html, body, #__next {
@@ -43,3 +57,86 @@ html, body, #__next {
   object-fit: contain;
 }
 
+
+
+@keyframes scrollContent {
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+.scrolling-div {
+  height: 100%;
+  overflow: hidden;
+  animation: scrollContent 10s linear infinite; /* Adjust duration */
+}
+
+@keyframes scrollY {
+  from {
+    transform: translateY(0%);
+  }
+  to {
+    transform: translateY(-200%);
+  }
+}
+
+
+.read-more-btn {
+  border: 1px solid #E8E5D8;
+  display: inline-block;
+  background: #F1F0EC;
+  box-shadow: 
+    2.5px 2.5px 1px 0px #FFFFFF99 inset,
+    -2.5px -2.5px 1px 0px #FFFFFF99 inset;
+  font-family: 'Poppins', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #000;
+  padding: 11px 24px;
+  text-decoration: none; /* Remove default underline */
+  display: inline-block; /* Ensure proper padding and alignment */
+  border-radius: 4px; /* Optional: add rounded corners */
+  cursor: pointer; /* Make it look like a button */
+}
+
+.read-more-btn:hover {
+  background: #E8E5D8; /* Optional: slightly darker on hover */
+  color: #333; /* Optional: darker text color on hover */
+}
+.about-wall .read-more-btn {
+  margin-top: 40px;
+}
+.about-wall h2{
+  font-weight: 700;
+}
+
+
+.banner-txt p {
+  font-family: "Rock Salt", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 20px;
+  font-weight: 400;
+  /* line-height: 31px; */
+  letter-spacing: 0.03em;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.banner-txt {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.hello-img{
+  text-align: right;
+  max-width: 100px;
+  margin: auto;
+}

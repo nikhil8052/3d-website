@@ -1,67 +1,120 @@
 'use client';
 
-import { Canvas, useFrame } from '@react-three/fiber';
-import { ScrollControls, useScroll, PerspectiveCamera, OrbitControls, Html, Text } from '@react-three/drei';
-import React, { useRef, Suspense } from 'react';
-import { Office } from './Live'; // Your 3D Office model
+import { Canvas } from '@react-three/fiber';
+import { PerspectiveCamera, OrbitControls } from '@react-three/drei';
+import React, { useRef, useEffect } from 'react';
+import { Office } from './Live'; // Assuming Office is your 3D model
 import gsap from 'gsap';
 import LoadingScreen from '../components/Loading';
 import { Group } from 'three'; // Import Group from three.js
 
 export default function GapsPage() {
-  return (
-    <div className="main-model-structure" style={{ height: 'calc(160vh)', overflow: 'hidden' }}>
-      <Canvas>
-        {/* Lighting */}
-        <ambientLight intensity={1} />
+  const modelRef = useRef();
+  const cameraRef = useRef();
+  const isDraggingRef = useRef(false); // Track mouse drag state
+  const startXRef = useRef(0); // Track the starting X position for dragging
 
-        {/* Camera */}
-        <PerspectiveCamera
-          makeDefault
-          position={[0, 400, 1500]}
-          fov={50}
-          near={1}
-          far={10000}
-        />
+  const scrollAmount = 900; // Controls the distance for each scroll step
+  const damping = 0.9; // Damping factor for animations
 
-        {/* Scroll Controls */}
-        <ScrollControls pages={30} damping={1}>
-          <Suspense fallback={<LoadingScreen />}>
-            <SceneContent />
-          </Suspense>
-        </ScrollControls>
-
-        {/* Orbit Controls */}
-        <OrbitControls enableZoom={false} enablePan={true} enableRotate={false} />
-      </Canvas>
-    </div>
-  );
-}
-
-function SceneContent() {
-  const modelRef = useRef<Group | null>(null); // Type the modelRef as Group or null
-  const scroll = useScroll();
-
-  // Scroll-based animation
-  useFrame(() => {
+  // Function to move the model
+  const moveModel = (deltaX) => {
     if (modelRef.current) {
-      const scrollOffset = scroll.offset; // Value between 0 and 1
-      const targetPositionX = -scrollOffset * 18000; // Adjust horizontal movement range
-      const targetPositionY = scrollOffset * 0; // Optional: Vertical parallax effect
-
+      const targetPositionX = modelRef.current.position.x + deltaX;
       gsap.to(modelRef.current.position, {
         x: targetPositionX,
-        y: targetPositionY,
-        duration: 0.5,
+        duration: damping,
         ease: 'power1.out',
       });
     }
-  });
+  };
+
+  // Wheel scroll handler (reversed direction)
+  const handleWheel = (e) => {
+    e.preventDefault(); // Prevent default scrolling behavior
+    moveModel(e.deltaY); // Reversed scroll direction
+  };
+
+  // Arrow key handler (reversed direction)
+  const handleKeyDown = (e) => {
+    const keyMap = {
+      ArrowLeft: scrollAmount, // Opposite direction
+      ArrowRight: -scrollAmount, // Opposite direction
+    };
+    if (keyMap[e.key]) {
+      moveModel(keyMap[e.key]);
+    }
+  };
+
+  // Mouse drag handlers
+  const handleMouseDown = (e) => {
+    isDraggingRef.current = true;
+    startXRef.current = e.clientX; // Record starting position
+  };
+
+  const handleMouseMove = (e) => {
+    if (isDraggingRef.current) {
+      const deltaX = e.clientX - startXRef.current;
+      moveModel(deltaX); // Natural drag direction
+      startXRef.current = e.clientX; // Update start position
+    }
+  };
+
+  const handleMouseUp = () => {
+    isDraggingRef.current = false;
+  };
+
+  // Attach event listeners
+  useEffect(() => {
+    window.addEventListener('wheel', handleWheel, { passive: false });
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('mousedown', handleMouseDown);
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mouseup', handleMouseUp);
+
+    return () => {
+      window.removeEventListener('wheel', handleWheel);
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('mousedown', handleMouseDown);
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseup', handleMouseUp);
+    };
+  }, []);
 
   return (
-    <group ref={modelRef}>
-      <Office />
+    <div
+      style={{
+        width: '100vw',
+        height: '170vh', // Adjust height for multi-page scrolling
+        overflow: 'hidden',
+        position: 'relative',
+      }}
+    >
+      <Canvas>
+        {/* Lighting */}
+        {/* <ambientLight intensity={1} /> */}
+        <ambientLight intensity={2} />
+        
 
-    </group>
+        {/* Camera */}
+        <PerspectiveCamera
+          ref={cameraRef}
+          makeDefault
+          position={[0, 400, 1500]} // Keep camera position fixed for no zoom effect
+          fov={50}
+          near={0.9}
+          far={10000}
+        />
+
+        {/* Orbit Controls */}
+        <OrbitControls enableZoom={false} enablePan={true} enableRotate={false} />
+
+        {/* 3D Content */}
+        <group ref={modelRef}>
+         <Office /> 
+          {/*  <LoadingScreen /> */}
+        </group>
+      </Canvas>
+    </div>
   );
 }
