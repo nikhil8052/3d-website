@@ -362,7 +362,7 @@ About Trailblazer  </Text>
         </mesh>
 
         
-        <mesh name="services_text_block" geometry={nodes.services_text_block.geometry} material={nodes.services_text_block.material} position={[13504.598, 252.46, 0.029]} >
+        <mesh name="services_text_block" geometry={nodes.services_text_block.geometry} material={nodes.services_text_block.material} position={[13504.598, 250.46, 0.029]} >
         <Html  style={{
                 width: '1000rem',
 
@@ -373,7 +373,7 @@ About Trailblazer  </Text>
                 position: 'fixed',
                 top: '0%',
                 left: '-50%',
-                transform: 'translate(-55rem, -50%)',
+                transform: 'translate(-40rem, -50%)',
               }}
             >
               <div className='service-text-col'  style={{
