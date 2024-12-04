@@ -169,3 +169,11 @@ html, body, #__next {
 .service-text-row .service-text-col {
   flex: 1;
 }
+.service-text-row {
+  display: flex;
+  min-width: 200rem;
+  gap: 10px;
+}
+.service-text-row .service-text-col {
+  flex: 1;
+}

@@ -361,19 +361,24 @@ About Trailblazer  </Text>
   </Html> */}
         </mesh>
 
+        
         <mesh name="services_text_block" geometry={nodes.services_text_block.geometry} material={nodes.services_text_block.material} position={[13504.598, 252.46, 0.029]} >
-        <Html>
+        <Html  style={{
+                width: '1000rem',
+
+              }} >
             <div className='about-wall work-wall-text service-text-row'
               style={{
-                width: '400rem',
+                width: '1000rem',
                 position: 'fixed',
                 top: '0%',
                 left: '-50%',
-                transform: 'translate(-50%, -50%)',
-                willChange: 'transform, opacity', 
+                transform: 'translate(-55rem, -50%)',
               }}
             >
-              <div className='service-text-col'>
+              <div className='service-text-col'  style={{
+                width: '',
+              }}>
               <h5>01</h5>
               <h2 style={{ fontSize: '30px', marginTop: '1rem', Top: '0', }}>Hardware Design and Development</h2>
               <p>We specialize in creating and building hardware solutions tailored to your requirements. Our work ranges from custom electronics to embedded systems. We design top-notch hardware that is innovative, compatible, dependable, and operates efficiently, striving to meet and surpass industry performance benchmarks.</p>
