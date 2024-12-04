@@ -278,4 +278,4 @@ About Trailblazer  </Text>
   )
 }
 
-useGLTF.preload('./models//samered.glb')
+useGLTF.preload('./models/samered.glb')
