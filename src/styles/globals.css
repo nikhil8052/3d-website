@@ -140,3 +140,27 @@ html, body, #__next {
   max-width: 100px;
   margin: auto;
 }
+.work-wall-text{
+  max-width: 400px;
+}
+.work-wall-text p{
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 300;
+  line-height: 28px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+
+}
+
+
+
+.service-text-row {
+  display: flex;
+  min-width: 200rem;
+  gap: 10px;
+}
+.service-text-row .service-text-col {
+  flex: 1;
+}
