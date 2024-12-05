@@ -14,7 +14,7 @@ export default function GapsPage() {
   const isDraggingRef = useRef(false); // Track mouse drag state
   const startXRef = useRef(0); // Track the starting X position for dragging
 
-  const scrollAmount = 900; // Controls the distance for each scroll step
+  const scrollAmount = 500; // Controls the distance for each scroll step
   const damping = 0.9; // Damping factor for animations
 
   // Define min and max X position for the model
@@ -24,13 +24,9 @@ export default function GapsPage() {
   // Function to move the model with boundary checks
   const moveModel = (deltaX) => {
     if (modelRef.current) {
-      // Calculate the target position
       const targetPositionX = modelRef.current.position.x + deltaX;
-
-      // Apply boundary limits
       const clampedX = Math.max(minX, Math.min(maxX, targetPositionX));
-
-      // Animate the movement within the boundaries
+  
       gsap.to(modelRef.current.position, {
         x: clampedX,
         duration: damping,
@@ -38,12 +34,26 @@ export default function GapsPage() {
       });
     }
   };
+  
 
   // Wheel scroll handler (reversed direction)
-  const handleWheel = (e) => {
-    e.preventDefault(); // Prevent default scrolling behavior
-    moveModel(e.deltaY); // Reversed scroll direction
-  };
+  // Wheel scroll handler (reversed direction and scaled to match scrollAmount)
+const handleWheel = (e) => {
+  e.preventDefault(); // Prevent default scrolling behavior
+  const scaleFactor = scrollAmount / 100; // Adjust scale for smoother scrolling
+  moveModel(-e.deltaY * scaleFactor); // Reversed and scaled
+};
+
+// Mouse drag handlers (scaled to match scrollAmount)
+const handleMouseMove = (e) => {
+  if (isDraggingRef.current) {
+    const deltaX = e.clientX - startXRef.current;
+    const scaleFactor = scrollAmount / 100; // Adjust scale for consistent drag distance
+    moveModel(deltaX * scaleFactor); // Natural drag direction with scaling
+    startXRef.current = e.clientX; // Update start position
+  }
+};
+
 
   // Arrow key handler (reversed direction)
   const handleKeyDown = (e) => {
@@ -62,13 +72,13 @@ export default function GapsPage() {
     startXRef.current = e.clientX; // Record starting position
   };
 
-  const handleMouseMove = (e) => {
-    if (isDraggingRef.current) {
-      const deltaX = e.clientX - startXRef.current;
-      moveModel(deltaX); // Natural drag direction
-      startXRef.current = e.clientX; // Update start position
-    }
-  };
+  // const handleMouseMove = (e) => {
+  //   if (isDraggingRef.current) {
+  //     const deltaX = e.clientX - startXRef.current;
+  //     moveModel(deltaX); // Natural drag direction
+  //     startXRef.current = e.clientX; // Update start position
+  //   }
+  // };
 
   const handleMouseUp = () => {
     isDraggingRef.current = false;
