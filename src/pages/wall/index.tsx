@@ -3,7 +3,7 @@
 import { Canvas } from '@react-three/fiber';
 import { PerspectiveCamera, OrbitControls } from '@react-three/drei';
 import React, { useRef, useEffect } from 'react';
-import { Office } from './Live'; // Assuming Office is your 3D model
+import { Office } from './Testing'; // Assuming Office is your 3D model
 import gsap from 'gsap';
 import LoadingScreen from '../components/Loading';
 import { Group } from 'three'; // Import Group from three.js
