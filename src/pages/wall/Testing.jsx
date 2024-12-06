@@ -58,9 +58,9 @@ export function Office(props) {
             </mesh>
         <mesh name="contact_button" geometry={nodes.contact_button.geometry} material={nodes.contact_button.material} position={[16572.182, 157.317, 0.029]} >
             </mesh>
-        <mesh name="about_text_block" geometry={nodes.about_text_block.geometry} material={nodes.about_text_block.material} position={[1715.285, 310.178, 0.029]} >
+        <mesh name="about_text_block" geometry={nodes.about_text_block.geometry} material={nodes.about_text_block.material} position={[1715.285, 310.178, -0.9]} >
         <Html>
-            <div className='about-wall '
+            <div className='about-wall about-wall-text'
               style={{
                 width: '40rem',
                 position: 'fixed',
