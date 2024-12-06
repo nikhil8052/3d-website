@@ -5,42 +5,89 @@ import { PerspectiveCamera, OrbitControls } from '@react-three/drei';
 import React, { useRef, useEffect } from 'react';
 import { Office } from './Live'; // Assuming Office is your 3D model
 import gsap from 'gsap';
+import LoadingScreen from '../components/Loading';
+import { Group } from 'three'; // Import Group from three.js
 
 export default function GapsPage() {
   const modelRef = useRef();
   const cameraRef = useRef();
+  const isDraggingRef = useRef(false); // Track mouse drag state
+  const startXRef = useRef(0); // Track the starting X position for dragging
 
-  // Scroll-based animation to move the model left or right based on scroll direction
-  const handleWheel = (e) => {
-    e.preventDefault(); // Prevent default scrolling behavior
+  const scrollAmount = 900; // Controls the distance for each scroll step
+  const damping = 0.9; // Damping factor for animations
 
-    const delta = e.deltaY; // Get the vertical scroll delta (positive for down, negative for up)
+  // Define min and max X position for the model
+  const minX = -17200; // Minimum X position
+  const maxX = 0;  // Maximum X position
 
-    // Move the model based on the wheel direction
+  // Function to move the model with boundary checks
+  const moveModel = (deltaX) => {
     if (modelRef.current) {
-      const targetPositionX = modelRef.current.position.x + delta * 1; // Increased multiplier for even faster movement
-      gsap.to(modelRef.current.position, {
-        x: targetPositionX,
-        duration: 0.3,
-        ease: 'power1.out',
-      });
-    }
+      // Calculate the target position
+      const targetPositionX = modelRef.current.position.x + deltaX;
 
-    // Keep the camera position fixed (no zoom effect)
-    if (cameraRef.current) {
-      gsap.to(cameraRef.current.position, {
-        z: 1500, // Keep the camera's z-position fixed to avoid zooming
-        duration: 0.1,
+      // Apply boundary limits
+      const clampedX = Math.max(minX, Math.min(maxX, targetPositionX));
+
+      // Animate the movement within the boundaries
+      gsap.to(modelRef.current.position, {
+        x: clampedX,
+        duration: damping,
         ease: 'power1.out',
       });
     }
   };
 
+  // Wheel scroll handler (reversed direction)
+  const handleWheel = (e) => {
+    e.preventDefault(); // Prevent default scrolling behavior
+    moveModel(e.deltaY); // Reversed scroll direction
+  };
+
+  // Arrow key handler (reversed direction)
+  const handleKeyDown = (e) => {
+    const keyMap = {
+      ArrowLeft: scrollAmount, // Opposite direction
+      ArrowRight: -scrollAmount, // Opposite direction
+    };
+    if (keyMap[e.key]) {
+      moveModel(keyMap[e.key]);
+    }
+  };
+
+  // Mouse drag handlers
+  const handleMouseDown = (e) => {
+    isDraggingRef.current = true;
+    startXRef.current = e.clientX; // Record starting position
+  };
+
+  const handleMouseMove = (e) => {
+    if (isDraggingRef.current) {
+      const deltaX = e.clientX - startXRef.current;
+      moveModel(deltaX); // Natural drag direction
+      startXRef.current = e.clientX; // Update start position
+    }
+  };
+
+  const handleMouseUp = () => {
+    isDraggingRef.current = false;
+  };
+
+  // Attach event listeners
   useEffect(() => {
     window.addEventListener('wheel', handleWheel, { passive: false });
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('mousedown', handleMouseDown);
+    window.addEventListener('mousemove', handleMouseMove);
+    window.addEventListener('mouseup', handleMouseUp);
 
     return () => {
       window.removeEventListener('wheel', handleWheel);
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('mousedown', handleMouseDown);
+      window.removeEventListener('mousemove', handleMouseMove);
+      window.removeEventListener('mouseup', handleMouseUp);
     };
   }, []);
 
@@ -48,15 +95,16 @@ export default function GapsPage() {
     <div
       style={{
         width: '100vw',
-        height: '170vh',
-        overflow: 'hidden', // Disable all scrolling for the page
+        height: '170vh', // Adjust height for multi-page scrolling
+        overflow: 'hidden',
         position: 'relative',
       }}
     >
       <Canvas>
         {/* Lighting */}
-        <ambientLight intensity={1} />
-
+        {/* <ambientLight intensity={1} /> */}
+        <ambientLight intensity={2} />
+        
         {/* Camera */}
         <PerspectiveCamera
           ref={cameraRef}
@@ -72,7 +120,8 @@ export default function GapsPage() {
 
         {/* 3D Content */}
         <group ref={modelRef}>
-          <Office />
+         <Office /> 
+          {/*  <LoadingScreen /> */}
         </group>
       </Canvas>
     </div>
