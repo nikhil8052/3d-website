@@ -52,6 +52,9 @@
 
 body {
   scroll-behavior: smooth;
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none;
 }
 
 body {
@@ -289,11 +292,53 @@ html, body, #__next {
       max-width: 15rem;
     }
     .service-text-row .service-text-col h2{
-      font-size: 2vw!important;
+      font-size: 1.6vw!important;
       line-height: 1.3;
     }
     .service-text-row .service-text-col p{
-      font-size: 1.05vw !important;
+      font-size: 0.97vw !important;
       line-height: 1.5;
     }
+    .service-text-row {
+      display: flex;
+      min-width: 135rem;
+      gap: 20px;
+      transform: translate(-35rem, -50%) !important;
+  }
+  .service-text-row .service-text-col h2{
+    margin-top: 0 !important;
+  }
     }
+
+    @media screen and (max-width: 767px) {
+    .about-wall-text.about-wall h2 {
+      font-size: 34px !important;
+  }
+  
+  .about-wall-text.about-wall p {
+      font-size: 18px !important;
+  }  
+  .about-wall.work-wall-text.work-txt-wal h2 {
+      font-size: 24px !important;
+  }  
+  .about-wall.work-wall-text.work-txt-wal p {
+      font-size: 16px !important;
+  }  
+  .about-wall.work-wall-text.work-txt-wal {
+      max-width: 300px;
+  }  
+  .about-wall.work-wall-text.service-text-row {
+      min-width: 160rem;
+      transform: translate(-34rem, -50%) !important;
+      gap: 50px;          
+  }  
+  .about-wall.work-wall-text.service-text-row h2 {
+      font-size: 28px !important;
+  }  
+  .about-wall.work-wall-text.service-text-row p {
+      font-size: 16px;
+  }
+    .about-wall.work-wall-text.service-text-row h5 {
+      font-size: 16px;
+  }
+}
