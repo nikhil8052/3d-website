@@ -21,7 +21,7 @@ export default function GapsPage() {
   const updateBoundaries = () => {
     if (window.innerWidth <= 768) {
       // Mobile boundaries
-      setBoundaries({ minX: -17200, maxX: 10 });
+      setBoundaries({ minX: -17790, maxX: 200 });
     } else {
       // Default boundaries
       setBoundaries({ minX: -17200, maxX: 0 });
