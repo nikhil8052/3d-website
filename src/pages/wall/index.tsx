@@ -5,7 +5,6 @@ import { PerspectiveCamera, OrbitControls } from '@react-three/drei';
 import React, { useRef, useEffect } from 'react';
 import { Office } from './Testing'; // Assuming Office is your 3D model
 import gsap from 'gsap';
-import LoadingScreen from '../components/Loading';
 import { Group } from 'three'; // Import Group from three.js
 
 export default function GapsPage() {
@@ -19,14 +18,14 @@ export default function GapsPage() {
 
   // Define min and max X position for the model
   const minX = -17200; // Minimum X position
-  const maxX = 0;  // Maximum X position
+  const maxX = 0; // Maximum X position
 
   // Function to move the model with boundary checks
   const moveModel = (deltaX) => {
     if (modelRef.current) {
       const targetPositionX = modelRef.current.position.x + deltaX;
       const clampedX = Math.max(minX, Math.min(maxX, targetPositionX));
-  
+
       gsap.to(modelRef.current.position, {
         x: clampedX,
         duration: damping,
@@ -34,36 +33,12 @@ export default function GapsPage() {
       });
     }
   };
-  
 
-  // Wheel scroll handler (reversed direction)
   // Wheel scroll handler (reversed direction and scaled to match scrollAmount)
-const handleWheel = (e) => {
-  e.preventDefault(); // Prevent default scrolling behavior
-  const scaleFactor = scrollAmount / 100; // Adjust scale for smoother scrolling
-  moveModel(-e.deltaY * scaleFactor); // Reversed and scaled
-};
-
-// Mouse drag handlers (scaled to match scrollAmount)
-const handleMouseMove = (e) => {
-  if (isDraggingRef.current) {
-    const deltaX = e.clientX - startXRef.current;
-    const scaleFactor = scrollAmount / 100; // Adjust scale for consistent drag distance
-    moveModel(deltaX * scaleFactor); // Natural drag direction with scaling
-    startXRef.current = e.clientX; // Update start position
-  }
-};
-
-
-  // Arrow key handler (reversed direction)
-  const handleKeyDown = (e) => {
-    const keyMap = {
-      ArrowLeft: scrollAmount, // Opposite direction
-      ArrowRight: -scrollAmount, // Opposite direction
-    };
-    if (keyMap[e.key]) {
-      moveModel(keyMap[e.key]);
-    }
+  const handleWheel = (e) => {
+    e.preventDefault(); // Prevent default scrolling behavior
+    const scaleFactor = scrollAmount / 100; // Adjust scale for smoother scrolling
+    moveModel(-e.deltaY * scaleFactor); // Reversed and scaled
   };
 
   // Mouse drag handlers
@@ -72,32 +47,58 @@ const handleMouseMove = (e) => {
     startXRef.current = e.clientX; // Record starting position
   };
 
-  // const handleMouseMove = (e) => {
-  //   if (isDraggingRef.current) {
-  //     const deltaX = e.clientX - startXRef.current;
-  //     moveModel(deltaX); // Natural drag direction
-  //     startXRef.current = e.clientX; // Update start position
-  //   }
-  // };
+  const handleMouseMove = (e) => {
+    if (isDraggingRef.current) {
+      const deltaX = e.clientX - startXRef.current;
+      const scaleFactor = scrollAmount / 100; // Adjust scale for consistent drag distance
+      moveModel(deltaX * scaleFactor); // Natural drag direction with scaling
+      startXRef.current = e.clientX; // Update start position
+    }
+  };
 
   const handleMouseUp = () => {
+    isDraggingRef.current = false;
+  };
+
+  // Touch event handlers for mobile
+  const handleTouchStart = (e) => {
+    if (e.touches.length === 1) { // Single-finger touch
+      isDraggingRef.current = true;
+      startXRef.current = e.touches[0].clientX; // Record starting position
+    }
+  };
+
+  const handleTouchMove = (e) => {
+    if (isDraggingRef.current) {
+      const deltaX = e.touches[0].clientX - startXRef.current;
+      const scaleFactor = scrollAmount / 100; // Adjust scale for consistent drag distance
+      moveModel(deltaX * scaleFactor); // Natural drag direction with scaling
+      startXRef.current = e.touches[0].clientX; // Update start position
+    }
+  };
+
+  const handleTouchEnd = () => {
     isDraggingRef.current = false;
   };
 
   // Attach event listeners
   useEffect(() => {
     window.addEventListener('wheel', handleWheel, { passive: false });
-    window.addEventListener('keydown', handleKeyDown);
     window.addEventListener('mousedown', handleMouseDown);
     window.addEventListener('mousemove', handleMouseMove);
     window.addEventListener('mouseup', handleMouseUp);
+    window.addEventListener('touchstart', handleTouchStart);
+    window.addEventListener('touchmove', handleTouchMove);
+    window.addEventListener('touchend', handleTouchEnd);
 
     return () => {
       window.removeEventListener('wheel', handleWheel);
-      window.removeEventListener('keydown', handleKeyDown);
       window.removeEventListener('mousedown', handleMouseDown);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mouseup', handleMouseUp);
+      window.removeEventListener('touchstart', handleTouchStart);
+      window.removeEventListener('touchmove', handleTouchMove);
+      window.removeEventListener('touchend', handleTouchEnd);
     };
   }, []);
 
@@ -112,9 +113,8 @@ const handleMouseMove = (e) => {
     >
       <Canvas>
         {/* Lighting */}
-        {/* <ambientLight intensity={1} /> */}
         <ambientLight intensity={2} />
-        
+
         {/* Camera */}
         <PerspectiveCamera
           ref={cameraRef}
@@ -126,12 +126,11 @@ const handleMouseMove = (e) => {
         />
 
         {/* Orbit Controls */}
-        <OrbitControls enableZoom={false} enablePan={true} enableRotate={false} />
+        <OrbitControls enableZoom={false} enablePan={false} enableRotate={false} />
 
         {/* 3D Content */}
         <group ref={modelRef}>
-         <Office /> 
-          {/*  <LoadingScreen /> */}
+          <Office />
         </group>
       </Canvas>
     </div>
