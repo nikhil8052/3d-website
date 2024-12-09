@@ -2,10 +2,9 @@
 
 import { Canvas } from '@react-three/fiber';
 import { PerspectiveCamera, OrbitControls } from '@react-three/drei';
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { Office } from './Testing'; // Assuming Office is your 3D model
 import gsap from 'gsap';
-import { Group } from 'three'; // Import Group from three.js
 
 export default function GapsPage() {
   const modelRef = useRef();
@@ -16,15 +15,33 @@ export default function GapsPage() {
   const scrollAmount = 500; // Controls the distance for each scroll step
   const damping = 0.9; // Damping factor for animations
 
-  // Define min and max X position for the model
-  const minX = -17200; // Minimum X position
-  const maxX = 0; // Maximum X position
+  const [boundaries, setBoundaries] = useState({ minX: -17200, maxX: 0 });
+
+  // Function to update boundaries based on screen size
+  const updateBoundaries = () => {
+    if (window.innerWidth <= 768) {
+      // Mobile boundaries
+      setBoundaries({ minX: -17200, maxX: 10 });
+    } else {
+      // Default boundaries
+      setBoundaries({ minX: -17200, maxX: 0 });
+    }
+  };
+
+  useEffect(() => {
+    // Set initial boundaries
+    updateBoundaries();
+
+    // Update boundaries on resize
+    window.addEventListener('resize', updateBoundaries);
+    return () => window.removeEventListener('resize', updateBoundaries);
+  }, []);
 
   // Function to move the model with boundary checks
   const moveModel = (deltaX) => {
     if (modelRef.current) {
       const targetPositionX = modelRef.current.position.x + deltaX;
-      const clampedX = Math.max(minX, Math.min(maxX, targetPositionX));
+      const clampedX = Math.max(boundaries.minX, Math.min(boundaries.maxX, targetPositionX));
 
       gsap.to(modelRef.current.position, {
         x: clampedX,
@@ -34,25 +51,24 @@ export default function GapsPage() {
     }
   };
 
-  // Wheel scroll handler (reversed direction and scaled to match scrollAmount)
+  // Event handlers for scrolling and dragging remain unchanged
   const handleWheel = (e) => {
-    e.preventDefault(); // Prevent default scrolling behavior
-    const scaleFactor = scrollAmount / 100; // Adjust scale for smoother scrolling
-    moveModel(-e.deltaY * scaleFactor); // Reversed and scaled
+    e.preventDefault();
+    const scaleFactor = scrollAmount / 100;
+    moveModel(-e.deltaY * scaleFactor);
   };
 
-  // Mouse drag handlers
   const handleMouseDown = (e) => {
     isDraggingRef.current = true;
-    startXRef.current = e.clientX; // Record starting position
+    startXRef.current = e.clientX;
   };
 
   const handleMouseMove = (e) => {
     if (isDraggingRef.current) {
       const deltaX = e.clientX - startXRef.current;
-      const scaleFactor = scrollAmount / 100; // Adjust scale for consistent drag distance
-      moveModel(deltaX * scaleFactor); // Natural drag direction with scaling
-      startXRef.current = e.clientX; // Update start position
+      const scaleFactor = scrollAmount / 100;
+      moveModel(deltaX * scaleFactor);
+      startXRef.current = e.clientX;
     }
   };
 
@@ -60,20 +76,19 @@ export default function GapsPage() {
     isDraggingRef.current = false;
   };
 
-  // Touch event handlers for mobile
   const handleTouchStart = (e) => {
-    if (e.touches.length === 1) { // Single-finger touch
+    if (e.touches.length === 1) {
       isDraggingRef.current = true;
-      startXRef.current = e.touches[0].clientX; // Record starting position
+      startXRef.current = e.touches[0].clientX;
     }
   };
 
   const handleTouchMove = (e) => {
     if (isDraggingRef.current) {
       const deltaX = e.touches[0].clientX - startXRef.current;
-      const scaleFactor = scrollAmount / 100; // Adjust scale for consistent drag distance
-      moveModel(deltaX * scaleFactor); // Natural drag direction with scaling
-      startXRef.current = e.touches[0].clientX; // Update start position
+      const scaleFactor = scrollAmount / 100;
+      moveModel(deltaX * scaleFactor);
+      startXRef.current = e.touches[0].clientX;
     }
   };
 
@@ -81,7 +96,6 @@ export default function GapsPage() {
     isDraggingRef.current = false;
   };
 
-  // Attach event listeners
   useEffect(() => {
     window.addEventListener('wheel', handleWheel, { passive: false });
     window.addEventListener('mousedown', handleMouseDown);
@@ -106,29 +120,22 @@ export default function GapsPage() {
     <div
       style={{
         width: '100vw',
-        height: '170vh', // Adjust height for multi-page scrolling
+        height: '170vh',
         overflow: 'hidden',
         position: 'relative',
       }}
     >
       <Canvas>
-        {/* Lighting */}
         <ambientLight intensity={2} />
-
-        {/* Camera */}
         <PerspectiveCamera
           ref={cameraRef}
           makeDefault
-          position={[0, 400, 1500]} // Keep camera position fixed for no zoom effect
+          position={[0, 400, 1500]}
           fov={50}
           near={0.9}
           far={10000}
         />
-
-        {/* Orbit Controls */}
         <OrbitControls enableZoom={false} enablePan={false} enableRotate={false} />
-
-        {/* 3D Content */}
         <group ref={modelRef}>
           <Office />
         </group>
