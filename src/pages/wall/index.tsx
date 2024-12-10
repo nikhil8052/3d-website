@@ -9,38 +9,31 @@ import gsap from 'gsap';
 export default function GapsPage() {
   const modelRef = useRef();
   const cameraRef = useRef();
-  const isDraggingRef = useRef(false); // Track mouse drag state
-  const startXRef = useRef(0); // Track the starting X position for dragging
+  const isDraggingRef = useRef(false); // Track drag state
+  const startPosRef = useRef(0); // Track start position (X for desktop, Y for mobile)
 
-  const scrollAmount = 500; // Controls the distance for each scroll step
-  const damping = 0.9; // Damping factor for animations
-
+  const scrollAmount = 500; // Controls scroll movement
+  const damping = 0.9; // Animation damping
+  const [isMobileView, setIsMobileView] = useState(false);
   const [boundaries, setBoundaries] = useState({ minX: -17200, maxX: 0 });
 
-  // Function to update boundaries based on screen size
-  const updateBoundaries = () => {
-    if (window.innerWidth <= 768) {
-      // Mobile boundaries
-      setBoundaries({ minX: -17790, maxX: 200 });
-    } else {
-      // Default boundaries
-      setBoundaries({ minX: -17200, maxX: 0 });
-    }
+  // Update view mode and boundaries based on screen size
+  const updateViewMode = () => {
+    const isMobile = window.innerWidth <= 768;
+    setIsMobileView(isMobile);
+    setBoundaries(isMobile ? { minX: -17790, maxX: 200 } : { minX: -17200, maxX: 0 });
   };
 
   useEffect(() => {
-    // Set initial boundaries
-    updateBoundaries();
-
-    // Update boundaries on resize
-    window.addEventListener('resize', updateBoundaries);
-    return () => window.removeEventListener('resize', updateBoundaries);
+    updateViewMode();
+    window.addEventListener('resize', updateViewMode);
+    return () => window.removeEventListener('resize', updateViewMode);
   }, []);
 
-  // Function to move the model with boundary checks
-  const moveModel = (deltaX) => {
+  // Move the model with boundary checks
+  const moveModel = (delta) => {
     if (modelRef.current) {
-      const targetPositionX = modelRef.current.position.x + deltaX;
+      const targetPositionX = modelRef.current.position.x + delta;
       const clampedX = Math.max(boundaries.minX, Math.min(boundaries.maxX, targetPositionX));
 
       gsap.to(modelRef.current.position, {
@@ -51,44 +44,25 @@ export default function GapsPage() {
     }
   };
 
-  // Event handlers for scrolling and dragging remain unchanged
-  const handleWheel = (e) => {
-    e.preventDefault();
-    const scaleFactor = scrollAmount / 100;
-    moveModel(-e.deltaY * scaleFactor);
-  };
-
-  const handleMouseDown = (e) => {
-    isDraggingRef.current = true;
-    startXRef.current = e.clientX;
-  };
-
-  const handleMouseMove = (e) => {
-    if (isDraggingRef.current) {
-      const deltaX = e.clientX - startXRef.current;
-      const scaleFactor = scrollAmount / 100;
-      moveModel(deltaX * scaleFactor);
-      startXRef.current = e.clientX;
-    }
-  };
-
-  const handleMouseUp = () => {
-    isDraggingRef.current = false;
-  };
-
+  // Mobile: Touch Events
   const handleTouchStart = (e) => {
-    if (e.touches.length === 1) {
+    if (isMobileView && e.touches.length === 1) {
       isDraggingRef.current = true;
-      startXRef.current = e.touches[0].clientX;
+      startPosRef.current = e.touches[0].clientY; // Start Y position for touch
     }
   };
 
   const handleTouchMove = (e) => {
-    if (isDraggingRef.current) {
-      const deltaX = e.touches[0].clientX - startXRef.current;
+    if (isMobileView && isDraggingRef.current) {
+      // Calculate delta Y as the difference between the initial touch position and current touch position
+      const deltaY = e.touches[0].clientY - startPosRef.current;
+
+      // Reverse the movement direction so that scrolling up moves right and scrolling down moves left
       const scaleFactor = scrollAmount / 100;
-      moveModel(deltaX * scaleFactor);
-      startXRef.current = e.touches[0].clientX;
+      moveModel(deltaY * scaleFactor); // No negation needed here, because the direction is reversed naturally by deltaY calculation
+
+      // Update the start position for next movement
+      startPosRef.current = e.touches[0].clientY;
     }
   };
 
@@ -96,25 +70,68 @@ export default function GapsPage() {
     isDraggingRef.current = false;
   };
 
+  // Desktop: Mouse Events
+  const handleMouseDown = (e) => {
+    if (!isMobileView) {
+      isDraggingRef.current = true;
+      startPosRef.current = e.clientX; // Track mouse down position
+    }
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isMobileView && isDraggingRef.current) {
+      const deltaX = e.clientX - startPosRef.current;
+
+      const scaleFactor = scrollAmount / 100;
+      moveModel(deltaX * scaleFactor); // Move the model with deltaX
+
+      startPosRef.current = e.clientX; // Update start position
+    }
+  };
+
+  const handleMouseUp = () => {
+    isDraggingRef.current = false;
+  };
+
+  // Desktop: Mouse Wheel Event
+  const handleWheel = (e) => {
+    if (!isMobileView) {
+      // Reverse the wheel scroll direction so that scrolling up moves right and scrolling down moves left
+      const delta = e.deltaY;
+      const scaleFactor = scrollAmount / 100;
+      moveModel(delta * scaleFactor);
+    }
+  };
+
   useEffect(() => {
-    window.addEventListener('wheel', handleWheel, { passive: false });
-    window.addEventListener('mousedown', handleMouseDown);
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('mouseup', handleMouseUp);
-    window.addEventListener('touchstart', handleTouchStart);
-    window.addEventListener('touchmove', handleTouchMove);
-    window.addEventListener('touchend', handleTouchEnd);
+    if (isMobileView) {
+      // Mobile-specific event listeners
+      window.addEventListener('touchstart', handleTouchStart);
+      window.addEventListener('touchmove', handleTouchMove);
+      window.addEventListener('touchend', handleTouchEnd);
+    } else {
+      // Desktop-specific event listeners
+      window.addEventListener('mousedown', handleMouseDown);
+      window.addEventListener('mousemove', handleMouseMove);
+      window.addEventListener('mouseup', handleMouseUp);
+      window.addEventListener('wheel', handleWheel); // Mouse wheel event listener
+    }
 
     return () => {
-      window.removeEventListener('wheel', handleWheel);
-      window.removeEventListener('mousedown', handleMouseDown);
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseup', handleMouseUp);
-      window.removeEventListener('touchstart', handleTouchStart);
-      window.removeEventListener('touchmove', handleTouchMove);
-      window.removeEventListener('touchend', handleTouchEnd);
+      if (isMobileView) {
+        // Clean up mobile-specific event listeners
+        window.removeEventListener('touchstart', handleTouchStart);
+        window.removeEventListener('touchmove', handleTouchMove);
+        window.removeEventListener('touchend', handleTouchEnd);
+      } else {
+        // Clean up desktop-specific event listeners
+        window.removeEventListener('mousedown', handleMouseDown);
+        window.removeEventListener('mousemove', handleMouseMove);
+        window.removeEventListener('mouseup', handleMouseUp);
+        window.removeEventListener('wheel', handleWheel); // Clean up mouse wheel listener
+      }
     };
-  }, []);
+  }, [isMobileView]);
 
   return (
     <div
