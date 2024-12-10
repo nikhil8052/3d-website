@@ -1,7 +1,9 @@
+
 import "@/styles/globals.css";
 import { Rock_Salt, Poppins } from "next/font/google";
 import type { AppProps } from "next/app";
 import localFont from "next/font/local";
+
 
 // Load Local Fonts
 const ppFormulaCondensed = localFont({
