@@ -250,6 +250,10 @@ html, body, #__next {
   border-radius: 5px;
   margin-top: 15px;
 }
+.contact-form form input:focus-visible, .contact-form form textarea:focus-visible {
+  outline: none;
+}
+
 .about-wall-text.about-wall h2{
   font-size: 2.35vw!important;
 }
@@ -258,18 +262,25 @@ html, body, #__next {
   font-size: 1.05vw!important;
 }
 
-@media screen and (min-width: 1400px) {
+
+@media screen and (min-width: 1600px) {
 /* .about-wall.work-wall-text.work-txt-wal{
   transform: translate(-60%, -50%) !important;
 } */
 /* .about-wall.work-wall-text.work-txt-wal{
   max-width: 17rem;
 } */
+.work-wall-text {
+  max-width: 370px;
+}
+.about-wall.work-wall-text.service-text-row{
+  min-width: 175rem;
+}
 }
 
 @media screen and (min-width: 1400px) and (max-width: 1600px) {
   .about-wall.work-wall-text.work-txt-wal{
-    max-width: 15rem;
+    max-width: 18rem;
   }
   .service-text-row .service-text-col h2{
     font-size: 1.25vw!important;
@@ -310,7 +321,40 @@ html, body, #__next {
   }
     }
 
-    @media screen and (max-width: 767px) {
+    @media screen and (max-width: 1100px) {
+      .about-wall-text.about-wall h2 {
+        font-size: 40px !important;
+    }
+    
+    .about-wall-text.about-wall p {
+        font-size: 22px !important;
+    }  
+    .about-wall.work-wall-text.work-txt-wal h2 {
+        font-size: 30px !important;
+    }  
+    .about-wall.work-wall-text.work-txt-wal p {
+        font-size: 18px !important;
+    }  
+    .about-wall.work-wall-text.work-txt-wal {
+        max-width: 300px;
+    }  
+    .about-wall.work-wall-text.service-text-row {
+        min-width: 160rem;
+        transform: translate(-34rem, -50%) !important;
+        gap: 50px;          
+    }  
+    .about-wall.work-wall-text.service-text-row h2 {
+        font-size: 30px !important;
+    }  
+    .about-wall.work-wall-text.service-text-row p {
+        font-size: 18px;
+    }
+      .about-wall.work-wall-text.service-text-row h5 {
+        font-size: 18px;
+    }
+  }
+
+    @media screen and (max-width: 991px) {
     .about-wall-text.about-wall h2 {
       font-size: 34px !important;
   }
@@ -341,4 +385,13 @@ html, body, #__next {
     .about-wall.work-wall-text.service-text-row h5 {
       font-size: 16px;
   }
+}
+
+
+@media screen and (max-width:390px) {
+.about-wall.work-wall-text.service-text-row {
+  min-width: 160rem;
+  transform: translate(-40rem, -50%) !important;
+  gap: 50px;          
+} 
 }
