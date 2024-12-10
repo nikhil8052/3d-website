@@ -156,7 +156,7 @@ export default function GapsPage() {
         <group ref={modelRef}>
           <Office />
         </group>
-      </Canvas>
+      </Canvas> 
     </div>
   );
 }
