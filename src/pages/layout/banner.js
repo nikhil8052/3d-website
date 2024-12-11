@@ -5,7 +5,7 @@ import React from 'react';
 
 const HeroBanner = () => {
   return (
-    <section class="banner  bg-brown">
+    <section class="banner  bg-brown py_100">
     <div class="container">
         <div class="row py-4">
             <div class="col-lg-6 col-md-6 col-sm-6">

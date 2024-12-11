@@ -5,6 +5,8 @@
 
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rock+Salt&display=swap');
+/* @import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css"; */
 
 
 @font-face {
@@ -37,6 +39,14 @@
   font-display: swap;
 }
 
+
+@font-face {
+  font-family: 'PP Formula Condensed';
+  font-weight: 200;
+  font-style: normal;
+  src: url('../pages/fonts/PPFormulaCondensedExtralight.woff') format('woff');
+  font-display: swap;
+}
 
 :root {
   --background: #ffffff;
@@ -80,12 +90,20 @@ h1,h2,h3,h4,h5,h6{
   font-style: normal; /* Adjust style if necessary */
 }
 /* Add this to your global CSS or a specific stylesheet */
-html, body, #__next {
+
+html.\/wall ,html.\/wall body ,html.\/wall body #__next,
+html.home-page ,html.home-page body ,html.home-page #_next{
   margin: 0;
   padding: 0;
   height: 100%;
   overflow: hidden;
 }
+/* html, body, #__next {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+} */
 .wow-container {
   background: transparent;
   height: 400rem;
@@ -402,3 +420,383 @@ html, body, #__next {
 
 
 
+
+
+/* inner pages css start here */
+
+
+/* global css start here */
+
+
+.py_120 {
+  padding: 120px 0px;
+}
+.pb_120{
+  padding-bottom: 120px;
+}
+.pb_100{
+  padding-bottom: 100px;
+}
+.py_100{
+  padding: 100px 0;
+}
+.pt_100{
+padding-top: 100px;
+}
+.pt_50{
+  padding-top: 50px;
+}
+.mt-50{
+  margin-top: 50px;
+}
+
+a{
+  text-decoration: none;
+}
+
+
+h1 {
+  font-family: 'PP Formula Condensed';
+  font-size: 130px;
+  font-weight: 200;
+  line-height: 140px;
+  letter-spacing: 0.03em;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+
+h2 {
+  font-size: 100px;
+  font-weight: 200;
+  line-height: 110px;
+  letter-spacing: 0.03em;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  
+}
+
+
+h3 {
+  /* font-family: "Rock Salt", serif; */
+  font-size: 50px;
+  font-weight: 400;
+  line-height: 119.29px;
+  letter-spacing: 0.03em;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+h4 {
+  /* font-family: "Poppins", sans-serif; */
+  font-size: 36px;
+  font-weight: 400;
+  line-height: 50px;
+  letter-spacing: 0.03em;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+h5 {
+  /* font-family: "Poppins", sans-serif; */
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 40px;
+  letter-spacing: 0.03em;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+h6{
+font-size: 40px;
+font-weight: bold;
+line-height: 53.44px;
+letter-spacing: 0.03em;
+text-align: left;
+text-underline-position: from-font;
+text-decoration-skip-ink: none;
+
+}
+.cta {
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 22.5px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  background: #000000;
+  color: #fff;
+  padding: 11px 24.5px;
+  display: inline-block;
+  max-width: 100%;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.cta:hover {
+  color: #FFDCBF;
+
+}
+
+.bg-brown {
+  background-color: #fff8f2 !important;
+}
+
+.hdr-btn {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  margin-top: 40px;
+}
+.hdr-btn span.arrow {
+  display: inline-flex;
+  position: relative;
+  overflow: hidden;
+}
+.hdr-btn span.arrow:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000;
+  transform: translateY(100%);
+  transition: transform .5s;
+  transition-delay: 0s;
+  transition-timing-function: ease
+}
+.hdr-btn:hover span.arrow:after {
+  transform: translateY(0)
+}
+.hdr-btn:hover span.arrow i {
+  color: #fff;
+  z-index: 99;
+}
+.hdr-btn .view-more-txt {
+  position: relative;
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+.hdr-btn .view-more-txt .view-more-txt-btm {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.hdr-btn .view-more-txt .view-more-txt-upr {
+  position: static;
+}
+.hdr-btn .view-more-txt .view-more-txt-btm  {
+  display: inline-block;
+  transform: translateY(110%);
+}
+.hdr-btn:hover .view-more-txt .view-more-txt-upr {
+  display: inline-block;
+  transform: translateY(-110%); 
+  transition: transform .5s;
+  transition-delay: 0s;
+  transition-timing-function: ease
+}
+.hdr-btn:hover .view-more-txt .view-more-txt-btm  {
+transform: translateY(0%);
+  transition: transform .5s;
+  transition-delay: 0s;
+  transition-timing-function: ease
+}
+
+
+
+/* banner sec css start here */
+
+.banner-info-2 a {
+  text-decoration: none;
+  color: black;
+}
+.banner-info-part-1 {
+  display: flex;
+  justify-content: start;
+  gap: 9px;
+}
+.banner-info-2 span.Services {
+  color: #F7892F;
+}
+.banner-info-part-2 {
+  font-family: Rock Salt;
+  font-size: 20px;
+  line-height: 31px;
+  letter-spacing: 0.03em;
+  max-width: 443.47px;
+}
+.banner-part-3 {
+  max-width: 1244px;
+}
+.banner-part-4 {
+  border-top: 1px solid #0000004D;
+  padding: 40px 0px;
+}
+.banner-inner-text {
+  max-width: 673px;
+}
+
+
+
+/* section laptop-video */
+
+.laptop-img {
+  padding: 85px 0px;
+}
+
+
+/* dummy-design css */
+
+.dummy-text-1 {
+  max-width: 628px;
+  /* font-family: "Rock Salt", serif; */
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 29px;
+  letter-spacing: 0.03em;
+  text-align: left;
+}
+
+.dummy-text-2 {
+  /* max-width: 530px; */
+}
+
+.dummy-text-3 {
+  max-width: 491px;
+}
+
+.dummy {
+  z-index: 1;
+}
+
+.img-dummy-bg {
+  max-width: 804px;
+  height: 100%;
+  background: #FFDCBF;
+  box-shadow: 0px 0px 30px 0px #0000001F inset;
+  z-index: -1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner-dummy-img {
+  max-width: 711.52px;
+}
+
+.dummy-text-4 {
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.dummy-text-4 span.arrow {
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 12px 17px;
+  margin-right: 14px;
+}
+
+
+
+/* we-work module */
+.we-work {
+/* background-color: #fff8f2; */
+}
+
+.inner-work-t {
+max-width: 1100px;
+}
+.brdr {
+border-bottom: 1px solid #0000004D
+}
+.inner-para {
+max-width: 583px;
+margin-top: 40px;
+}
+
+
+/* ImagetextGrid module css start here */
+.info-box {
+  max-width: 1318px;
+}
+
+.box-imgpara .img-part {
+  flex: 0 0 20%;
+}
+
+.info-h5 {
+  max-width: 427px;
+  padding-top: 45px;
+}
+
+.info-para {
+  max-width: 414px;
+}
+
+
+
+
+/* accordian faq start here */
+
+/* lorem */
+.any-question {
+  max-width: 1438px;
+}
+.lorem-boxs {
+  max-width: 1195px;
+}
+
+.border_t {
+  border: none;
+  border-top: 1px solid #0000004D !important;
+}
+
+.boder_b {
+  border-bottom: 1px solid #0000004D
+}
+
+.fs-22 {
+  font-family: "Poppins", sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  line-height: 28px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.accordion-button::after {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  content: "\f067";
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: #fff8f2;
+  border: 1px solid #000000;
+  background-image: none !important;
+}
+
+.accordion-button:not(.collapsed) {
+  color: black;
+  background-color: white;
+  box-shadow: inset 0 calc(-1 * var(--bs-accordion-border-width)) 0 var(--bs-accordion-border-color);
+}

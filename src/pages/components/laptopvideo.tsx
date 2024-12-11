@@ -1,7 +1,6 @@
 "use client";  // Add this at the top
 
 import React from 'react';
-import { Html } from '../../../node_modules/next/document';
 import Image from 'next/image';
 
 const LaptopVideo = () => {

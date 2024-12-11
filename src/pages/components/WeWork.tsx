@@ -7,7 +7,7 @@ import React from 'react';
 const WeWork = () => {
   return (
 
-    <section className="we-work  background pt_307">
+    <section className="we-work  bg-brown py_120">
         <div className="container ">
             <div className="inner-work-t brdr">
                 <h2>We work with the most moderate organizations from everywhere the world.</h2>

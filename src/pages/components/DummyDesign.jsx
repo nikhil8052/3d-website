@@ -1,13 +1,12 @@
 "use client";  // Add this at the top
 
 import React from 'react';
-import { Html } from '../../../node_modules/next/document';
 import Image from 'next/image';
 
 const DummyDesign = () => {
   return (
 
-<section class="dummy  background py_120 position-relative">
+<section class="dummy bg-brown py_120 position-relative">
         <div class="container">
             <div class="row align-items-center g-4 fd">
                 <div class="col-lg-6">
@@ -25,7 +24,31 @@ const DummyDesign = () => {
                     <div class="dummy-text-4">
                         <a href="" class="hdr-btn mt_42 text-body">
                             <span class="arrow"><i class="fa-solid fa-chevron-right"></i></span>
-                            View More
+                            <span className='view-more-txt'>
+                                <span className='view-more-txt-upr'>
+                                <span>V</span>
+                                <span>i</span>
+                                <span>e</span>
+                                <span>w</span>
+                                <span> </span>
+                                <span>M</span>
+                                <span>o</span>
+                                <span>r</span>
+                                <span>e</span>
+                                </span>
+                                <span className='view-more-txt-btm'>
+                                <span>V</span>
+                                <span>i</span>
+                                <span>e</span>
+                                <span>w</span>
+                                <span> </span>
+                                <span>M</span>
+                                <span>o</span>
+                                <span>r</span>
+                                <span>e</span>
+                            </span>
+                            </span>
+                           
                         </a>
                     </div>
                 </div>
