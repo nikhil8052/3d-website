@@ -11,7 +11,12 @@ const LaptopVideo = () => {
         <div className="container">
             <div className="img-laptop">
                 {/* <img src="assets/images/laptopimg.png" class="img-fluid" alt="laptop"> */}
-                <Image src="/img/laptop-img.png" alt="Laptop Image" width={500} height={300} />
+                <Image 
+  className="img-fluid" 
+  src="/img/laptop-img.png" 
+  alt="Laptop Image"  width={1400} height={700}
+  style={{ width: '100%', height: 'auto' }} 
+/>
             </div>
         </div>
     </section>
