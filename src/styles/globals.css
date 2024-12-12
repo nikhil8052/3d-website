@@ -395,3 +395,46 @@ html, body, #__next {
   gap: 50px;          
 } 
 }
+
+/* 𝘵𝘦𝘴𝘵 */
+
+.main-header {
+  padding: 20px 0px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+z-index:9999;
+}
+.hdr-btn {
+  display: inline-block;
+  max-width: 100%;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.nav-btn {
+  width: 45px;
+  height: 45px;
+  background: #000000;
+  border: 1.5px solid #FFFFFF;
+  flex-direction: column;
+  justify-content: space-around;
+  display: inline-flex;
+  padding: 14px;
+}
+span.bar {
+  width: 18.66px;
+  height: 2px;
+  background-color: #fff;
+}
+.nav-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+}
+.main-header nav.navbar {
+  padding: 0;
+}
+.nav-button .cta.hdr-btn {
+  margin-top: 0;
+}

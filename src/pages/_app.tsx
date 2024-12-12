@@ -2,28 +2,29 @@ import "@/styles/globals.css";
 import { Rock_Salt, Poppins } from "next/font/google";
 import type { AppProps } from "next/app";
 import localFont from "next/font/local";
+import Layout from "./components/Layout";
 
 // Load Local Fonts
 const ppFormulaCondensed = localFont({
   src: [
     {
-      path: "/fonts/PPFormulaCondensedBlack.woff", // Ensure this path is correct relative to the public folder
+      path: "/fonts/PPFormulaCondensedBlack.woff",
       weight: "900",
       style: "normal",
     },
   ],
-  variable: "--font-ppformula", // Optional custom variable
+  variable: "--font-ppformula",
 });
 
 const ppFormulaExtra = localFont({
   src: [
     {
-      path: "../pages/fonts/PPFormulaExtrabold.woff", // Ensure this path is correct relative to the public folder
+      path: "/fonts/PPFormulaExtrabold.woff",
       weight: "800",
       style: "normal",
     },
   ],
-  variable: "--font-ppformulabold", // Optional custom variable
+  variable: "--font-ppformulabold",
 });
 
 // Load Google Fonts
@@ -35,7 +36,9 @@ export default function App({ Component, pageProps }: AppProps) {
     <main
       className={`${rockSalt.className} ${ppFormulaCondensed.variable} ${ppFormulaExtra.variable} ${poppins.className}`}
     >
-      <Component {...pageProps} />
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
     </main>
   );
 }
