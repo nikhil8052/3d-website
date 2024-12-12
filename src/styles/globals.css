@@ -449,6 +449,9 @@ padding-top: 100px;
 .mt-50{
   margin-top: 50px;
 }
+.mb-50{
+  margin-bottom: 50px;
+}
 
 a{
   text-decoration: none;
@@ -468,6 +471,7 @@ h1 {
 
 
 h2 {
+  font-family: 'PP Formula Condensed';
   font-size: 100px;
   font-weight: 200;
   line-height: 110px;
@@ -543,7 +547,66 @@ text-decoration-skip-ink: none;
 .bg-brown {
   background-color: #fff8f2 !important;
 }
+html.\/services body::-webkit-scrollbar-track{
+	border-radius: 10px;
+	background-color: #F5F5F5;
+    display:none;
+}
+html.\/services body::-webkit-scrollbar{
+	width: 12px;
+	background-color: #FFF2FF80;
+}
+html.\/services body::-webkit-scrollbar-thumb{
+	border-radius: 10px;
+	background-color: #babac0;
+}
 
+
+
+/* header css start here */
+.main-header {
+  padding: 20px 0px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 99999;
+}
+.hdr-btn {
+  display: inline-block;
+  max-width: 100%;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.nav-btn {
+  width: 45px;
+  height: 45px;
+  background: #000000;
+  border: 1.5px solid #FFFFFF;
+  flex-direction: column;
+  justify-content: space-around;
+  display: inline-flex;
+  padding: 14px;
+}
+span.bar {
+  width: 18.66px;
+  height: 2px;
+  background-color: #fff;
+}
+.nav-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+}
+.main-header nav.navbar {
+  padding: 0;
+}
+.nav-button .cta.hdr-btn {
+  margin-top: 0;
+}
+
+
+/* button css start here */
 .hdr-btn {
   display: inline-flex;
   align-items: center;
@@ -575,7 +638,7 @@ text-decoration-skip-ink: none;
   color: #fff;
   z-index: 99;
 }
-.hdr-btn .view-more-txt {
+.hdr-btn .view-more-txt ,.hdr-btn.bg-btn {
   position: relative;
   position: relative;
   display: block;
@@ -606,7 +669,17 @@ transform: translateY(0%);
   transition-delay: 0s;
   transition-timing-function: ease
 }
-
+.hdr-btn.bg-btn{
+  position: relative;
+  position: relative;
+  display: inline-block;
+  overflow: hidden; 
+}
+/* .hdr-btn.bg-btn:hover {
+  transition: 0.6s ease;
+  background: #FFDCBF;
+  color: #000;
+} */
 
 
 /* banner sec css start here */
@@ -651,7 +724,9 @@ transform: translateY(0%);
 
 
 /* dummy-design css */
-
+.dummy-list-items{
+  position: relative;
+}
 .dummy-text-1 {
   max-width: 628px;
   /* font-family: "Rock Salt", serif; */
@@ -764,8 +839,11 @@ margin-top: 40px;
 .boder_b {
   border-bottom: 1px solid #0000004D
 }
+.accordian-box{
+  border-top: 1px solid #0000004D !important;
+}
 
-.fs-22 {
+.fs-22 {  
   font-family: "Poppins", sans-serif;
   font-size: 22px;
   font-weight: 400;
@@ -774,6 +852,43 @@ margin-top: 40px;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
 }
+  .main-header {
+  padding: 20px 0px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+.main-header .hdr-btn {
+  display: inline-block;
+  max-width: 100%;
+  border-radius: 5px;
+  text-decoration: none;
+}
+.main-header .nav-btn {
+  width: 45px;
+  height: 45px;
+  background: #000000;
+  border: 1.5px solid #FFFFFF;
+  flex-direction: column;
+  justify-content: space-around;
+  display: inline-flex;
+  padding: 14px;
+}
+.main-header span.bar {
+  width: 18.66px;
+  height: 2px;
+  background-color: #fff;
+}
+.main-header .nav-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+}
+.main-header nav.navbar {
+  padding: 0;
+}
+
 
 .accordion-button:focus {
   box-shadow: none;
@@ -799,4 +914,323 @@ margin-top: 40px;
   color: black;
   background-color: white;
   box-shadow: inset 0 calc(-1 * var(--bs-accordion-border-width)) 0 var(--bs-accordion-border-color);
+}
+
+
+
+.accordion-collapse {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+
+.accordion-collapse.show {
+  max-height: 200px; /* Adjust height to fit content */
+}
+
+.accordion-button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  text-align: left;
+  width: 100%;
+  padding: 10px;
+  font-size: 18px;
+}
+
+.accordion-item {
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}
+
+/* .accordion-item.active .accordion-button {
+  font-weight: bold;
+} */
+
+.accordion-item .collapsed {
+  font-weight: normal;
+}
+
+.faq-sec .accordion .accordion-item {
+  background: transparent;
+  border-bottom: 1px solid #0000004D !important;
+  border-inline: none;
+  border-top: none !important;
+  border-radius: 0;
+  margin-bottom: 0;
+}
+.faq-sec .accordion .accordion-item button.accordion-button {
+  background: transparent;
+  border: none !important;
+  box-shadow: none;
+}
+.faq-sec .accordion .accordion-item .accordion-collapse .accordion-body {
+  border: none !important;
+}
+
+
+
+/* slider css start here */
+
+.img-box-child-1 {
+  max-width: 26.65px;
+}
+
+.img-box-child-2 {
+  max-width: 626px;
+}
+
+.pt_12 {
+  padding-top: 12px;
+}
+
+.vrglass {
+  max-width: 50px;
+}
+
+.text-box-3 {
+  font-family: "Poppins", sans-serif;
+  font-size: 20px;
+  font-weight: 200;
+  line-height: 26.4px;
+  letter-spacing: 0.03em;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+
+}
+
+.box-3part-2 {
+  max-width: 91px;
+}
+
+.pa-1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: right;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+
+}
+
+.box-p-1 {
+  max-width: 91px;
+}
+
+.box-p-2 {
+  max-width: 58px;
+}
+
+.pa-2 {
+  color: #6B7C8F;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+  text-align: right;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+.need-slider-box {
+  border-radius: 15px;
+  background: #FFFFFF;
+  padding: 25px 67px;
+
+}
+
+
+/*   Progress Bar
+*/
+.progress {
+   display: block;
+   max-width: 1440px;
+   height: 2px;
+   margin-top: 52px;
+   border-radius: 10px;
+   overflow: hidden;
+   background: #D9D9D9;
+   margin-bottom: 120px;
+   background-image: linear-gradient(to right, black, black);
+   background-repeat: no-repeat;
+   background-size: 0 100%;
+
+   transition: background-size 0.4s ease-in-out;
+}
+
+
+/* .content {
+   margin: auto;
+   max-width: 1520px;
+   position: relative;
+
+}
+
+.content::after {
+   content: "";
+   position: absolute;
+   width: 100%;
+   height: 280px;
+   background-color: #fff8f2;
+   top: 0%;
+   right: 100%;
+} */
+
+
+
+.pt_12 {
+   padding-top: 12px;
+}
+
+.sr-only {
+   position: absolute;
+   width: 1px;
+   height: 1px;
+   padding: 0;
+   margin: -1px;
+   overflow: hidden;
+   clip: rect(0, 0, 0, 0);
+   border: 0;
+}
+
+
+/* end of slider css */
+
+
+
+
+
+
+
+
+
+
+
+/* responsive css start here */
+
+@media (min-width:1500px) {
+  .container {
+      max-width: 1470px;
+      width: 100%;
+  }
+}
+@media (max-width:1499px) {
+  h1 {
+      font-size: 96px;
+      line-height: 1.1;
+  }
+  h2 {
+      font-size: 85px;
+  }
+}
+
+@media (max-width:1399px) {
+  h1 {
+      font-size: 86px;
+      line-height: 1.1;
+  }
+  /* h2 {
+      font-size: 65px;
+      line-height: 1;
+  } */
+  h2 {
+      font-size: 75px;
+      line-height: 1;
+  }
+  .need-slider-box {
+    padding: 17px 30px;
+}
+}
+@media (max-width:1199px) {
+  h1 {
+      font-size: 72px;
+      line-height: 1.1;
+  }
+
+  h2 {
+      font-size: 65px;
+      line-height: 67px;
+  }
+  .py_120 {
+    padding: 75px 0px;
+}
+h5 {
+  font-size: 20px;
+  line-height: 20px;
+}
+.fd {
+  flex-direction: column;
+  gap: 0px;
+}
+.we-work {
+  padding: 1px 0px;
+}
+}
+
+@media (max-width:991px) {
+  h1 {
+      font-size: 53px;
+      line-height: 1.1;
+  }
+  .banner-info-part-2 {
+      font-size: 15px;
+      line-height: 25px;
+  }
+  .cta {
+      font-size: 12px;
+      padding: 8px 22px;
+  }
+  .fd {
+      flex-direction: column;
+      gap: 20px;
+  }
+
+  .img-dummy-bg {
+      position: relative !important;
+      top: 100%;
+  }
+  .py_120 {
+      padding: 50px 0px;
+  }
+
+  h2 {
+      font-size: 47px;
+      line-height: 40px;
+  }
+  .box-imgpara {
+      align-items: center;
+      justify-content: center;
+  }
+}
+@media (max-width:767px) {
+  
+  h1 {
+      font-size: 43px;
+      line-height: 1;
+  }
+
+  h2 {
+      font-size: 38px;
+      line-height: 40px;
+  }
+  .py_120 {
+    padding: 40px 0px;
+}
+}
+@media (max-width:575px) {
+  h1 {
+      font-size: 31px;    
+  }
+  .laptop-img {
+    padding: 20px 0px;
+}
+h2 {
+  font-size: 20px;
+  line-height: 1.2;
+}
+h2.d-mmy {
+  font-size: 23px;
+  font-weight: 300;
+}
 }

@@ -1,134 +1,58 @@
 "use client"; // Required for Next.js client-side rendering
 
-import React from "react";
+import React, { useState } from "react";
 
-const FaqAccordian = () => {
+const FaqAccordion = () => {
+  const [activeIndex, setActiveIndex] = useState(null);
+
+  const toggleAccordion = (index) => {
+    setActiveIndex((prevIndex) => (prevIndex === index ? null : index));
+  };
+
+  const faqItems = [
+    { question: "How long does it take to develop a product with Trailblazer Innovations?", answer: "Thanks to our proprietary framework, Helios, we cut development time significantly. We are often able to complete projects within half the time of similar projects in traditional methods." },
+    { question: "Can you work with small budget startups?", answer: "We help start-ups create low-cost solutions specially tailor-made for themselves to induce innovation without strain of financial burden." },
+    { question: "What industries do you serve?", answer: "We have experience across a wide range of industries, including aerospace, healthcare, IoT, wearables, construction, agriculture, and consumer products." },
+    { question: "How does Helios improve the development process?", answer: "Helios comes with a big library with pre-tested modular components we use to efficiently build complex systems and reduce risk." },
+    { question: "Do you provide support after project completion?", answer: "Yes, we offer ongoing support and maintenance, ensuring your product remains optimal and continues to run smoothly even after launch." },
+  ];
+
   return (
     <section className="faq-sec bg-brown py_120">
       <div className="container">
         <div className="any-question">
-          <h2 className="m-0 rwb text-center">
-            Do you have any questions? We tried to answer most of them!
+          <h2 className="rwb text-center mb-50">
+          Do You Have Any Questions? We Tried
+to Answer Most of Them!
           </h2>
         </div>
         <div className="lorem-boxs pt_55 mx-auto">
-          {/* Accordion */}
-          <div className="accordion border_none" id="accordionFlushExample">
-            {/* Accordion Item 1 */}
-            <div className="accordion-item border_t">
-              <h2 className="accordion-header fs-22" id="flush-headingOne">
-                <button
-                  className="accordion-button background collapsed fnt"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#flush-collapseOne"
-                  aria-expanded="false"
-                  aria-controls="flush-collapseOne"
-                >
-                  Lorem Ipsum is simply dummy text of the printing?
-                </button>
-              </h2>
+          <div className="accordion accordian-box border_none">
+            {faqItems.map((item, index) => (
               <div
-                id="flush-collapseOne"
-                className="accordion-collapse collapse"
-                aria-labelledby="flush-headingOne"
-                data-bs-parent="#accordionFlushExample"
+                key={index}
+                className={`accordion-item border_t ${activeIndex === index ? "active" : ""}`}
               >
-                <div className="accordion-body background">
-                  Placeholder content for this accordion, which is intended to
-                  demonstrate the <code>.accordion-flush</code> class. This is
-                  the first item's accordion body. Nothing more exciting
-                  happening here in terms of content.
+                <h2 className="accordion-header fs-22">
+                  <button
+                    className={`accordion-button background fnt ${
+                      activeIndex === index ? "" : "collapsed"
+                    }`}
+                    type="button"
+                    onClick={() => toggleAccordion(index)}
+                  >
+                    {item.question}
+                  </button>
+                </h2>
+                <div
+                  className={`accordion-collapse ${
+                    activeIndex === index ? "show" : ""
+                  }`}
+                >
+                  <div className="accordion-body background">{item.answer}</div>
                 </div>
               </div>
-            </div>
-
-            {/* Accordion Item 2 */}
-            <div className="accordion-item border_t">
-              <h2 className="accordion-header fs-22" id="flush-headingTwo">
-                <button
-                  className="accordion-button background collapsed fnt"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#flush-collapseTwo"
-                  aria-expanded="false"
-                  aria-controls="flush-collapseTwo"
-                >
-                  Lorem Ipsum is simply dummy text of the printing?
-                </button>
-              </h2>
-              <div
-                id="flush-collapseTwo"
-                className="accordion-collapse collapse"
-                aria-labelledby="flush-headingTwo"
-                data-bs-parent="#accordionFlushExample"
-              >
-                <div className="accordion-body background">
-                  Placeholder content for this accordion, which is intended to
-                  demonstrate the <code>.accordion-flush</code> class. This is
-                  the second item's accordion body. Nothing more exciting
-                  happening here in terms of content.
-                </div>
-              </div>
-            </div>
-
-            {/* Accordion Item 3 */}
-            <div className="accordion-item border_t">
-              <h2 className="accordion-header fs-22" id="flush-headingThree">
-                <button
-                  className="accordion-button background collapsed fnt"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#flush-collapseThree"
-                  aria-expanded="false"
-                  aria-controls="flush-collapseThree"
-                >
-                  Lorem Ipsum is simply dummy text of the printing?
-                </button>
-              </h2>
-              <div
-                id="flush-collapseThree"
-                className="accordion-collapse collapse"
-                aria-labelledby="flush-headingThree"
-                data-bs-parent="#accordionFlushExample"
-              >
-                <div className="accordion-body background">
-                  Placeholder content for this accordion, which is intended to
-                  demonstrate the <code>.accordion-flush</code> class. This is
-                  the third item's accordion body. Nothing more exciting
-                  happening here in terms of content.
-                </div>
-              </div>
-            </div>
-
-            {/* Accordion Item 4 */}
-            <div className="accordion-item border_t">
-              <h2 className="accordion-header fs-22" id="flush-headingFour">
-                <button
-                  className="accordion-button background collapsed fnt"
-                  type="button"
-                  data-bs-toggle="collapse"
-                  data-bs-target="#flush-collapseFour"
-                  aria-expanded="false"
-                  aria-controls="flush-collapseFour"
-                >
-                  Lorem Ipsum is simply dummy text of the printing?
-                </button>
-              </h2>
-              <div
-                id="flush-collapseFour"
-                className="accordion-collapse collapse"
-                aria-labelledby="flush-headingFour"
-                data-bs-parent="#accordionFlushExample"
-              >
-                <div className="accordion-body background">
-                  Placeholder content for this accordion, which is intended to
-                  demonstrate the <code>.accordion-flush</code> class. This is
-                  the fourth item's accordion body. Nothing more exciting
-                  happening here in terms of content.
-                </div>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
@@ -136,4 +60,4 @@ const FaqAccordian = () => {
   );
 };
 
-export default FaqAccordian;
+export default FaqAccordion;

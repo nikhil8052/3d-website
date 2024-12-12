@@ -1,82 +1,32 @@
-"use client"; // Required for Next.js if using client-side features
+"use client"; // Required for Next.js client-side rendering
 
 import React, { useEffect } from "react";
+// import "../jquery-global"; // Path to your jQuery global setup
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
 import $ from "jquery";
-// import "slick-carousel"; // Import Slick Carousel
+// import "slick-carousel";
 import Image from "next/image";
 
 const NeedSlider = () => {
-
-  useEffect(() => {
-    const slider = $(".slider");
-    const $progressBar = $(".progress-bar");
-    const $progressBarLabel = $(".slider__label");
-
-    // Initialize Slick Slider
-    // $slider.slick({
-    //   slidesToShow: 2,
-    //   slidesToScroll: 1,
-    //   speed: 400,
-    //   responsive: [
-    //     {
-    //       breakpoint: 575,
-    //       settings: {
-    //         slidesToShow: 1,
-    //         slidesToScroll: 1,
-    //         infinite: true,
-    //       },
-    //     },
-    //     {
-    //       breakpoint: 767,
-    //       settings: {
-    //         slidesToShow: 1,
-    //         slidesToScroll: 1,
-    //         infinite: true,
-    //       },
-    //     },
-    //     {
-    //       breakpoint: 991,
-    //       settings: {
-    //         slidesToShow: 1,
-    //         slidesToScroll: 1,
-    //         infinite: true,
-    //       },
-    //     },
-    //   ],
-    // });
-
-    // Handle progress bar updates
-    // $slider.on("beforeChange", (event, slick, currentSlide, nextSlide) => {
-    //   const calc = (nextSlide / (slick.slideCount - 1)) * 100;
-
-    //   $progressBar
-    //     .css("width", `${calc}%`)
-    //     .attr("aria-valuenow", calc);
-
-    //   $progressBarLabel.text(`${Math.round(calc)}% completed`);
-    // });
-
-  }, []);
-
   return (
-    <section className="understand pt_134 background">
+    <section className="understand pt_120 bg-brown">
       <div className="container">
-        <div className="need-box pb_56">
-          <h2>Need to understand our clients' opinion on working with us?</h2>
-        </div>
-      </div>
       <div className="content">
-        <div className="slider">
+      <div className="need-box mb-50">
+          <h2>Need to understand our clients' opinion on working with us? </h2>
+        </div>
+        <div className="need-slider">
           {[...Array(5)].map((_, index) => (
             <div className="slider-w" key={index}>
-              <div className="image">
+              <div className="need-slider-box">
                 <div className="img-box-child-1">
                   <Image
                     className="img-fluid"
-                    src="/img/laptop-img.png"
+                    src="/img/two-box.png"
                     alt="Laptop Image"
-                    width={1400}
-                    height={700}
+                    width={30}
+                    height={20}
                     style={{ width: "100%", height: "auto" }}
                   />
                 </div>
@@ -94,10 +44,10 @@ const NeedSlider = () => {
                       <div className="vrglass">
                         <Image
                           className="img-fluid"
-                          src="/img/laptop-img.png"
+                          src="/img/circle-person.jpg"
                           alt="Laptop Image"
-                          width={1400}
-                          height={700}
+                          width={50}
+                          height={50}
                           style={{ width: "100%", height: "auto" }}
                         />
                       </div>
@@ -130,6 +80,9 @@ const NeedSlider = () => {
           </div>
         </div>
       </div>
+        
+      </div>
+     
     </section>
   );
 };
