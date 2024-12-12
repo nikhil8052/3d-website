@@ -119,7 +119,7 @@ export default function GapsPage() {
     }
 
     return () => {
-      if (isMobileView) {
+      if (isMobileView) { 
         // Clean up mobile-specific event listeners
         window.removeEventListener('touchstart', handleTouchStart);
         window.removeEventListener('touchmove', handleTouchMove);
