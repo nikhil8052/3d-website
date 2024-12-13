@@ -1,35 +1,52 @@
 "use client"; // Required for Next.js client-side rendering
 
-import React, { useEffect } from "react";
-// import "../jquery-global"; // Path to your jQuery global setup
-// import "slick-carousel/slick/slick.css";
-// import "slick-carousel/slick/slick-theme.css";
-import $ from "jquery";
-// import "slick-carousel";
+import React, { useState } from "react";
+import Slider from "react-slick";
 import Image from "next/image";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const NeedSlider = () => {
+  const [progress, setProgress] = useState(0);
+
+  const settings = {
+    dots:false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 2,
+    slidesToScroll: 1,
+    autoplay: false,
+    autoplaySpeed: 2000,
+    arrows: true,
+    beforeChange: (current, next) => {
+      const progressPercentage = ((next + 1) / 5) * 100; // Assuming 5 slides
+      setProgress(progressPercentage);
+    },
+  };
+
   return (
-    <section className="understand pt_120 bg-brown">
+    <section className="needslider-sec understand pb_100 bg-brown">
       <div className="container">
+        <div className="need-box mb-50">
+          <h2>Need to understand our clients' opinion on working with us?</h2>
+        </div>      
       <div className="content">
-      <div className="need-box mb-50">
-          <h2>Need to understand our clients' opinion on working with us? </h2>
-        </div>
-        <div className="need-slider">
+        <Slider {...settings} className="need-slider">
           {[...Array(5)].map((_, index) => (
             <div className="slider-w" key={index}>
               <div className="need-slider-box">
+                {/* Image Section */}
                 <div className="img-box-child-1">
                   <Image
                     className="img-fluid"
                     src="/img/two-box.png"
-                    alt="Laptop Image"
+                    alt={`Laptop Image ${index + 1}`}
                     width={30}
-                    height={20}
+                    height={15}
                     style={{ width: "100%", height: "auto" }}
                   />
                 </div>
+                {/* Text Section */}
                 <div className="img-box-child-2">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -38,6 +55,7 @@ const NeedSlider = () => {
                   irure dolor in reprehenderit in voluptate velit esse cillum
                   dolore eu fugiat nulla pariatur.
                 </div>
+                {/* Author Section */}
                 <div className="img-box-child-3 pt_12 d-flex justify-content-between align-items-center gap-3">
                   <div className="box-3part-1">
                     <div className="box-3-child-1 d-flex justify-content-between align-items-center gap-2">
@@ -45,9 +63,9 @@ const NeedSlider = () => {
                         <Image
                           className="img-fluid"
                           src="/img/circle-person.jpg"
-                          alt="Laptop Image"
-                          width={50}
-                          height={50}
+                          alt="Author Image"
+                          width={1400}
+                          height={700}
                           style={{ width: "100%", height: "auto" }}
                         />
                       </div>
@@ -66,23 +84,26 @@ const NeedSlider = () => {
               </div>
             </div>
           ))}
-        </div>
+        </Slider>
+        {/* Progress Bar */}
         <div className="progress">
           <div
             className="progress-bar"
             role="progressbar"
-            style={{ width: "0%" }}
-            aria-valuenow="0"
+            style={{
+              width: `${progress}%`,
+              height: "5px",
+              backgroundColor: "#F7892F",
+            }}
+            aria-valuenow={progress}
             aria-valuemin="0"
             aria-valuemax="100"
           >
-            <span className="slider__label sr-only"></span>
+            <span className="slider__label sr-only">{progress.toFixed(0)}% completed</span>
           </div>
         </div>
       </div>
-        
       </div>
-     
     </section>
   );
 };
