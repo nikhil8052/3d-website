@@ -1402,6 +1402,54 @@ button.ftr-btn-2-2 {
 
 
 
+/* insdustry page start here */
+/* ********(industry page)*********** */
+
+.industry_banner {
+  position: relative;
+}
+
+.dol_bg {
+  background: #FFDCBF;
+  box-shadow: 0px 0px 30px 20px #0000001F inset;
+  max-width: 616px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 125px 69px;
+}
+
+.dol_content {
+  max-width: 694px;
+}
+
+.dol_content .dol_list ul {
+  list-style: none;
+}
+
+.dol_content .dol_list ul li {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.dol_content .dol_list ul li::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: -25px;
+  width: 18px;
+  height: 23px;
+  background: url("../img/dol_marker.png") no-repeat center;
+  background-size: contain;
+}
+.dol_bg img {
+  mix-blend-mode: multiply;
+}
+
+
+
+
+
 
 
 
