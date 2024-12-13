@@ -9,7 +9,7 @@ const Header: React.FC = () => {
       <div className="container">
         <nav className="navbar navbar-expand-lg navbar-light">
           <div className="container-fluid p-0">
-            <a className="navbar-brand" href="#">
+            <a className="navbar-brand" href="/">
               <Image
                 src={logo}
                 alt="Site Logo"
