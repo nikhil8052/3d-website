@@ -8,7 +8,7 @@ const ImageTextGrid = () => {
   return (
 
     <section className="question  bg-brown">
-    <div className="container">
+    <div className="container" data-aos="fade-up"data-aos-duration="3000">
         <div className="info-box">
             <div className="row mb_67">
                 <div className="col-lg-6 ">

@@ -6,7 +6,7 @@ import Image from 'next/image';
 const Industry = () => {
     return (
         <section className="dol_sec bg-brown ">
-            <div className="container pt_50 pb_50">
+            <div className="container pt_50 pb_50" data-aos="fade-up"data-aos-duration="3000">
                 <div className="dol_hd b_col">
                     <h2>Doloremque</h2>
                 </div>

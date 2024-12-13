@@ -6,6 +6,7 @@ import type { AppProps } from "next/app";
 import localFont from "next/font/local";
 import Layout from "./components/Layout";
 import { useRouter } from "next/router";
+import AOSWrapper from "./components/AOSWrapper";
 
 // Load Local Fonts
 const ppFormulaCondensed = localFont({
@@ -77,10 +78,13 @@ export default function App({ Component, pageProps }: AppProps) {
       {!isExcluded && (
         <style jsx global>{`@import "/styles/custom-module.module.css";`}</style>
       )}
+    <AOSWrapper>
 
       <Layout>
         <Component {...pageProps} />
       </Layout>
+      </AOSWrapper>
+
     </main>
   );
 }

@@ -19,7 +19,7 @@ const FaqAccordion = () => {
 
   return (
     <section className="faq-sec bg-brown py_120">
-      <div className="container">
+      <div className="container" data-aos="fade-up"data-aos-duration="3000">
         <div className="any-question">
           <h2 className="rwb text-center mb-50">
           Do You Have Any Questions? We Tried

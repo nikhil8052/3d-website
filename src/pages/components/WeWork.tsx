@@ -8,7 +8,7 @@ const WeWork = () => {
   return (
 
     <section className="we-work  bg-brown py_120">
-        <div className="container ">
+        <div className="container " data-aos="fade-up"data-aos-duration="3000">
             <div className="inner-work-t brdr">
                 <h2>Why Choose Trailblazer Innovations?</h2>
             </div>

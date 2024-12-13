@@ -26,7 +26,7 @@ const NeedSlider = () => {
 
   return (
     <section className="needslider-sec understand pb_100 bg-brown">
-      <div className="container">
+      <div className="container" data-aos="fade-up"data-aos-duration="3000">
         <div className="need-box mb-50">
           <h2>Need to understand our clients' opinion on working with us?</h2>
         </div>      

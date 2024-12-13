@@ -7,7 +7,7 @@ const Mountains = () => {
   return (
 
     <section className="mountains bg-brown">
-        <div className="container">
+        <div className="container" data-aos="fade-up"data-aos-duration="3000">
             <div className="m-para">
                 <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
                     industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type
