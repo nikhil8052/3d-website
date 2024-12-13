@@ -21,7 +21,7 @@ export default function Page() {
       <WeWork />
       <ImageTextGrid />
       <FaqAccordian />
-      <NeedSlider />      
+      {/* <NeedSlider />       */}
     </>
   );
 }
