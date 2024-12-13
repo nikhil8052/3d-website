@@ -1442,7 +1442,8 @@ button.ftr-btn-2-2 {
   left: -25px;
   width: 18px;
   height: 23px;
-  background: url("../img/dol_marker.png") no-repeat center;
+  /* background: url("../img/dol_marker.png") no-repeat center; */
+  background: url("./../../public//img/dol_marker.png") no-repeat center;
   background-size: contain;
 }
 .dol_bg img {
