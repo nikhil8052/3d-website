@@ -1,115 +1,163 @@
-import Image from "next/image";
-import localFont from "next/font/local";
+'use client';
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+import { Canvas } from '@react-three/fiber';
+import { PerspectiveCamera, OrbitControls } from '@react-three/drei';
+import React, { useRef, useEffect, useState } from 'react';
+import { Office } from './wall/Live'; 
+// import { 𝘏𝘦𝘢𝘥𝘦𝘳𝘗𝘢𝘨𝘦 } from '../components/Header/Header'; 
+import gsap from 'gsap';
 
-export default function Home() {
+export default function GapsPage() {
+  const modelRef = useRef();
+  const cameraRef = useRef();
+  const isDraggingRef = useRef(false); // Track drag state
+  const startPosRef = useRef(0); // Track start position (X for desktop, Y for mobile)
+
+  const scrollAmount = 500; // Controls scroll movement
+  const damping = 0.9; // Animation damping
+  const [isMobileView, setIsMobileView] = useState(false);
+  const [boundaries, setBoundaries] = useState({ minX: -17200, maxX: 0 });
+
+  // Update view mode and boundaries based on screen size
+  const updateViewMode = () => {
+    const isMobile = window.innerWidth <= 768;
+    setIsMobileView(isMobile);
+    setBoundaries(isMobile ? { minX: -17790, maxX: 200 } : { minX: -17200, maxX: 0 });
+  };
+
+  useEffect(() => {
+    updateViewMode();
+    window.addEventListener('resize', updateViewMode);
+    return () => window.removeEventListener('resize', updateViewMode);
+  }, []);
+
+  // Move the model with boundary checks
+  const moveModel = (delta) => {
+    if (modelRef.current) {
+      const targetPositionX = modelRef.current.position.x + delta;
+      const clampedX = Math.max(boundaries.minX, Math.min(boundaries.maxX, targetPositionX));
+
+      gsap.to(modelRef.current.position, {
+        x: clampedX,
+        duration: damping,
+        ease: 'power1.out',
+      });
+    }
+  };
+
+  // Mobile: Touch Events
+  const handleTouchStart = (e) => {
+    if (isMobileView && e.touches.length === 1) {
+      isDraggingRef.current = true;
+      startPosRef.current = e.touches[0].clientY; // Start Y position for touch
+    }
+  };
+
+  const handleTouchMove = (e) => {
+    if (isMobileView && isDraggingRef.current) {
+      // Calculate delta Y as the difference between the initial touch position and current touch position
+      const deltaY = e.touches[0].clientY - startPosRef.current;
+
+      // Reverse the movement direction so that scrolling up moves right and scrolling down moves left
+      const scaleFactor = scrollAmount / 100;
+      moveModel(deltaY * scaleFactor); // No negation needed here, because the direction is reversed naturally by deltaY calculation
+
+      // Update the start position for next movement
+      startPosRef.current = e.touches[0].clientY;
+    }
+  };
+
+  const handleTouchEnd = () => {
+    isDraggingRef.current = false;
+  };
+
+  // Desktop: Mouse Events
+  const handleMouseDown = (e) => {
+    if (!isMobileView) {
+      isDraggingRef.current = true;
+      startPosRef.current = e.clientX; // Track mouse down position
+    }
+  };
+
+  const handleMouseMove = (e) => {
+    if (!isMobileView && isDraggingRef.current) {
+      const deltaX = e.clientX - startPosRef.current;
+
+      const scaleFactor = scrollAmount / 100;
+      moveModel(deltaX * scaleFactor); // Move the model with deltaX
+
+      startPosRef.current = e.clientX; // Update start position
+    }
+  };
+
+  const handleMouseUp = () => {
+    isDraggingRef.current = false;
+  };
+
+  // Desktop: Mouse Wheel Event
+  const handleWheel = (e) => {
+    if (!isMobileView) {
+      // Reverse the wheel scroll direction so that scrolling up moves right and scrolling down moves left
+      const delta = e.deltaY;
+      const scaleFactor = scrollAmount / 100;
+      moveModel(delta * scaleFactor);
+    }
+  };
+
+  useEffect(() => {
+    if (isMobileView) {
+      // Mobile-specific event listeners
+      window.addEventListener('touchstart', handleTouchStart);
+      window.addEventListener('touchmove', handleTouchMove);
+      window.addEventListener('touchend', handleTouchEnd);
+    } else {
+      // Desktop-specific event listeners
+      window.addEventListener('mousedown', handleMouseDown);
+      window.addEventListener('mousemove', handleMouseMove);
+      window.addEventListener('mouseup', handleMouseUp);
+      window.addEventListener('wheel', handleWheel); // Mouse wheel event listener
+    }
+
+    return () => {
+      if (isMobileView) { 
+        // Clean up mobile-specific event listeners
+        window.removeEventListener('touchstart', handleTouchStart);
+        window.removeEventListener('touchmove', handleTouchMove);
+        window.removeEventListener('touchend', handleTouchEnd);
+      } else {
+        // Clean up desktop-specific event listeners
+        window.removeEventListener('mousedown', handleMouseDown);
+        window.removeEventListener('mousemove', handleMouseMove);
+        window.removeEventListener('mouseup', handleMouseUp);
+        window.removeEventListener('wheel', handleWheel); // Clean up mouse wheel listener
+      }
+    };
+  }, [isMobileView]);
+
   return (
     <div
-      className={`${geistSans.variable} ${geistMono.variable} grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]`}
+      style={{
+        width: '100vw',
+        height: '170vh',
+        overflow: 'hidden',
+        position: 'relative',
+      }}
     >
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+      <Canvas>
+        <ambientLight intensity={2} />
+        <PerspectiveCamera
+          ref={cameraRef}
+          makeDefault
+          position={[0, 400, 1500]}
+          fov={50}
+          near={0.9}
+          far={10000}
         />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/pages/index.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+        <OrbitControls enableZoom={false} enablePan={false} enableRotate={false} />
+        <group ref={modelRef}>
+          <Office />
+        </group>
+      </Canvas> 
     </div>
   );
 }
