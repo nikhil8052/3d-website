@@ -1,6 +1,6 @@
 import React from 'react';
 import HeroBanner from '@/pages/layout/banner';
-import FullVideo from '@/pages/components/FullVideo';
+import Industry from '@/pages/components/Industry';
 import DummyDesign from '@/pages/components/DummyDesign';
 import ImageTextGrid from '@/pages/components/ImageTextGrid';
 import NeedSlider from '@/pages/components/NeedSlider';
@@ -14,14 +14,18 @@ export default function Page() {
   return (
     <>
       <HeroBanner />
-      <FullVideo />
-      <Mountains />
+      <Industry />
+      <Industry />
+      <Industry />
+      <Industry />
+      <Industry />
+      {/* <Mountains />
       <WeWork />
       <AboutSlider />      
       <WeWork />
       <ImageTextGrid />
-      <FaqAccordian />
-      {/* <NeedSlider />       */}
+      <FaqAccordian /> */}
+      <NeedSlider />      
     </>
   );
 }

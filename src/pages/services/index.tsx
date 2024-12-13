@@ -13,7 +13,7 @@ export default function Page() {
     <>
       <HeroBanner />
       <LaptopVideo />
-      {/* <DummyDesign /> */}
+      <DummyDesign />
       <WeWork />
       <ImageTextGrid />
       <FaqAccordian />

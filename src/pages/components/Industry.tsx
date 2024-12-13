@@ -5,8 +5,8 @@ import Image from 'next/image';
 
 const Industry = () => {
     return (
-        <section className="dol_sec bg-brown pt_50">
-            <div className="container">
+        <section className="dol_sec bg-brown ">
+            <div className="container pt_50 pb_50">
                 <div className="dol_hd b_col">
                     <h2>Doloremque</h2>
                 </div>
@@ -56,6 +56,17 @@ const Industry = () => {
                                         </li>
                                     </ul>
                                 </div>
+                            </div>
+                            <div className='view-more-btn'>
+                            <a href="" className="hdr-btn mt_40 text-body">
+                            <span className="arrow">
+                              <i className="fa-solid fa-chevron-right"></i>
+                              </span>
+                              <span className='view-more-txt'>
+                              <span className="view-more-txt-upr">View More</span>
+                      <span className="view-more-txt-btm">View More</span>
+                      </span>
+                        </a>
                             </div>
                         </div>
                     </div>

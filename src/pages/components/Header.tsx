@@ -1,9 +1,31 @@
 // src/components/Header.tsx
-import React from "react";
+"use client"; // Required for client-side rendering in Next.js
+
+import React, { useEffect } from "react";
 import Image from "next/image";
 import logo from "../assets/img/sitelogo.svg"; // Import the image
 
 const Header: React.FC = () => {
+  useEffect(() => {
+    const handleScroll = () => {
+      const scroll = window.scrollY; // Get the scroll position
+      const header = document.querySelector("header"); // Select the header element
+
+      if (scroll >= 60) {
+        header?.classList.add("fixed");
+      } else {
+        header?.classList.remove("fixed");
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll); // Add scroll event listener
+
+    // Cleanup the event listener on component unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <header id="header" className="main-header">
       <div className="container">

@@ -234,7 +234,7 @@ html.home-page ,html.home-page body ,html.home-page #_next{
 
 }
 .about-wall.work-wall-text.service-text-row .service-text-col h5 {
-  font-family: PP Formula;
+  font-family: 'PP Formula';
   font-size: 18px;
   font-weight: 500;
   line-height: 27.44px;
@@ -268,6 +268,8 @@ html.home-page ,html.home-page body ,html.home-page #_next{
 }
 .about-wall.work-wall-text.work-txt-wal h2{
   font-size: 1.25vw !important;
+  font-family: 'PP Formula';
+  line-height: 1.4;
 }
 
 /* contact form css */
@@ -292,6 +294,8 @@ html.home-page ,html.home-page body ,html.home-page #_next{
 }
 
 .about-wall-text.about-wall h2{
+  font-family: 'PP Formula';
+  line-height: 1.4;
   font-size: 2.35vw!important;
 }
 
@@ -471,6 +475,9 @@ padding-top: 100px;
 .pt_50{
   padding-top: 50px;
 }
+.pb_50{
+  padding-bottom: 50px;
+}
 .mt-50{
   margin-top: 50px;
 }
@@ -589,7 +596,7 @@ html.\/services body::-webkit-scrollbar-thumb{
 
 
 /* header css start here */
-.main-header {
+/* .main-header {
   padding: 20px 0px;
   position: fixed;
   top: 0;
@@ -610,6 +617,7 @@ z-index:9999;
   border: 1.5px solid #FFFFFF;
   flex-direction: column;
   justify-content: space-around;
+  align-items: center;
   display: inline-flex;
   padding: 14px;
 }
@@ -626,16 +634,27 @@ span.bar {
 }
 .main-header nav.navbar {
   padding: 0;
-}
+} */
 .nav-button .cta.hdr-btn {
   margin-top: 0;
 }
 .banner {
   padding-top: 180px;
 }
+.main-header.fixed {
+  transition: 0.3s ease;
+  background: #fff8f2;
+  padding: 10px 0;
+}
 
 
 /* button css start here */
+span.arrow {
+  border-radius: 5px;
+  border: 1px solid black;
+  padding: 12px 17px;
+  margin-right: 14px;
+}
 .hdr-btn {
   display: inline-flex;
   align-items: center;
@@ -947,6 +966,8 @@ margin-top: 40px;
   position: fixed;
   top: 0;
   width: 100%;
+  z-index:9999;
+  z-index: 99999;
 }
 .main-header .hdr-btn {
   display: inline-block;
@@ -962,6 +983,7 @@ margin-top: 40px;
   flex-direction: column;
   justify-content: space-around;
   display: inline-flex;
+  align-items: center;
   padding: 14px;
 }
 .main-header span.bar {
@@ -1401,6 +1423,69 @@ button.ftr-btn-2-2 {
   border-bottom: 1px solid #FFFFFF;
 }
 
+.main-header.fixed {
+  transition: 0.3s ease;
+  background: #fff8f2;
+  padding: 10px 0;
+}
+footer.footer form.footer-form .button-group {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+footer.footer form.footer-form .button-group button.btn {
+  outline: none;
+  border: none;
+  background: rgba(255, 255, 255, 5%);
+  color: #fff;
+  border-radius: 5px;
+  padding: 21px 31px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+  font-size: 15px;
+  flex: 0 0 210px;
+}
+footer.footer form.footer-form input ,footer.footer form.footer-form textarea {
+  padding: 22px 0px;
+  border-radius: 5px;
+  border: 1px solid #FFFFFF;
+  background: none;
+  color: #fff;
+}
+footer.footer form.footer-form input::placeholder, footer.footer form.footer-form textarea::placeholder {
+  color:#fff;
+  padding-left: 15px;
+}
+footer.footer  .contact-info {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+footer.footer ul.footer-nav {
+  flex-wrap:wrap;
+  gap: 10px;
+}
+footer.footer .footer-nav .footer-item a {
+  text-decoration: none;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+  font-family: "Poppins", sans-serif;
+}
+footer.footer form.footer-form button.btn {
+  background: #FFFFFF;
+  border: transparent;
+  border-radius: 5px;
+  font-family: Poppins;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 22.5px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  padding: 20px 30px;
+  color: #000;
+}
 
 
 
@@ -1449,7 +1534,9 @@ button.ftr-btn-2-2 {
 .dol_bg img {
   mix-blend-mode: multiply;
 }
-
+.dol_sec .container{
+  border-top: 1px solid #0000004D;
+}
 
 
 
