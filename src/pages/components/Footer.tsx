@@ -6,9 +6,9 @@ import logo from "../assets/img/sitelogo.svg"; // Import the logo image
 
 const Footer: React.FC = () => {
   return (
-    <footer className="footer">
+    <footer className="footer" >
       {/* Main Content Section */}
-      <div className="container">
+      <div className="container" >
         <div className="footer-heading">
           <h2 className="text-white">Let’s Talk Business</h2>
         </div>
@@ -75,7 +75,7 @@ const Footer: React.FC = () => {
             <div className="d-flex justify-content-between align-items-center">
               <label className="btn btn-upload">
                 <i className="fa fa-paperclip me-2"></i>
-                Attach File
+                <span>Attach File</span>
                 <input
                   type="file"
                   className="d-none"
@@ -103,7 +103,7 @@ const Footer: React.FC = () => {
 
           {/* Footer Navigation */}
           <div className="col-lg-6">
-            <ul className="footer-nav d-flex justify-content-center flex-wrap">
+            <ul className="footer-nav d-flex justify-content-end flex-wrap">
               <li className="footer-item">
                 <a href="#" className="text-white">Trailblazer</a>
               </li>

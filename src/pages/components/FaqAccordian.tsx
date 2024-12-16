@@ -19,14 +19,14 @@ const FaqAccordion = () => {
 
   return (
     <section className="faq-sec bg-brown py_120">
-      <div className="container" data-aos="fade-up"data-aos-duration="3000">
-        <div className="any-question">
+      <div className="container">
+        <div className="any-question" data-aos="fade-up">
           <h2 className="rwb text-center mb-50">
           Do You Have Any Questions? We Tried
 to Answer Most of Them!
           </h2>
         </div>
-        <div className="lorem-boxs pt_55 mx-auto">
+        <div className="lorem-boxs pt_55 mx-auto" data-aos="fade-up">
           <div className="accordion accordian-box border_none">
             {faqItems.map((item, index) => (
               <div

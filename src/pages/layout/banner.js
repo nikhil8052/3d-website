@@ -1,7 +1,7 @@
 "use client";  // Add this at the top
 
 import React from 'react';
-// import Image from 'next/image';
+import Image from 'next/image';
 
 const HeroBanner = () => {
   return (
@@ -11,12 +11,14 @@ const HeroBanner = () => {
             <div class="col-lg-6 col-md-6 col-sm-6">
                 <div class="banner-info-part-1">
                     <div class="info-img">
-                    {/* <Image
-          src="/images/banner_incl_screen.svg"
-          alt="Banner Image"
-          width={1920}
-          height={300}
-        /> */}
+                    <Image
+                className="img-fluid"
+                src="/img/tra-img.png"
+                alt="Laptop Image"
+                width={20}
+                height={20}
+                style={{ width: "100%", height: "auto" }}
+              />
                     </div>
                     <div class="banner-info-2">
                         <a href="">Trailblazer * <span class="Services"> Services</span></a>

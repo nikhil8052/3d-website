@@ -29,8 +29,8 @@ const AboutSlider = () => {
 
   return (
     <section className="about-slider-sec bg-brown">
-      <div className="container" data-aos="fade-up"data-aos-duration="3000">
-        <div className="slider-width">
+      <div className="container">
+        <div className="slider-width" data-aos="fade-up">
           <Slider {...settings} className="about-slider">
             {slides.map((slide) => (
               <div key={slide.id} className="about-slider-items">

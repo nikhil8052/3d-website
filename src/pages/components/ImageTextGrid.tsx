@@ -8,20 +8,20 @@ const ImageTextGrid = () => {
   return (
 
     <section className="question  bg-brown">
-    <div className="container" data-aos="fade-up"data-aos-duration="3000">
-        <div className="info-box">
+    <div className="container">
+        <div className="info-box" data-aos="fade-up">
             <div className="row mb_67">
                 <div className="col-lg-6 ">
                     <div className="box-imgpara d-flex">
                         <div className="img-part">
                         <Image 
-  className="img-fluid" 
+  className="img-fluid" data-aos="fade-up"
   src="/img/earth-person.png" 
   alt="Laptop Image"  width={160} height={170}
   style={{ width: '100%', height: 'auto' }} 
 />
                         </div>
-                        <div className="info-detail">
+                        <div className="info-detail" data-aos="fade-up">
                             <div className="info-h5">
                                 <h5 >Speed and Efficiency</h5>
                             </div>
@@ -33,13 +33,13 @@ const ImageTextGrid = () => {
                     <div className="box-imgpara d-flex">
                         <div className="img-part">
                         <Image 
-  className="img-fluid" 
+  className="img-fluid" data-aos="fade-up"
   src="/img/graph.png" 
   alt="Laptop Image"  width={160} height={170}
   style={{ width: '100%', height: 'auto' }} 
 />
                         </div>
-                        <div className="info-detail">
+                        <div className="info-detail" data-aos="fade-up">
                             <div className="info-h5">
                                 <h5 >Cost-Effective Solutions</h5>
                             </div>
@@ -53,13 +53,13 @@ const ImageTextGrid = () => {
                     <div className="box-imgpara d-flex">
                         <div className="img-part">
                         <Image 
-  className="img-fluid" 
+  className="img-fluid" data-aos="fade-up"
   src="/img/person.png" 
   alt="Laptop Image"  width={160} height={170}
   style={{ width: '100%', height: 'auto' }} 
 />
                         </div>
-                        <div className="info-detail">
+                        <div className="info-detail" data-aos="fade-up">
                             <div className="info-h5 pb_0">
                                 <h5>Custom-Made for You</h5>
                             </div>
@@ -71,13 +71,13 @@ const ImageTextGrid = () => {
                     <div className="box-imgpara d-flex">
                         <div className="img-part">
                         <Image 
-  className="img-fluid" 
+  className="img-fluid" data-aos="fade-up"
   src="/img/threeperson.png" 
   alt="Laptop Image"  width={160} height={170}
   style={{ width: '100%', height: 'auto' }} 
 />
                         </div>
-                        <div className="info-detail">
+                        <div className="info-detail" data-aos="fade-up">
                             <div className="info-h5">
                                 <h5>Technical Expertise</h5>
                             </div>
