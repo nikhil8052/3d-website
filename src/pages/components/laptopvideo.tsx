@@ -7,7 +7,7 @@ const LaptopVideo = () => {
   return (
 
 <section className="laptop-img">
-        <div className="container" data-aos="fade-up"data-aos-duration="3000">
+        <div className="container" data-aos="fade-up">
             <div className="img-laptop">
                 {/* <img src="assets/images/laptopimg.png" class="img-fluid" alt="laptop"> */}
                 <Image 
