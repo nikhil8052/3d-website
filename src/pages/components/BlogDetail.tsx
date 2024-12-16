@@ -13,8 +13,8 @@ const BlogDetail = () => {
                         <Image className="img-fluid"
                             src="/img/circlepersen-2.png"
                             alt="Laptop Image"
-                            width={20}
-                            height={20}
+                            width={1000}
+                            height={1000}
                             style={{ width: "100%", height: "auto" }}
                         />
                         {/* <img src="assets/images/circlepersen-2.png" className="img-fluid" alt="person"> */}
@@ -29,8 +29,8 @@ const BlogDetail = () => {
                     <Image className="img-fluid"
                         src="/img/laptopimg-p6.png"
                         alt="Laptop Image"
-                        width={20}
-                        height={20}
+                        width={1000}
+                        height={1000}
                         style={{ width: "100%", height: "auto" }}
                     />
                     {/* <img src="assets/images/laptopimg-p6.png" className="img-fluid" alt="laptop"> */}
@@ -62,8 +62,6 @@ const BlogDetail = () => {
                             <p className="para-p6col">Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae
                                 consequatur, vel illum qui dolorem eum fugiat </p>
                         </div>
-
-
                         <h2 className="fs_80 mt_50">
                             what is lorem ipsum?
                         </h2>
@@ -73,15 +71,12 @@ const BlogDetail = () => {
                             took a galley of type and scrambled it to make a type specimen book. It has survived not only
                             five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
                             It was popularised in the 1960s with the release of Letraset sheets.</p>
-
-
-
                         <div className="ai_path">
                             <Image className="img-fluid"
                                 src="/img/ai_path.png"
                                 alt="Laptop Image"
-                                width={20}
-                                height={20}
+                                width={1000}
+                                height={1000}
                                 style={{ width: "100%", height: "auto" }}
                             />
                             {/* <img src="assets/images/ai_path.png" className="img-fluid" alt="path"> */}
@@ -156,8 +151,8 @@ const BlogDetail = () => {
                             <Image className="img-fluid"
                                 src="/img/ardinoe.png"
                                 alt="Laptop Image"
-                                width={20}
-                                height={20}
+                                width={1000}
+                                height={1000}
                                 style={{ width: "100%", height: "auto" }}
                             />
                             {/* <img src="assets/images/ardinoe.png" className="pt_75 img-fluid" alt="path"> */}
@@ -223,8 +218,8 @@ const BlogDetail = () => {
                             <Image className="img-fluid"
                                 src="/img/aiprocresser.png"
                                 alt="Laptop Image"
-                                width={20}
-                                height={20}
+                                width={1000}
+                                height={1000}
                                 style={{ width: "100%", height: "auto" }}
                             />
                             {/* <img src="assets/images/aiprocresser.png" className="img-fluid" alt="path"> */}
@@ -335,16 +330,16 @@ const BlogDetail = () => {
                             <Image className="img-fluid"
                                 src="/img/rate-this.png"
                                 alt="Laptop Image"
-                                width={20}
-                                height={20}
+                                width={1000}
+                                height={1000}
                                 style={{ width: "100%", height: "auto" }}
                             />
                             {/* <img src="assets/images/rate-this.png" className="img-fluid" alt=""> */}
                             <Image className="img-fluid"
                                 src="/img/p6-chip.png"
                                 alt="Laptop Image"
-                                width={20}
-                                height={20}
+                                width={1000}
+                                height={1000}
                                 style={{ width: "100%", height: "auto" }}
                             />
                             {/* <img src="assets/images/p6-chip.png" className="img-fluid" alt=""> */}
