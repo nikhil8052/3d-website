@@ -89,7 +89,7 @@ const DummyDesign = () => {
     // </section>
 
     <section className="dummy bg-brown py_120 position-relative">
-      <div className="container" data-aos="fade-up"data-aos-duration="3000">
+      <div className="container" data-aos="fade-up">
         <div className="row align-items-center g-4 fd">
           <div className="col-lg-6">
             <div className="dummy-text-1">

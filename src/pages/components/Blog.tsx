@@ -7,7 +7,7 @@ const Blog = () => {
   return (
 
     <section className="banner blog_banner py_100 bg-brown ">
-      <div className="container">
+      <div className="container" data-aos="fade-up">
         <div className="divider"></div>
         <div className="row py-4">
           <div className="col-lg-6 col-md-6 col-sm-6">
