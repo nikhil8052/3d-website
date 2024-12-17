@@ -2,20 +2,21 @@
 
 import React from 'react';
 import Image from 'next/image';
+import StarRating from "./StarRating";
 
 const BlogDetail = () => {
     return (
 
-        <section className="page-2 bg-brown ">
+        <section className="page-2 bg-brown  ">
             <div className="container">
-                <div className="p6-img d-flex justify-content-between">
+                <div className="p6-img d-flex justify-content-between pt_50">
                     <div className="img-circle">
                         <Image className="img-fluid"
                             src="/img/circlepersen-2.png"
                             alt="Laptop Image"
                             width={1000}
                             height={1000}
-                            style={{ width: "100%", height: "auto" }}
+                            style={{ width: "60px", height: "auto" }}
                         />
                         {/* <img src="assets/images/circlepersen-2.png" className="img-fluid" alt="person"> */}
                     </div>
@@ -36,8 +37,8 @@ const BlogDetail = () => {
                     {/* <img src="assets/images/laptopimg-p6.png" className="img-fluid" alt="laptop"> */}
                 </div>
 
-                <div className="row bl">
-                    <div className="col-lg-8  bs">
+                <div className="row mt-50">
+                    <div className="col-xl-8  bs">
                         <div className="inner-para-p6">
                             <p className="para-p6col"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
                                 been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
@@ -62,16 +63,15 @@ const BlogDetail = () => {
                             <p className="para-p6col">Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae
                                 consequatur, vel illum qui dolorem eum fugiat </p>
                         </div>
-                        <h2 className="fs_80 mt_50">
+                        <h2 className="fs_80 mt-50">
                             what is lorem ipsum?
                         </h2>
-
                         <p className="p6-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                             Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
                             took a galley of type and scrambled it to make a type specimen book. It has survived not only
                             five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
                             It was popularised in the 1960s with the release of Letraset sheets.</p>
-                        <div className="ai_path">
+                        <div className="ai_path blog-detail-img">
                             <Image className="img-fluid"
                                 src="/img/ai_path.png"
                                 alt="Laptop Image"
@@ -81,9 +81,7 @@ const BlogDetail = () => {
                             />
                             {/* <img src="assets/images/ai_path.png" className="img-fluid" alt="path"> */}
                         </div>
-
                         <p className="text-center mt-5">What is the path?</p>
-
                         <div className="inner-para-p6 pt-3">
                             <p className="para-p6col"> Lorem Ipsum&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum
                                 has
@@ -109,8 +107,6 @@ const BlogDetail = () => {
                             <p className="para-p6col">Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae
                                 consequatur, vel illum qui dolorem eum fugiat&nbsp;</p>
                         </div>
-
-
                         <div className="inner-para-p6 p-0">
                             <p className="para-p6col"> Lorem Ipsum&nbsp;is simply dummy text of the printing and typesetting industry. Lorem Ipsum
                                 has
@@ -136,8 +132,6 @@ const BlogDetail = () => {
                             <p className="mb_120">Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae
                                 consequatur, vel illum qui dolorem eum fugiat&nbsp;</p>
                         </div>
-
-
                         <div className="h3-w">
                             <h3 className="fstyle ">Need to understand our clients' opinion </h3>
                         </div>
@@ -145,9 +139,7 @@ const BlogDetail = () => {
                             Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer
                             took a galley of type and scrambled it to make a type specimen book. It has survived not only
                             five </p>
-
-
-                        <div className="ai_path">
+                        <div className="ai_path blog-detail-img">
                             <Image className="img-fluid"
                                 src="/img/ardinoe.png"
                                 alt="Laptop Image"
@@ -157,64 +149,55 @@ const BlogDetail = () => {
                             />
                             {/* <img src="assets/images/ardinoe.png" className="pt_75 img-fluid" alt="path"> */}
                         </div>
-                        <p className="text-center fc pt-4">Principles of heuristic evaluation</p>
-
-                        <div className="para-same-box  ">
-                            <h3 className="fstyle fs_39  mt-3">Visibility of System Status</h3>
+                        <p className="text-center fc pt-4 lyt_col">Principles of heuristic evaluation</p>
+                        <div className="para-same-box mt-4 ">
+                            <h3 className="fstyle fs_39">Visibility of System Status</h3>
                             <p className="w_915 mt-3">The principle of visibility of system status emphasizes the importance of
                                 keeping users informed about what is happening within the system. This can be achieved
                                 through clear and timely feedback, such as progress indicators, status messages, or
                                 notifications. By ensuring that users are always aware of the system's status, designers can
                                 reduce confusion and help users feel more in control.</p>
                         </div>
-
                         <div className="para-same-box mt-4 ">
-                            <h3 className="fstyle fs_39 mt_40">Match Between System and the Real World</h3>
+                            <h3 className="fstyle fs_39">Match Between System and the Real World</h3>
                             <p className="w_915 mt-4">This principle stresses the need for the system to speak the user's language,
                                 using words, phrases, and concepts that are familiar to the user rather than technical
                                 jargon. The system should follow real-world conventions, making information appear naturally
                                 and logically. This approach helps users understand the interface more efficiently and
                                 reduces the cognitive load..</p>
                         </div>
-
                         <div className="para-same-box mt-4  ">
-                            <h3 className="fstyle fs_39 mt_38">User Control and Freedom</h3>
+                            <h3 className="fstyle fs_39">User Control and Freedom</h3>
                             <p className="w_915 ">Users should be free to navigate and control the system as they see fit. This
                                 principle includes providing users with easily accessible exit points, undo and redo
                                 options, and the ability to backtrack without encountering penalties. By offering user
                                 control and freedom, designers can prevent frustration and empower users to interact with
                                 the system on their own terms.</p>
                         </div>
-
                         <div className="para-same-box mt-4 ">
-                            <h3 className="fstyle fs_39 mt_50 ">Consistency and Standards</h3>
+                            <h3 className="fstyle fs_39 ">Consistency and Standards</h3>
                             <p className="w_915 mt-4">Consistency in design ensures that users do not have to wonder whether
                                 different words, situations, or actions mean the same thing. The system should follow
                                 platform conventions and maintain uniformity in design elements, such as color schemes,
                                 typography, and layout. Heuristic reviews help ensure adherence to consistency and
                                 standards, allowing users to predict outcomes and improving the overall user experience.</p>
                         </div>
-
                         <div className="para-same-box mt-4 ">
-                            <h3 className="fstyle fs_39 mt_40">Error Prevention</h3>
+                            <h3 className="fstyle fs_39">Error Prevention</h3>
                             <p className="w_915 mt-3">Designers should strive to prevent errors before they occur. This can be
                                 achieved by eliminating error-prone conditions or providing users with a confirmation option
                                 before they commit to an action. Effective error prevention reduces the likelihood of user
                                 mistakes and enhances the system's reliability.</p>
                         </div>
-
                         <div className="para-same-box mt-4 ">
-                            <h3 className="fstyle fs_39 mt-5 ">Benefits of Heuristic Evaluation</h3>
+                            <h3 className="fstyle fs_39">Benefits of Heuristic Evaluation</h3>
                             <p className="w_915 mt-3">Heuristic evaluation offers a range of benefits that significantly enhance the
                                 design and usability of digital products and systems. These benefits can be broadly
                                 categorized into five key areas: cost-effectiveness, early problem detection, expert-driven
                                 insights, versatility, and improved user experience.
                             </p>
                         </div>
-
-
-
-                        <div className="ai_path mt_40">
+                        <div className="ai_path blog-detail-img mt_40">
                             <Image className="img-fluid"
                                 src="/img/aiprocresser.png"
                                 alt="Laptop Image"
@@ -222,11 +205,8 @@ const BlogDetail = () => {
                                 height={1000}
                                 style={{ width: "100%", height: "auto" }}
                             />
-                            {/* <img src="assets/images/aiprocresser.png" className="img-fluid" alt="path"> */}
                         </div>
-
-                        <div className="hight-light-points mt-5">
-
+                        <div className="hight-light-points mt-4">
                             <p className="span-p">Cost-Effectiveness</p>
                             <p>
                                 One of the primary advantages of heuristic evaluation is its cost-effectiveness. Unlike user
@@ -237,7 +217,6 @@ const BlogDetail = () => {
                                 design process prevents costly redesigns later, saving time and money.
                             </p>
                         </div>
-
                         <div className="hight-light-points mt-4 ">
 
                             <p className="span-p mt_35">Early Problem Detection</p>
@@ -252,8 +231,7 @@ const BlogDetail = () => {
 
                             </p>
                         </div>
-
-                        <div className="hight-light-points mt-5">
+                        <div className="hight-light-points mt-4">
 
                             <p className="span-p">Expert-Driven Insights</p>
                             <p>
@@ -265,8 +243,6 @@ const BlogDetail = () => {
 
                             </p>
                         </div>
-
-
                         <div className="hight-light-points mt-4">
 
                             <p className="span-p">Versatility
@@ -282,8 +258,6 @@ const BlogDetail = () => {
 
                             </p>
                         </div>
-
-
                         <div className="hight-light-points mt-4">
 
                             <p className="span-p">Expert-Driven Insights</p>
@@ -296,16 +270,11 @@ const BlogDetail = () => {
 
                             </p>
                         </div>
-
-
                         <div className="hight-light-points mt-4">
-
                             <p className="span-p">
                                 Improved User Experience
                             </p>
-                            <p>
-
-                                The ultimate goal of heuristic analysis is to improve the user experience. By ensuring that
+                            <p>The ultimate goal of heuristic analysis is to improve the user experience. By ensuring that
                                 the design adheres to established usability principles, heuristic assessment helps create
                                 intuitive, efficient, and enjoyable products. This focus on usability enhances the overall
                                 user experience and contributes to the product's success in the market. A well-designed
@@ -315,7 +284,7 @@ const BlogDetail = () => {
                             </p>
                         </div>
 
-                        <div className="para-same-box mt-4 bl ">
+                        <div className="para-same-box mt-4 bl pb-5 ">
                             <h3 className="fstyle fs_39 ">Conclusion</h3>
                             <p className="w_915 pb_56 m-0">The ultimate goal of heuristic analysis is to improve the user
                                 experience. By ensuring that the design adheres to established usability principles,
@@ -325,80 +294,57 @@ const BlogDetail = () => {
                                 higher user satisfaction, increased adoption, and long-term success.
                             </p>
                         </div>
-
                         <div className="star-img my-5">
-                            <Image className="img-fluid"
-                                src="/img/rate-this.png"
-                                alt="Laptop Image"
-                                width={1000}
-                                height={1000}
-                                style={{ width: "100%", height: "auto" }}
-                            />
-                            {/* <img src="assets/images/rate-this.png" className="img-fluid" alt=""> */}
-                            <Image className="img-fluid"
-                                src="/img/p6-chip.png"
-                                alt="Laptop Image"
-                                width={1000}
-                                height={1000}
-                                style={{ width: "100%", height: "auto" }}
-                            />
-                            {/* <img src="assets/images/p6-chip.png" className="img-fluid" alt=""> */}
-                        </div>
-
-
-                        <div className="p6-hs4">
-                            <h3 className="fstyle pb_50 fs_39">
-                                If you like what we write, we recommend subscribing to our mailing list to always be aware
-                                of new publications.
-                            </h3>
-                        </div>
-
-                        <div className="Subscribe pb_72 d-flex">
-                            <div className="input_emial mr_30">
-                                <input type="email" placeholder="Enter your email" className="form-control subinput input_width"
-                                    id="exampleInputPassword1" />
-                            </div>
-                            <div className="subs">
-                                <a href="" className="cta p6-btn hdr-btn">
-                                    Subscribe
-                                </a>
+                            <StarRating />
+                            <div className="star-image-img">
+                                <Image className="img-fluid"
+                                    src="/img/p6-chip.png"
+                                    alt="Laptop Image"
+                                    width={300}
+                                    height={200}
+                                    style={{ width: "100%", height: "auto" }}
+                                />
                             </div>
                         </div>
                     </div>
 
 
-                    <div className="col-lg-4">
-                        <div className="p6-h mt-5">
-                            <h3 className="fstyle">Table of contents</h3>
+                        <div className="col-xl-4 sb">
+                            <div className="p6-h">
+                                <h3 className="fstyle">Table of contents</h3>
 
-                            <div className="p6-p">
-                                <p>What Is a Heuristic Evaluation?</p>
-                                <p>Importance of Heuristic Evaluation in UX Design</p>
-                                <p>Critical Principles of Heuristic Evaluation</p>
-                                <p> <u>Benefits of Heuristic Evaluation</u></p>
-                                <p>Conclusion</p>
-                            </div>
+                                <div className="p6-p">
+                                    <p>What Is a Heuristic Evaluation?</p>
+                                    <p>Importance of Heuristic Evaluation in UX Design</p>
+                                    <p>Critical Principles of Heuristic Evaluation</p>
+                                    <p> <u>Benefits of Heuristic Evaluation</u></p>
+                                    <p>Conclusion</p>
+                                </div>
 
 
-                            <div className="ads-img">
-                                <div className="need-box">
-                                    <div className="fstyle text-center lfs">Need a design
-                                        expert?</div>
+                                <div className="ads-img mt-50">
+                                    <div className="need-box">
+                                        <div className="fstyle text-center lfs"> <h3>Need a design
+                                            expert?</h3></div>
 
-                                    <div className="ctct-btn mt_42">
-                                        <a href="" className="cta p6-btn hdr-btn">
-                                            Contact Us
-                                        </a>
+                                        <div className="ctct-btn mt_42">
+                                        <a href="" className="cta hdr-btn bg-btn">
+                            <span className='bg-btn-txt'> Contact Us</span>
+                            <span className='bg-btn-txt-btm'> Contact Us</span>
+                        </a>
+                                            {/* <a href="" className="cta p6-btn hdr-btn">
+                                                Contact Us
+                                            </a> */}
+                                        </div>
                                     </div>
                                 </div>
+
                             </div>
-
                         </div>
+
+
                     </div>
-
-
                 </div>
-            </div>
         </section>
 
 
