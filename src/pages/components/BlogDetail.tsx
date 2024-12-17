@@ -9,7 +9,7 @@ const BlogDetail = () => {
 
         <section className="page-2 bg-brown  ">
             <div className="container">
-                <div className="p6-img d-flex justify-content-between pt_50">
+                <div className="p6-img d-flex justify-content-between pt_50" data-aos="fade-up">
                     <div className="img-circle">
                         <Image className="img-fluid"
                             src="/img/circlepersen-2.png"
@@ -26,7 +26,7 @@ const BlogDetail = () => {
                     </div>
                 </div>
 
-                <div className="laptop-imgp6 pt_50 ">
+                <div className="laptop-imgp6 pt_50 " data-aos="fade-up">
                     <Image className="img-fluid"
                         src="/img/laptopimg-p6.png"
                         alt="Laptop Image"
@@ -37,7 +37,7 @@ const BlogDetail = () => {
                     {/* <img src="assets/images/laptopimg-p6.png" className="img-fluid" alt="laptop"> */}
                 </div>
 
-                <div className="row mt-50">
+                <div className="row mt-50" data-aos="fade-up">
                     <div className="col-xl-8  bs">
                         <div className="inner-para-p6">
                             <p className="para-p6col"> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has
