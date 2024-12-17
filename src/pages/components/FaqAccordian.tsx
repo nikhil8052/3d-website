@@ -26,7 +26,7 @@ const FaqAccordion = () => {
 to Answer Most of Them!
           </h2>
         </div>
-        <div className="lorem-boxs pt_55 mx-auto" data-aos="fade-up">
+        <div className="lorem-boxs pt_55 mx-auto">
           <div className="accordion accordian-box border_none">
             {faqItems.map((item, index) => (
               <div

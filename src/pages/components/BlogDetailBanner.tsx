@@ -30,7 +30,7 @@ const BlogDetailBanner = () => {
                 <h1 className="tc m-0">At vero eos et accusamus et iusto odio </h1>
             </div>
             <div className="banner-part-4 bn bl ">
-                <div className="row fd">
+                <div className="row">
                     <div className="col-lg-6  ">
                         <div className="banner-btn">
                             <a href="" className="ftr-btn-p5 ">
