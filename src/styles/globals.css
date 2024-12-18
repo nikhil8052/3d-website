@@ -2199,6 +2199,102 @@ color: #fff;
 }
 
 
+/* cases detail page start here */
+
+.w_bg {
+  background: #FCFCFC;
+}
+.pp_family {
+  font-family: 'PP Formula';
+}
+.b_col {
+  color: #000;
+}
+.rck_slt {
+  font-family: "Rock Salt";
+}
+.poppin {
+  font-family: "Poppins", serif;
+}
+.size_20 {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 31px;
+  letter-spacing: 0.03em;
+
+}
+.screen_dv h2 ,.result_dv h2 {
+  margin: 10px 0;
+}
+.result_dv .result_txt {
+  margin-bottom: 15px;
+}
+.screen_dv .screen-t-dv p,
+.result_dv .result-t-dv p {
+    font-weight: 400;
+}
+
+.screen_dv .screen_txt {
+    max-width: 492px;
+}
+
+.result_dv .result_content {
+    max-width: 646px;
+}
+/* <!-- **************(objective_sec)********************** --> */
+.objective_sec .obj_dv {
+  max-width: 1180px;
+  margin: auto;
+}
+
+.objective_txt {
+  max-width: 518px;
+}
+.styl_txt .txt_hd h5 {
+  margin: 15px 0;
+}
+.styl_txt .style_para p:not(:last-child) {
+  margin-bottom: 10px;
+}
+.slider_ryt_txt .inner_hd {
+  text-align: right;
+  max-width: 349px;
+  margin-right: auto;
+}
+.slider_ryt_txt .inner_hd p {
+  font-family: "Rock Salt";
+}
+
+
+
+/* case slider css */
+
+.slides-numbers {
+  /* text-align: right !important; */
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #000;
+}
+.vd_slider {
+  padding: 0 5px;
+}
+
+
+/* case check slider */
+
+.case-check_slider .slick-list {
+  overflow: visible;
+  left: 100%;
+}
+section.case_slider {
+  overflow: hidden;
+}
+
 
 
 

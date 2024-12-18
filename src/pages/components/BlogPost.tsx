@@ -8,7 +8,7 @@ const BlogPost = () => {
 
     <section className="category_sec bg-brown ">
     <div className="container">
-        <div className="tabContentWrap">
+        <div className="tabContentWrap" data-aos="fade-up">
             <div className="tabContent">
                 <div className="row">
                     <div className="col-lg-12 frst-item">
@@ -299,7 +299,7 @@ const BlogPost = () => {
             </div>
 
         </div>
-        <nav aria-label="Page navigation example" className="pages">
+        <nav aria-label="Page navigation example" className="pages" data-aos="fade-up">
             <ul className="pagination">
                 <li className="page-item active"><a className="page-link" href="#">1</a></li>
                 <li className="page-item"><a className="page-link" href="#">2</a></li>
