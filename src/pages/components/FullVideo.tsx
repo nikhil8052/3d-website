@@ -12,7 +12,7 @@ const FullVideo: React.FC = () => {
 
   return (
     <section className="laptop-img video-full-banner bg-brown">
-      <div className="container-fluid">
+      <div className="container-fluid" data-aos="fade-up">
         <div
           className="img-laptop full-width-video"
           data-aos="fade-up"

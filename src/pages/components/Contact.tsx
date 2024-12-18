@@ -14,7 +14,7 @@ const Contact = () => {
 
   return (
     <section className="banner bg-brown">
-      <div className="container">
+      <div className="container" data-aos="fade-up">
         <div className="row py-4">
           <div className="col-lg-5 col-md-6 col-sm-6">
             <div className="banner-info-part-1" data-aos="fade-up">
