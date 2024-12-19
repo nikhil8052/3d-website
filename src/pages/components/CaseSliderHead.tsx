@@ -8,10 +8,10 @@ const CaseSliderHead = () => {
 
     <section className="case_slider-heading-text bg-brown py_100">
     <div className="container" >
-        <div className="slider_txt" data-aos="fade-up">
+        <div className="slider_txt">
             <div className="row">
                 <div className="col-lg-4">
-                    <div className="slider_hd b_col">
+                    <div className="slider_hd b_col" data-aos="fade-up">
                         <h2>Home page</h2>
                     </div>
                 </div>
@@ -19,14 +19,14 @@ const CaseSliderHead = () => {
                     <div className="slider_ryt_txt">
                         <div className="row">
                             <div className="col-lg-5">
-                                <div className="inner_hd rck_slt ">
+                                <div className="inner_hd rck_slt " data-aos="fade-up">
                                     <p className="mb-0 b_col size_20">
                                         Advertising Solutions for Your Business – Get Real Results!
                                     </p>
                                 </div>
                             </div>
                             <div className="col-lg-7">
-                                <div className="ryt_txt">
+                                <div className="ryt_txt" data-aos="fade-up">
                                     <p className="mb-0">
                                         Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                                         Lorem Ipsum has been the industry's standard dummy text ever since the

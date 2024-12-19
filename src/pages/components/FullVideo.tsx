@@ -12,7 +12,7 @@ const FullVideo: React.FC = () => {
 
   return (
     <section className="laptop-img video-full-banner bg-brown">
-      <div className="container-fluid" data-aos="fade-up">
+      <div className="container-fluid" >
         <div
           className="img-laptop full-width-video"
           data-aos="fade-up"
@@ -20,7 +20,7 @@ const FullVideo: React.FC = () => {
           style={{ cursor: "pointer", position: "relative" }}
         >
           {!showVideo ? (
-            <div className="video-image-wrapper">
+            <div className="video-image-wrapper" data-aos="fade-up">
               <Image
                 className="img-fluid"
                 src="/img/full-video.png"

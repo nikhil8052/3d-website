@@ -9,16 +9,16 @@ const TwocolumnText = () => {
 
     <section className="objective_sec bg-brown py_120">
     <div className="container">
-        <div className="obj_dv" data-aos="fade-up">
+        <div className="obj_dv">
             <div className="row">
                 <div className="col-lg-6">
                     <div className="objective_txt">
-                        <div className="obj_hd">
+                        <div className="obj_hd" data-aos="fade-up">
                             <h5 className="pp_family b_col">
                                 Project Objectives
                             </h5>
                         </div>
-                        <div className="obj_txt">
+                        <div className="obj_txt" data-aos="fade-up">
                             <p className="b_col">
                                 Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
                                 doloremque
@@ -44,12 +44,12 @@ const TwocolumnText = () => {
                 </div>
                 <div className="col-lg-6">
                     <div className="objective_txt">
-                        <div className="goal_hd">
+                        <div className="goal_hd" data-aos="fade-up">
                             <h5 className="pp_family b_col">
                                 Project Goals
                             </h5>
                         </div>
-                        <div className="goal_txt">
+                        <div className="goal_txt" data-aos="fade-up">
                             <p className="b_col">
                                 On the other hand, we denounce with righteous indignation and dislike men who are so
                                 beguiled and demoralized by the charms of pleasure of the moment, so blinded by

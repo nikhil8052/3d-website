@@ -28,7 +28,7 @@ const Header: React.FC = () => {
 
   return (
     <header id="header" className="main-header">
-      <div className="container">
+      <div className="container-fluid">
         <nav className="navbar navbar-expand-lg navbar-light">
           <div className="container-fluid p-0">
             <a className="navbar-brand" href="/">
@@ -36,7 +36,7 @@ const Header: React.FC = () => {
                 src={logo}
                 alt="Site Logo"
                 className="logo img-fluid"
-                width={150} // Adjust the width
+                width={130} // Adjust the width
                 height={50} // Adjust the height
                 priority // Ensures this image is preloaded
               />

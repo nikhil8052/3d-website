@@ -11,7 +11,7 @@ const DurationCol = () => {
     <div className="container">
         <div className="row">
             <div className="col-lg-6">
-                <div className="screen_dv b_col">
+                <div className="screen_dv b_col" data-aos="fade-up">
                     <div className="screen-t-dv b_col">
                         <p>
                             Average duration
@@ -31,7 +31,7 @@ const DurationCol = () => {
             </div>
             <div className="col-lg-6">
                 <div className="result_dv">
-                    <div className="b_col">
+                    <div className="b_col" data-aos="fade-up">
                         <div className="result-t-dv">
                             <p>
                                 Unique visitors in 3 months
@@ -49,7 +49,7 @@ const DurationCol = () => {
                         </div>
                     </div>
 
-                    <div className="result_content">
+                    <div className="result_content" data-aos="fade-up">
                         <p className="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                             Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
                             unknown printer took a galley of type and scrambled it to make a type specimen book. It

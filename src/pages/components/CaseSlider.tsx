@@ -48,8 +48,8 @@ const CaseSliderHead = () => {
 
   return (
     <section className="case_slider bg-brown pb_100">
-      <div className="container" data-aos="fade-up">
-        <div className="video_slider pb-0">
+      <div className="container">
+        <div className="video_slider pb-0" data-aos="fade-up">
           <Slider {...settings}>
             {videoData.map((video, index) => (
               <div key={index} className="vd_slider">

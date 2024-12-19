@@ -7,8 +7,8 @@ const ImageFull = () => {
   return (
 
 <section className="fill-image bg-brown">
-        <div className="container" data-aos="fade-up">
-            <div className="img-laptop">
+        <div className="container" >
+            <div className="img-laptop" data-aos="fade-up">
                 {/* <img src="assets/images/laptopimg.png" class="img-fluid" alt="laptop"> */}
                 <Image 
   className="img-fluid" 

@@ -45,11 +45,11 @@ const CasesCheckSlider = () => {
 
   return (
     <section className="case_slider bg-brown pb_100">
-      <div className="container" data-aos="fade-up">
-        <div className="case-check-slider-head">
+      <div className="container">
+        <div className="case-check-slider-head" data-aos="fade-up">
         <h3 className="mb-50 rck_slt">Check out our cases</h3>
         </div>
-        <div className="case-check_slider pb-0">
+        <div className="case-check_slider pb-0" data-aos="fade-up">
           <Slider {...settings}>
             {videoData.map((video, index) => (
               <div key={index} className="vd_slider">
@@ -92,7 +92,7 @@ const CasesCheckSlider = () => {
             <span className="total">{String(totalSlides).padStart(2, "0")}</span>
           </div>
         </div>
-        <div className="case-slider-btm-heading">
+        <div className="case-slider-btm-heading" data-aos="fade-up">
         <h2 className="mt-50">sit voluptatem</h2>
         </div>
       </div>

@@ -26,8 +26,8 @@ const NeedSlider = () => {
 
   return (
     <section className="needslider-sec understand pb_100 bg-brown">
-      <div className="container" data-aos="fade-up"data-aos-duration="3000">
-        <div className="need-box mb-50">
+      <div className="container">
+        <div className="need-box mb-50" data-aos="fade-up">
           <h2>Need to understand our clients' opinion on working with us?</h2>
         </div>      
       <div className="content">
@@ -36,7 +36,7 @@ const NeedSlider = () => {
             <div className="slider-w" key={index}>
               <div className="need-slider-box">
                 {/* Image Section */}
-                <div className="img-box-child-1">
+                <div className="img-box-child-1" data-aos="fade-up">
                   <Image
                     className="img-fluid"
                     src="/img/two-box.png"
@@ -47,7 +47,7 @@ const NeedSlider = () => {
                   />
                 </div>
                 {/* Text Section */}
-                <div className="img-box-child-2">
+                <div className="img-box-child-2" data-aos="fade-up">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
                   do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                   Ut enim ad minim veniam, quis nostrud exercitation ullamco
@@ -56,7 +56,7 @@ const NeedSlider = () => {
                   dolore eu fugiat nulla pariatur.
                 </div>
                 {/* Author Section */}
-                <div className="img-box-child-3 pt_12 d-flex justify-content-between align-items-center gap-3">
+                <div className="img-box-child-3 pt_12 d-flex justify-content-between align-items-center gap-3" data-aos="fade-up">
                   <div className="box-3part-1">
                     <div className="box-3-child-1 d-flex justify-content-between align-items-center gap-2">
                       <div className="vrglass">

@@ -1023,15 +1023,15 @@ margin-top: 40px;
   text-decoration: none;
 }
 .main-header .nav-btn {
-  width: 45px;
-  height: 45px;
+  width: 40px;
+  height: 40px;
   background: #000000;
   border: 1.5px solid #FFFFFF;
   flex-direction: column;
   justify-content: space-around;
   display: inline-flex;
   align-items: center;
-  padding: 14px;
+  padding: 12px;
 }
 .main-header span.bar {
   width: 18.66px;
@@ -2311,6 +2311,9 @@ section.case_slider {
   .frst-item .category_item .item_img {
     flex: 0 0 calc(50% - 20px);
   }
+  .main-header {
+    padding-inline: 50px;
+}
 }
 @media screen and (max-width: 1599px) {
   .divider {
