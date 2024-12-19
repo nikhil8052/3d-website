@@ -7,21 +7,21 @@ const ResultCol = () => {
   return (
 
 <section className="result_sec py_100">
-        <div className="container" data-aos="fade-up">
+        <div className="container">
             <div className="row">
                 <div className="col-lg-6">
-                    <div className="screen_dv b_col">
-                        <div className="screen-t-dv b_col">
+                    <div className="screen_dv b_col" >
+                        <div className="screen-t-dv b_col" data-aos="fade-up">
                             <p>
                                 Number of screens
                             </p>
                         </div>
-                        <div className="screen_num">
+                        <div className="screen_num" data-aos="fade-up">
                             <h2>
                                 99+
                             </h2>
                         </div>
-                        <div className="screen_txt ">
+                        <div className="screen_txt " data-aos="fade-up">
                             <p className="rck_slt size_20">
                                 It's significantly longer than you can rearward in dummy ;-)
                             </p>
@@ -29,26 +29,26 @@ const ResultCol = () => {
                     </div>
                 </div>
                 <div className="col-lg-6">
-                    <div className="result_dv">
-                        <div className="b_col">
-                            <div className="result-t-dv">
+                    <div className="result_dv" >
+                        <div className="b_col" >
+                            <div className="result-t-dv" data-aos="fade-up">
                                 <p>
                                     Unique visitors in 3 months
                                 </p>
                             </div>
-                            <div className="result_num">
+                            <div className="result_num" data-aos="fade-up">
                                 <h2>
                                     55.000
                                 </h2>
                             </div>
-                            <div className="result_txt">
+                            <div className="result_txt" data-aos="fade-up">
                                 <p className="rck_slt size_20">
                                     The results
                                 </p>
                             </div>
                         </div>
 
-                        <div className="result_content">
+                        <div className="result_content" data-aos="fade-up">
                             <p className="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
                                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an
                                 unknown printer took a galley of type and scrambled it to make a type specimen book. It

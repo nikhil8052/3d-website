@@ -9,11 +9,11 @@ const ImageTextGrid = () => {
 
     <section className="question  bg-brown">
     <div className="container">
-        <div className="info-box" data-aos="fade-up">
+        <div className="info-box" >
             <div className="row mb_67">
                 <div className="col-lg-6 ">
                     <div className="box-imgpara d-flex">
-                        <div className="img-part">
+                        <div className="img-part" data-aos="fade-up">
                         <Image 
   className="img-fluid" data-aos="fade-up"
   src="/img/earth-person.png" 
@@ -31,7 +31,7 @@ const ImageTextGrid = () => {
                 </div>
                 <div className="col-lg-6 ">
                     <div className="box-imgpara d-flex">
-                        <div className="img-part">
+                        <div className="img-part" data-aos="fade-up">
                         <Image 
   className="img-fluid" data-aos="fade-up"
   src="/img/graph.png" 

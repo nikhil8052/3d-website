@@ -89,21 +89,21 @@ const DummyDesign = () => {
     // </section>
 
     <section className="dummy bg-brown py_120 position-relative">
-      <div className="container" data-aos="fade-up">
+      <div className="container" >
         <div className="row align-items-center g-4 fd">
           <div className="col-lg-6">
-            <div className="dummy-text-1">
+            <div className="dummy-text-1" data-aos="fade-up">
               "Plan Your Vision Online with Our Website architecture Administrations"
             </div>
-            <div className="dummy-text-2">
+            <div className="dummy-text-2" data-aos="fade-up">
               <h2>Dummy Deisgn</h2>
             </div>
-            <div className="dummy-text-3">
+            <div className="dummy-text-3" data-aos="fade-up">
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
               laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
               beatae vitae dicta sunt explicabo.
             </div>
-            <div className="dummy-text-4">
+            <div className="dummy-text-4" data-aos="fade-up">
             <div className='view-more-btn'>
                             <a href="" className="hdr-btn mt_40 text-body">
                             <span className="arrow">
@@ -118,7 +118,7 @@ const DummyDesign = () => {
             </div>
           </div>
           <div className="col-lg-6">
-            <div className="img-dummy-bg position-absolute top-0 end-0 ">
+            <div className="img-dummy-bg position-absolute top-0 end-0" data-aos="fade-up">
               <div className="inner-dummy-img">
                 <Image
                   className="img-fluid"

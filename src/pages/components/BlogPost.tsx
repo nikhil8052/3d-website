@@ -8,8 +8,8 @@ const BlogPost = () => {
 
     <section className="category_sec bg-brown ">
     <div className="container">
-        <div className="tabContentWrap" data-aos="fade-up">
-            <div className="tabContent">
+        <div className="tabContentWrap" >
+            <div className="tabContent" data-aos="fade-up">
                 <div className="row">
                     <div className="col-lg-12 frst-item">
                         <div className="category_item" data-category="#ui">

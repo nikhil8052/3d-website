@@ -7,11 +7,11 @@ const Blog = () => {
   return (
 
     <section className="banner blog_banner py_100 bg-brown ">
-      <div className="container" data-aos="fade-up">
+      <div className="container">
         <div className="divider"></div>
         <div className="row py-4">
           <div className="col-lg-6 col-md-6 col-sm-6">
-            <div className="banner-info-part-1">
+            <div className="banner-info-part-1" data-aos="fade-up">
               <div className="info-img">
                 <Image className="img-fluid"
                   src="/img/tra-img.png"
@@ -29,18 +29,18 @@ const Blog = () => {
             </div>
           </div>
           <div className="col-lg-6 col-md-6 col-sm-6">
-            <div className="banner-info-part-2 b_col">
+            <div className="banner-info-part-2 b_col" data-aos="fade-up">
               Any project in mind ? <br />
               Drop us a line
             </div>
           </div>
         </div>
-        <div className="blog_banner_hd">
+        <div className="blog_banner_hd" data-aos="fade-up">
           <h1 className="b_col pp_family">
             Web Design Blog
           </h1>
         </div>
-        <div className="tab">
+        <div className="tab" data-aos="fade-up">
           <a href="blog.html" target="_self" className="btn active" id="all"><span>All</span> <sup>232</sup> </a>
           <a href="fintech.html" target="_self" className="btn" id="Fintech"><span>Fintech</span><sup>14</sup></a>
           <a href="#" target="_self" className="btn" id="SaaS"><span>SaaS</span><sup>4</sup></a>

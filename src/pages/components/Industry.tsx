@@ -10,12 +10,12 @@ const Industry = () => {
   data-aos-delay="100" 
   data-aos-duration="2000" 
   data-aos-easing="ease-in-out-back">
-                <div className="dol_hd b_col">
+                <div className="dol_hd b_col" data-aos="fade-up">
                     <h2>Doloremque</h2>
                 </div>
                 <div className="row">
                     <div className="col-lg-6">
-                        <div className="dol_bg">
+                        <div className="dol_bg" data-aos="fade-up">
                             <Image
                                 className="img-fluid"
                                 src="/img/dol1.png"
@@ -25,7 +25,8 @@ const Industry = () => {
                         </div>
                     </div>
                     <div className="col-lg-6">
-                        <div className="dol_content">
+                        <div className="dol_content" >
+                            <div className="dol-content-hd-txt" data-aos="fade-up">
                             <h4 className="pc_family b_col">
                                 Trailblazer Configuration has a long history of giving first rate plan administrations to
                                 the medical care industry.
@@ -37,9 +38,10 @@ const Industry = () => {
                                 centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
                                 It was popularised in the 1960s with the release of Letraset sheets.
                             </p>
+                            </div>
                             <div className="dol_list row">
                                 <div className="col-lg-6">
-                                    <ul className="mb-0">
+                                    <ul className="mb-0" data-aos="fade-up">
                                         <li className="b_col">
                                             Lorem Ipsum dummy
                                             printing
@@ -50,7 +52,7 @@ const Industry = () => {
                                     </ul>
                                 </div>
                                 <div className="col-lg-6">
-                                    <ul className="mb-0">
+                                    <ul className="mb-0" data-aos="fade-up">
                                         <li className="b_col">
                                             Sed ut perspiciatis
                                         </li>
@@ -60,7 +62,7 @@ const Industry = () => {
                                     </ul>
                                 </div>
                             </div>
-                            <div className='view-more-btn'>
+                            <div className='view-more-btn' data-aos="fade-up">
                             <a href="" className="hdr-btn mt_40 text-body">
                             <span className="arrow">
                               <i className="fa-solid fa-chevron-right"></i>

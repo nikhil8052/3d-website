@@ -14,11 +14,11 @@ const Contact = () => {
 
   return (
     <section className="banner bg-brown">
-      <div className="container" data-aos="fade-up">
+      <div className="container">
         <div className="row py-4">
           <div className="col-lg-5 col-md-6 col-sm-6">
-            <div className="banner-info-part-1" data-aos="fade-up">
-              <div className="info-img">
+            <div className="banner-info-part-1" >
+              <div className="info-img" data-aos="fade-up">
                 <Image
                   className="img-fluid"
                   src="/img/tra-img.png"
@@ -28,7 +28,7 @@ const Contact = () => {
                   style={{ width: "100%", height: "auto" }}
                 />
               </div>
-              <div className="banner-info-2">
+              <div className="banner-info-2" data-aos="fade-up">
                 <a href="">
                   Trailblazer * <span className="Services"> Services</span>
                 </a>

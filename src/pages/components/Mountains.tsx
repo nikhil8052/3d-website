@@ -16,7 +16,7 @@ const Mountains = () => {
                     with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop
                     publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
             </div>
-            <div className="page-wallpapper mx-auto">
+            <div className="page-wallpapper mx-auto" data-aos="fade-up">
             <Image 
   className="img-fluid" 
   src="/img/mountains.png" 

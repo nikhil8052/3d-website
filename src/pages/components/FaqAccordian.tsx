@@ -27,7 +27,7 @@ to Answer Most of Them!
           </h2>
         </div>
         <div className="lorem-boxs pt_55 mx-auto">
-          <div className="accordion accordian-box border_none">
+          <div className="accordion accordian-box border_none" data-aos="fade-up">
             {faqItems.map((item, index) => (
               <div
                 key={index}
