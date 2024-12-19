@@ -9,7 +9,7 @@ import gsap from 'gsap';
 
 export default function GapsPage() {
   const modelRef = useRef();
-  const cameraRef = useRef();
+  const cameraRef = useRef(); 
   const isDraggingRef = useRef(false); // Track drag state
   const startPosRef = useRef(0); // Track start position (X for desktop, Y for mobile)
 
