@@ -3,9 +3,8 @@
 import { Canvas } from '@react-three/fiber';
 import { PerspectiveCamera, OrbitControls } from '@react-three/drei';
 import React, { useRef, useEffect, useState } from 'react';
-// import { Office } from './Live'; 
-import  Office  from '@/pages/components/Loading'; 
-// import { 𝘏𝘦𝘢𝘥𝘦𝘳𝘗𝘢𝘨𝘦 } from '../components/Header/Header'; 
+import { Office } from './Live'; 
+import  LoadingPage  from '@/pages/components/Loading'; 
 import gsap from 'gsap';
 
 export default function GapsPage() {

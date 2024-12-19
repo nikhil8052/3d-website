@@ -11,6 +11,7 @@ const LoadingScreen = () => {
             zIndex: 9999, // Make sure it's on top of the 3D content
         }}>
             <>
+            
                 <div className="page-loader">
                     <div className="page-loader-wrp">
                         {/* Logo */}
