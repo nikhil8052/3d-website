@@ -4,12 +4,12 @@ import { Canvas } from '@react-three/fiber';
 import { PerspectiveCamera, OrbitControls } from '@react-three/drei';
 import React, { useRef, useEffect, useState } from 'react';
 import { Office } from './Live'; 
-// import { 𝘏𝘦𝘢𝘥𝘦𝘳𝘗𝘢𝘨𝘦 } from '../components/Header/Header'; 
+import  LoadingPage  from '@/pages/components/Loading'; 
 import gsap from 'gsap';
 
 export default function GapsPage() {
   const modelRef = useRef();
-  const cameraRef = useRef();
+  const cameraRef = useRef(); 
   const isDraggingRef = useRef(false); // Track drag state
   const startPosRef = useRef(0); // Track start position (X for desktop, Y for mobile)
 

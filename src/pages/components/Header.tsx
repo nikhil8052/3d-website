@@ -46,7 +46,7 @@ const Header: React.FC = () => {
                 <span className="bar"></span>
                 <span className="bar"></span>
               </button>
-              <a href="#" className="cta hdr-btn">
+              <a href="/contact" className="cta hdr-btn">
                 Contact Us
               </a>
             </div>

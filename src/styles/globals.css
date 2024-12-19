@@ -2005,10 +2005,10 @@ p.para-p6col {
   display: flex;
   justify-content: center;
 }
-.need-box {
+/* .need-box {
   max-width: 462px;
   padding: 84px 30px 450px 30px;
-}
+} */
 a.cta.p6-btn.hdr-btn {
   font-size: 20px;
   padding: 24px 51px;
