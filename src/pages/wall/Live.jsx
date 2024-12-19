@@ -283,7 +283,7 @@ export function Office(props) {
           rotation={[0, Math.PI, Math.PI]} // Keep this rotation for proper initial alignment
           scale={[-1, 1, 1]} // This will flip the mesh horizontally
         />
-        <mesh name="services_text_block" geometry={nodes.services_text_block.geometry} material={nodes.services_text_block.material} position={[13504.598, 252.46, -0.029]} >
+        <mesh name="services_text_block" geometry={nodes.services_text_block.geometry} material={nodes.services_text_block.material} position={[13504.598, 252.46, -0.09]} >
         <Html  style={{
                 width: '1000rem',
 
