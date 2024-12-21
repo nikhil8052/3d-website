@@ -6,9 +6,9 @@ Command: npx gltfjsx@6.5.3 public/models/TrailBlaze.glb
 import React from 'react'
 import { useGLTF, useAnimations } from '@react-three/drei'
 
-export function Office(props) {
+export function Model(props) {
   const group = React.useRef()
-  const { nodes, materials, animations } = useGLTF('./models/TrailBlaze.glb')
+  const { nodes, materials, animations } = useGLTF('/TrailBlaze.glb')
   const { actions } = useAnimations(animations, group)
   return (
     <group ref={group} {...props} dispose={null}>
@@ -881,4 +881,4 @@ export function Office(props) {
   )
 }
 
-useGLTF.preload('./models/TrailBlaze.glb')
+useGLTF.preload('/TrailBlaze.glb')
