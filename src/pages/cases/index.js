@@ -1,5 +1,5 @@
 import React from 'react';
-import CasesDetailBanner from '@/pages/components/CasesDetailBanner';
+import Cases3dSlider from '@/pages/components/Cases3dSlider';
 import LaptopVideo from '@/pages/components/laptopvideo';
 import TwocolumnText from '@/pages/components/TwocolumnText';
 import ImageFull from '@/pages/components/ImageFull';
@@ -15,8 +15,8 @@ import CasesCheckSlider from '@/pages/components/CasesCheckSlider';
 export default function Page() {
   return (
     <>
-      <CasesDetailBanner />
-      <LaptopVideo />
+      {/*<Cases3dSlider />
+       <LaptopVideo />
       <TwocolumnText />
       <ImageFull />
       <ResultCol />
@@ -25,7 +25,7 @@ export default function Page() {
       <CaseSliderHead />
       <CaseSlider />
       <DurationCol />
-      <CasesCheckSlider />
+      <CasesCheckSlider /> */}
     </>
   );
 }

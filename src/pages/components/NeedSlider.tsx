@@ -18,6 +18,15 @@ const NeedSlider = () => {
     autoplay: false,
     autoplaySpeed: 2000,
     arrows: true,
+    responsive: [
+      {
+        breakpoint: 991,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
     beforeChange: (current, next) => {
       const progressPercentage = ((next + 1) / 5) * 100; // Assuming 5 slides
       setProgress(progressPercentage);

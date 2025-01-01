@@ -14,6 +14,8 @@
     "@react-three/fiber": "^8.14.0",
     "aos": "^2.3.4",
     "bootstrap": "^5.3.3",
+    "flickity": "^3.0.0",
+    "flickity-transformer": "^0.3.6",
     "formidable": "^3.5.2",
     "gsap": "^3.12.5",
     "jquery": "^3.7.1",

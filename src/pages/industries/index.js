@@ -1,0 +1,129 @@
+import NeedSlider from '@/pages/components/NeedSlider';
+
+import React from 'react';
+import HeroBanner from '@/pages/layout/banner';
+
+import Industry from '@/pages/components/Industry';
+
+
+
+export default function Page() {
+
+    const industryData = [
+        {
+            title: "Aerospace",
+            subtitle: "Trailblazer Innovations Is Raising the Bar on Aerospace Innovation with Precision and Reliability",
+            imageUrl: "/img/dol1.png",
+            description:
+                "The aerospace industry requires flawless execution of advanced techniques and unrelenting precision. At Trailblazer Innovations, we design and develop communications and power solutions to meet the needs of this sector while ensuring through each mission-critical application maximized safety, performance, and reliability. Our skills encompass the whole spectrum-from complex aircraft systems to prototypes for use in aerospace-grade hardware; and the faith in our expertise resonates with industry leaders. This takes aerospace innovation to another level with solutions that are groundbreaking, yet dependable.",
+            ctaLink: "/industriesdetail",
+            features: [
+                ["Aircraft system design", "Aerospace-grade hardware development"],  // First column
+                ["Safety-critical software solutions", "Advanced prototyping"]   // Second column
+            ]            
+        },
+        {
+            title: "Industrial IoT",
+            subtitle: "Transforming the Industrial IoT through seamless connectivity and scalability.",
+            imageUrl: "/img/dol2.png",
+            description:
+                "The Industrial Internet of Things or IIoT is defining the way industries function by connecting machines, systems, and data to create efficiency. Trailblazer Innovations focuses on creating IoT-enabled devices and systems designed to maximize performance and the ability to gain actionable insights. From real-time monitoring to predictive analytics, we provide solutions scalable to your industrial needs. From smart sensors to high-capacity networks to intelligent software, we enable industries to create efficiencies and find great new opportunities for growth.",
+                ctaLink: "/industriesdetail",
+            features: [
+                ["IoT-enabled device development", "Data analytics for industrial systems"],  // First column
+                ["Remote monitoring and diagnostics", "Sensor network integration"]   // Second column
+            ]
+        },
+        {
+            title: "Construction",
+            subtitle: "Driving Efficiency and Innovation in Construction Technology.",
+            imageUrl: "/img/dol3.png",
+            description:
+                "New high-tech solutions in smart buildings, IoT-enabled construction systems, and automation technology are just what we might expect improvements in safety, efficiency, and project management from the construction sector. Our unique solutions for both smart buildings and state-of-the-art IoT construction systems have simplified processes, boosted safety protocols, and provided higher-quality project observations. That increased monitoring systems integrated with data analytics help a construction company speed up and make a more intelligent project process.",
+                ctaLink: "/industriesdetail",
+            features: [
+                ["IoT solutions for construction management", "Smart building technologies"],  // First column
+                ["Safety monitoring systems", "Custom hardware and software solutions"]   // Second column
+            ]
+        },
+        {
+            title: "Healthcare & Wearable Tech",
+            subtitle: "Trailblazer Innovations is Pioneering Health and Wearable Technology for a Better Future.",
+            imageUrl: "/img/dol4.png",
+            description:
+                "The use and integration of technology into healthcare processes is indeed a very important topic. We Trailblazer Innovations focus primarily on the wearable health device design and development, advanced medical equipment, and application development in data-driven healthcare. This will finally account for improved patient outcomes and monitoring, as well as personal empowerment in terms of self-care. A precise, reliable, and compliance at each step with regulation would collectively apply from wearable fitness trackers to AI-enabled medical devices.",
+                ctaLink: "/industriesdetail",
+            features: [
+                ["Wearable health monitoring systems", "Medical device design and testing"],  // First column
+                ["Mobile app development for healthcare", "Data-driven healthcare solutions"]   // Second column
+            ]
+        },
+        {
+            title: "Consumer Electronics",
+            subtitle: "Innovative Consumer Electronics That Inspire and Engage.",
+            imageUrl: "/img/dol2.png",
+            description:
+                "Bringing design, function and innovation at one place is what the fast-paced consumer electronics market of today demands. Custom solutions in the smart devices and connected product domains, where they really need to resonate with the end-user and trailblazing innovations, are created by Trailblazer Innovations. The easier our product designs, the more they seamlessly integrate hardware and software, and the faster we can develop them; that is how efficiently we can take your great ideas to market. Smart home gadgets, wearables, or entertainment devices are all part of being sure they exceed the customer's expectations. ",
+                ctaLink: "/industriesdetail",
+            features: [
+                ["Smart device development", "Human-centered design"],  // First column
+                ["Hardware-software integration", "Rapid prototyping"]   // Second column
+            ]
+        },
+        {
+            title: "Agriculture",
+            subtitle: "Revolutionizing Agriculture with Smart and Sustainable Technologies.",
+            imageUrl: "/img/dol1.png",
+            description:
+                "The agriculture industry has been facing serious challenges such as resource scarcity and climate change. Trailblazer Innovations delivers smart solutions for improving productivity and by bringing necessary sustainability. These have brought new technologies of precision farming tools, automated machines, and IoT-enabled systems, empowering farmers to use and consume resources more efficiently. We help agricultural businesses grow more with less adopting sustainable practices for the future by combining advanced sensors along with AI-powered insights and automated systems.",
+                ctaLink: "/industriesdetail",
+            features: [
+                ["Precision farming devices", "IoT-enabled monitoring systems"],  // First column
+                ["Automated machinery development", "Smart irrigation systems"]   // Second column
+            ]
+        },
+        {
+            title: "Safety & Security",
+            subtitle: "Securing the Future with Advanced Safety and Security Solutions.",
+            imageUrl: "/img/dol3.png",
+            description:
+                "Trailblazer Innovations is set to roll out pioneering technologies for security and safety. Its research-and-development efforts have been in security focus, including surveillance systems, IoT-enabled security devices, and emergency response technology, providing action at speed and accuracy. From access control systems to advanced surveillance tools, it is going all out in creating the optimum conditions for achieving safety-emitting environments and enabling reliable business processes.",
+                ctaLink: "/industriesdetail",
+            features: [
+                ["Surveillance and monitoring systems", "IoT for security applications"],  // First column
+                ["Access control technologies", "Emergency response systems"]   // Second column
+            ]
+        }, 
+        // Add more industries here
+    ];
+
+    return (
+        <>
+            <HeroBanner
+                imageUrl="/img/tra-img.png"
+                title="Trailblazing Innovation—Meet the Team Turning Ideas into Reality"
+                subtitle="Have a project in mind? Let’s bring your vision to life"
+                description="Trailblazer Innovations is a Michigan-based powerhouse specializing in groundbreaking hardware and software solutions. We are a team of problem solvers and creators united by a shared passion for pushing the boundaries of technology. With a reputation for delivering exceptional results, we pride ourselves on transforming ambitious ideas into tangible products that inspire and innovate."
+                ctaText="Hire Us"
+                ctaLink="/contact"
+                additionalText=""
+                currentpage="About"
+            />
+            {industryData.map((industry, index) => (
+                <Industry
+                    key={index}
+                    title={industry.title}
+                    subtitle={industry.subtitle}
+                    description={industry.description}
+                    imageUrl={industry.imageUrl}
+                    ctaLink={industry.ctaLink}
+                    features={industry.features} // Pass the features array
+                />
+                
+            ))}
+            <NeedSlider /> 
+        </>
+    );
+}
+
+

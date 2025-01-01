@@ -72,7 +72,7 @@ const Footer: React.FC = () => {
             ></textarea>
 
             {/* File Upload and Submit Button */}
-            <div className="d-flex justify-content-between align-items-center">
+            <div className="d-flex justify-content-between align-items-center ftr-upld-links">
               <label className="btn btn-upload">
                 <i className="fa fa-paperclip me-2"></i>
                 <span>Attach File</span>

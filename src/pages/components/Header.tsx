@@ -55,8 +55,10 @@ const Header: React.FC = () => {
                 <span className="bar"></span>
                 <span className="bar"></span>
               </button>
-              <a href="/contact" className="cta hdr-btn">
-                Contact Us
+              <a href="/contact" className="cta hdr-btn bg-btn hdr-btn">
+              <span className="bg-btn-txt">Contact Us</span>
+                  <span className="bg-btn-txt-btm">Contact Us</span>
+                
               </a>
             </div>
             <div
@@ -80,7 +82,7 @@ const Header: React.FC = () => {
                         menuVisible ? "fade-in" : "fade-out"
                       }`}>                        
                             <li className="big-size">
-                              <a href="" className="text-container">
+                              <a href="/" className="text-container">
                                 <span className="letter-1st text">
                                   <span className="upwords-up">
                                     <span className="first-1">G</span>
@@ -102,7 +104,7 @@ const Header: React.FC = () => {
                               </a>
                             </li>
                             <li className="big-size">
-                              <a href="" className="text-container">
+                              <a href="/services" className="text-container">
                                 <span className="letter-1st text">
                                   <span className="upwords-up">
                                     <span className="first-1">S</span>
@@ -130,7 +132,7 @@ const Header: React.FC = () => {
                               </a>
                             </li>
                             <li className="big-size">
-                              <a href="" className="text-container">
+                              <a href="/" className="text-container">
                                 <span className="letter-1st text">
                                   <span className="upwords-up">
                                     <span className="first-1">H</span>
@@ -150,7 +152,7 @@ const Header: React.FC = () => {
                               </a>
                             </li>
                             <li className="big-size">
-                              <a href="" className="text-container">
+                              <a href="/about" className="text-container">
                                 <span className="letter-1st text">
                                   <span className="upwords-up">
                                     <span className="first-1">A</span>
@@ -178,7 +180,7 @@ const Header: React.FC = () => {
                               </a>
                             </li>
                             <li className="big-size">
-                              <a href="" className="text-container">
+                              <a href="/cases" className="text-container">
                                 <span className="letter-1st text">
                                   <span className="upwords-up">
                                     <span className="first-1">C</span>
@@ -200,7 +202,7 @@ const Header: React.FC = () => {
                               </a>
                             </li>
                             <li className="big-size">
-                              <a href="" className="text-container">
+                              <a href="/industries" className="text-container">
                                 <span className="letter-1st text">
                                   <span className="upwords-up">
                                     <span className="first-1">I</span>
@@ -232,7 +234,7 @@ const Header: React.FC = () => {
                               </a>
                             </li>
                             <li className="big-size">
-                              <a href="" className="text-container">
+                              <a href="/blog" className="text-container">
                                 <span className="letter-1st text">
                                   <span className="upwords-up">
                                     <span className="first-1">B</span>
@@ -252,7 +254,7 @@ const Header: React.FC = () => {
                               </a>
                             </li>
                             <li className="big-size">
-                              <a href="" className="text-container">
+                              <a href="/contact" className="text-container">
                                 <span className="letter-1st text">
                                   <span className="upwords-up">
                                     <span className="first-1">C</span>
