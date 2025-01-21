@@ -1,6 +1,6 @@
 import React from "react";
 import HeroBanner from "@/pages/layout/banner";
-import FullVideo from "@/pages/components/FullVideo";
+import LaptopVideo from "@/pages/components/laptopvideo";
 import DummyDesign from "@/pages/components/DummyDesign";
 import ImageTextGrid from "@/pages/components/ImageTextGrid";
 import NeedSlider from "@/pages/components/NeedSlider";
@@ -68,9 +68,11 @@ export default function Page() {
         additionalText=""
         currentpage="Servicesdetail"
       />
-      <FullVideo
-        videoUrl="https://www.youtube.com/embed/9qUw2Xfzlps"
-        thumbnailUrl="/img/full-video.png"
+     <LaptopVideo
+        videoUrl="https://www.youtube.com/embed/example-video"
+        thumbnailUrl="/img/video-thumbnail.png"
+        title="Watch Our Process in Action"
+        description="Discover how we turn complex challenges into simple, impactful solutions."
       />
       {/* <Mountains /> */}
       <WeWork />
